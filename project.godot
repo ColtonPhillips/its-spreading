@@ -17,13 +17,20 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1200
-window/size/viewport_height=800
+window/size/viewport_width=480
+window/size/viewport_height=320
 window/size/initial_position_type=0
 window/size/initial_position=Vector2i(15, 15)
 window/size/window_width_override=1800
 window/size/window_height_override=1200
 window/stretch/mode="canvas_items"
+
+[editor]
+
+movie_writer/mjpeg_quality=0.6
+movie_writer/movie_file="C:/Users/Blair/Desktop/godot.avi"
+movie_writer/disable_vsync=true
+movie_writer/fps=30
 
 [input]
 

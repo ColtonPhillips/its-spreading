@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://27phkm3uydxm"]
+[gd_scene load_steps=4 format=3 uid="uid://27phkm3uydxm"]
 
 [ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://art/grass.png" id="1_3fkv3"]
+[ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player.tscn" id="1_5kmuy"]
+[ext_resource type="PackedScene" uid="uid://0pcv5ermn1p" path="res://scenes/enemy/enemy.tscn" id="3_7671d"]
 
 [node name="World" type="Node2D"]
 
@@ -9,3 +11,8 @@ texture_repeat = 2
 texture = ExtResource("1_3fkv3")
 region_enabled = true
 region_rect = Rect2(-4000, -4000, 4000, 4000)
+
+[node name="Player" parent="." instance=ExtResource("1_5kmuy")]
+
+[node name="Enemy" parent="." instance=ExtResource("3_7671d")]
+position = Vector2(-198, -94)

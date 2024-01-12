@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://c3vntakhy0jq7"]
+[gd_scene load_steps=3 format=3 uid="uid://c3vntakhy0jq7"]
 
-[node name="Player" type="Node2D"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_2stqb"]
+[ext_resource type="Texture2D" uid="uid://cjuoaowmdixmj" path="res://art/sheet.png" id="2_b50i0"]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+motion_mode = 1
+script = ExtResource("1_2stqb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("2_b50i0")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -32)
