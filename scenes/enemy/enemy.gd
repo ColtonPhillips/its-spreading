@@ -1,6 +1,8 @@
+class_name Enemy
 extends CharacterBody2D
 
 @export var move_speed = 20.0
+#optimize?
 @onready var player = get_tree().get_first_node_in_group("player")
 
 func _physics_process(delta):
