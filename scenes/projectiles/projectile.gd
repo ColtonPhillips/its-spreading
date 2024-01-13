@@ -1,6 +1,6 @@
 class_name Projectile
 extends Node2D
-@export var speed = 20.0 
+@export var speed = 50.0 
 var direction = Vector2.ZERO
 
 func _physics_process(delta):

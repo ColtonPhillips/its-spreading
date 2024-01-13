@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var left_slot = $Slots/LeftSlot
 @onready var sprite_2d = $Sprite2D
 @onready var fire_rate_timer = $FireRateTimer
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 @export var move_speed = 40.0
 
@@ -27,9 +28,13 @@ func movement(delta):
 
 func animation(delta):
 	if velocity.x > 0:
-		sprite_2d.flip_h = true
+		animated_sprite_2d.flip_h = false
 	if velocity.x < 0:
-		sprite_2d.flip_h = false
+		animated_sprite_2d.flip_h = true
+	if velocity == Vector2.ZERO:
+		animated_sprite_2d.play("idle")
+	else:
+		animated_sprite_2d.play("walk")
 
 func fire_weapon():
 	spawner_component.spawn(right_slot.global_position, {"direction": Vector2.RIGHT})

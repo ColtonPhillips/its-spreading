@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjuoaowmdixmj" path="res://art/sheet.png" id="2_dvmmd"]
 
 [node name="WaterOrbProjectile" instance=ExtResource("1_adr4g")]
-speed = 35.0
+speed = 60.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_dvmmd")
