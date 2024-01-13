@@ -41,3 +41,4 @@ func fire_weapon():
 	spawner_component.spawn(down_slot.global_position, {"direction": Vector2.DOWN})
 	spawner_component.spawn(left_slot.global_position, {"direction": Vector2.LEFT})
 	spawner_component.spawn(up_slot.global_position, {"direction": Vector2.UP})
+	
