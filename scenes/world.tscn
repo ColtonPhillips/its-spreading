@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://27phkm3uydxm"]
+[gd_scene load_steps=6 format=3 uid="uid://27phkm3uydxm"]
 
 [ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://art/grass.png" id="1_3fkv3"]
 [ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player.tscn" id="1_5kmuy"]
 [ext_resource type="PackedScene" uid="uid://bjopb88sq766e" path="res://scenes/enemy/fire_orb_enemy.tscn" id="3_vh7tc"]
-[ext_resource type="PackedScene" uid="uid://54h5abumwo2c" path="res://test/test_canvas_layer.tscn" id="4_u55po"]
+[ext_resource type="PackedScene" uid="uid://54h5abumwo2c" path="res://gui/gameplay_gui.tscn" id="4_u55po"]
+[ext_resource type="PackedScene" uid="uid://dkiuk5y53nmy2" path="res://scenes/enemy/wisp_enemy.tscn" id="4_y0un6"]
 
 [node name="World" type="Node2D"]
 
@@ -14,8 +15,12 @@ region_enabled = true
 region_rect = Rect2(-4000, -4000, 4000, 4000)
 
 [node name="Player" parent="." instance=ExtResource("1_5kmuy")]
+position = Vector2(16, -16)
 
-[node name="Enemy" parent="." instance=ExtResource("3_vh7tc")]
+[node name="FireOrbEnemy" parent="." instance=ExtResource("3_vh7tc")]
 position = Vector2(-165, -69)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("4_u55po")]
+[node name="WispEnemy" parent="." instance=ExtResource("4_y0un6")]
+position = Vector2(-95, -143)
+
+[node name="GameplayGUI" parent="." instance=ExtResource("4_u55po")]

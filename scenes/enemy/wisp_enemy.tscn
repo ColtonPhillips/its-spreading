@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkiuk5y53nmy2"]
+
+[ext_resource type="PackedScene" uid="uid://0pcv5ermn1p" path="res://scenes/enemy/enemy.tscn" id="1_da14o"]
+[ext_resource type="Texture2D" uid="uid://cjuoaowmdixmj" path="res://art/sheet.png" id="2_svgh6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lusr8"]
+size = Vector2(7, 25)
+
+[node name="WispEnemy" instance=ExtResource("1_da14o")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_svgh6")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_lusr8")

@@ -21,6 +21,6 @@ region_rect = Rect2(0, 0, 32, 32)
 position = Vector2(0, -32)
 zoom = Vector2(4, 4)
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_cfm71")

@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_l1kca"]
 radius = 7.07107
 
-[node name="Enemy" instance=ExtResource("1_ni0a7")]
+[node name="FireOrbEnemy" instance=ExtResource("1_ni0a7")]
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -15)
