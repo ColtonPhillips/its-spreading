@@ -71,7 +71,7 @@ position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_4goky")
 animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.166613
+frame_progress = 0.229243
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -32)
