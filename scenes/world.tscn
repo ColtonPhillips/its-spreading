@@ -15,7 +15,7 @@ region_enabled = true
 region_rect = Rect2(-4000, -4000, 4000, 4000)
 
 [node name="Player" parent="." instance=ExtResource("1_5kmuy")]
-position = Vector2(16, -16)
+position = Vector2(0, -3)
 
 [node name="FireOrbEnemy" parent="." instance=ExtResource("3_vh7tc")]
 position = Vector2(-165, -69)

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://csafkqwts3rfk"]
+
+[ext_resource type="PackedScene" uid="uid://bgvdp80mpx8at" path="res://scenes/projectiles/projectile.tscn" id="1_adr4g"]
+[ext_resource type="Texture2D" uid="uid://cjuoaowmdixmj" path="res://art/sheet.png" id="2_dvmmd"]
+
+[node name="WaterOrbProjectile" instance=ExtResource("1_adr4g")]
+speed = 35.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_dvmmd")
+region_enabled = true
+region_rect = Rect2(14.733, 22.757, 1.577, 2.062)
