@@ -1,18 +1,22 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgvdp80mpx8at"]
 
 [ext_resource type="Script" path="res://scenes/projectiles/projectile.gd" id="1_pymdo"]
-[ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://physics/hit_box.tscn" id="2_ksdv1"]
+[ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://scenes/physics/hit_box.tscn" id="2_bty2l"]
 
 [node name="Projectile" type="Node2D" groups=["attack"]]
+y_sort_enabled = true
 script = ExtResource("1_pymdo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 
-[node name="HitBox" parent="." instance=ExtResource("2_ksdv1")]
+[node name="HitBox" parent="." instance=ExtResource("2_bty2l")]
 collision_layer = 4
+monitoring = false
+monitorable = false
 
 [node name="SelfRemovalTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 2.0
 one_shot = true
 autostart = true
 

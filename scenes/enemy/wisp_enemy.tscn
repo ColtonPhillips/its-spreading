@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://0pcv5ermn1p" path="res://scenes/enemy/enemy.tscn" id="1_da14o"]
 [ext_resource type="Texture2D" uid="uid://cjuoaowmdixmj" path="res://art/sheet.png" id="2_svgh6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lusr8"]
-size = Vector2(4, 23)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_np8qy"]
+radius = 1.0
+height = 20.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c165k"]
 size = Vector2(21, 28)
@@ -22,11 +23,11 @@ region_rect = Rect2(64, 0, 32, 32)
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = true
-position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_lusr8")
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_np8qy")
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(0, 2)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_c165k")
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
