@@ -9,7 +9,7 @@ func unpause():
 	get_tree().paused = false
 	self.visible = false
 	
-func toggle():
+func toggle_pause():
 	get_tree().paused = not get_tree().paused
 	self.visible = not self.visible
 
@@ -18,10 +18,10 @@ func _ready():
 
 func _input(event):
 	if Input.is_action_just_pressed("pause"):
-		toggle()
+		toggle_pause()
 
 func _on_exit_pressed():
 		get_tree().quit();
 
 func _on_unpause_pressed():
-	pause()
+	unpause()
