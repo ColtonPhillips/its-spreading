@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjuoaowmdixmj" path="res://art/sheet.png" id="2_peauw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l1kca"]
-radius = 7.07107
+radius = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j7yb"]
 size = Vector2(15, 16)
@@ -21,6 +21,7 @@ region_enabled = true
 region_rect = Rect2(32, 0, 32, 32)
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = true
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_l1kca")
 

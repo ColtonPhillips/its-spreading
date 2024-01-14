@@ -5,8 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://physics/hit_box.tscn" id="3_6m0l5"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
-collision_layer = 0
-collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_bi6oj")
 

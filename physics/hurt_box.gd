@@ -11,7 +11,6 @@ func _on_disable_timer_timeout():
 	collision_shape_2d.call_deferred("set", "disabled", false)
 
 func _on_area_entered(area):
-	print("smeee")
 	if area.is_in_group("attack"):
 		if area.get("damage") != null:
 			match HurtBoxType:

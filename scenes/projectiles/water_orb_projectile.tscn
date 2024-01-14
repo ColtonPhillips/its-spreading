@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://csafkqwts3rfk"]
+[gd_scene load_steps=4 format=3 uid="uid://csafkqwts3rfk"]
 
 [ext_resource type="PackedScene" uid="uid://bgvdp80mpx8at" path="res://scenes/projectiles/projectile.tscn" id="1_adr4g"]
 [ext_resource type="Texture2D" uid="uid://cjuoaowmdixmj" path="res://art/sheet.png" id="2_dvmmd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnlgn"]
+size = Vector2(4, 4)
 
 [node name="WaterOrbProjectile" instance=ExtResource("1_adr4g")]
 speed = 60.0
@@ -9,4 +12,12 @@ speed = 60.0
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_dvmmd")
 region_enabled = true
-region_rect = Rect2(14.733, 22.757, 1.577, 2.062)
+region_rect = Rect2(14.733, 22.757, 3.39906, 4.1338)
+
+[node name="HitBox" parent="." index="1"]
+damage = 1000
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("RectangleShape2D_fnlgn")
+
+[editable path="HitBox"]
