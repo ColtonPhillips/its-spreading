@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cjafynpl3f6fd"]
 
 [ext_resource type="Texture2D" uid="uid://35khk818c4kx" path="res://art/smoke.png" id="1_eykr0"]
-[ext_resource type="Script" path="res://scenes/physics/hit_box.gd" id="2_eu8r6"]
+[ext_resource type="Script" path="res://scenes/loot/pickup.gd" id="1_n707f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ivh7"]
 atlas = ExtResource("1_eykr0")
@@ -71,15 +71,17 @@ animations = [{
 radius = 5.0
 
 [node name="Pickup" type="Node2D"]
+script = ExtResource("1_n707f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lgbf2")
 autoplay = "default"
 frame_progress = 0.0837315
 
-[node name="HitBox" type="Area2D" parent="."]
-script = ExtResource("2_eu8r6")
+[node name="PickupArea" type="Area2D" parent="." groups=["pickup"]]
+collision_layer = 8
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_4nejt")

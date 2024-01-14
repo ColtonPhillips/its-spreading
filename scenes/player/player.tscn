@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3vntakhy0jq7"]
+[gd_scene load_steps=15 format=3 uid="uid://c3vntakhy0jq7"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_2stqb"]
 [ext_resource type="Texture2D" uid="uid://d3nftxbopob5v" path="res://art/player.png" id="2_34rn8"]
@@ -67,6 +67,9 @@ height = 12.0
 radius = 3.0
 height = 16.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wqknu"]
+radius = 16.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 collision_layer = 2
@@ -126,6 +129,15 @@ position = Vector2(-6, 1)
 wait_time = 1.5
 autostart = true
 
+[node name="PickupRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_wqknu")
+
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="area_entered" from="PickupRange" to="." method="_on_pickup_range_area_entered"]
 
 [editable path="HurtBox"]

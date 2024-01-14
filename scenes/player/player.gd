@@ -46,5 +46,10 @@ func fire_weapon():
 	spawner_component.spawn(left_slot.global_position, {"direction": Vector2.LEFT}, get_parent())
 	spawner_component.spawn(up_slot.global_position, {"direction": Vector2.UP}, get_parent())
 	
-
-
+func _on_pickup_range_area_entered(area):
+	if area.is_in_group("pickup"):
+		print("area in group") 
+		if area.get_parent().has_method("chase_player"):
+			print ("area chaseyboys")
+			area.get_parent().chase_player()
+		
