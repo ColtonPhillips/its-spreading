@@ -7,7 +7,12 @@ func _physics_process(delta):
 	movement(delta)
 	
 func movement(delta):
+	
 	translate(direction * speed * delta)
+	if direction.length_squared() > 0:
+		var rotation_radians = atan2(direction.y, direction.x)
+		# Assuming the node is a 2D node (Node2D)
+		self.rotation = rotation_radians
 
 # Function to set variables
 func spawn(variables: Dictionary) -> void:

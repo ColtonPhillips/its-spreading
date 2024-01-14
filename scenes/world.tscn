@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://27phkm3uydxm"]
 
 [ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://art/grass.png" id="1_3fkv3"]
-[ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player.tscn" id="1_5kmuy"]
-[ext_resource type="Script" path="res://gui/main-menu.gd" id="1_elxvf"]
-[ext_resource type="PackedScene" uid="uid://x43epic8paf7" path="res://gameplay/enemy_spawner.tscn" id="3_luq5g"]
+[ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player/player.tscn" id="1_5kmuy"]
+[ext_resource type="Script" path="res://scenes/gui/main-menu.gd" id="1_elxvf"]
+[ext_resource type="PackedScene" uid="uid://x43epic8paf7" path="res://scenes/gameplay/enemy_spawner.tscn" id="3_luq5g"]
 [ext_resource type="PackedScene" uid="uid://dkiuk5y53nmy2" path="res://scenes/enemy/wisp_enemy.tscn" id="4_y0un6"]
-[ext_resource type="PackedScene" uid="uid://yg11qveki1pj" path="res://gui/menu.tscn" id="7_pyd75"]
+[ext_resource type="PackedScene" uid="uid://yg11qveki1pj" path="res://scenes/gui/menu.tscn" id="7_pyd75"]
 
 [node name="World" type="Node2D"]
 
@@ -15,13 +15,17 @@ texture = ExtResource("1_3fkv3")
 region_enabled = true
 region_rect = Rect2(-4000, -4000, 4000, 4000)
 
-[node name="Player" parent="." instance=ExtResource("1_5kmuy")]
+[node name="YSortableSceneGraph" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="YSortableSceneGraph" instance=ExtResource("1_5kmuy")]
 position = Vector2(0, -3)
 
-[node name="EnemySpawner" parent="." instance=ExtResource("3_luq5g")]
-
-[node name="WispEnemy" parent="." instance=ExtResource("4_y0un6")]
+[node name="WispEnemy" parent="YSortableSceneGraph" instance=ExtResource("4_y0un6")]
 position = Vector2(-95, -143)
+collision_layer = 1
+
+[node name="EnemySpawner" parent="YSortableSceneGraph" instance=ExtResource("3_luq5g")]
 
 [node name="Menu" type="CanvasLayer" parent="."]
 process_mode = 3

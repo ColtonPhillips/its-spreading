@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://c3vntakhy0jq7"]
 
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_2stqb"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_2stqb"]
 [ext_resource type="Texture2D" uid="uid://d3nftxbopob5v" path="res://art/player.png" id="2_34rn8"]
-[ext_resource type="Script" path="res://components/spawner_component.gd" id="3_8jtw5"]
-[ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://physics/hurt_box.tscn" id="3_b0mcm"]
+[ext_resource type="Script" path="res://scenes/components/spawner_component.gd" id="3_8jtw5"]
+[ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/physics/hurt_box.tscn" id="3_b0mcm"]
 [ext_resource type="PackedScene" uid="uid://csafkqwts3rfk" path="res://scenes/projectiles/water_orb_projectile.tscn" id="4_r3uhc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjc6a"]
@@ -68,6 +68,7 @@ radius = 3.0
 height = 18.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_2stqb")
 
@@ -98,18 +99,24 @@ script = ExtResource("3_8jtw5")
 scene = ExtResource("4_r3uhc")
 
 [node name="Slots" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -8)
 
-[node name="RightSlot" type="Marker2D" parent="Slots"]
-position = Vector2(6, -6)
+[node name="RightSlot" type="Node2D" parent="Slots"]
+y_sort_enabled = true
+position = Vector2(6, 1)
 
-[node name="DownSlot" type="Marker2D" parent="Slots"]
-position = Vector2(0, -2)
+[node name="DownSlot" type="Node2D" parent="Slots"]
+y_sort_enabled = true
+position = Vector2(0, 7)
 
-[node name="UpSlot" type="Marker2D" parent="Slots"]
-position = Vector2(0, -12)
+[node name="UpSlot" type="Node2D" parent="Slots"]
+y_sort_enabled = true
+position = Vector2(0, -8)
 
-[node name="LeftSlot" type="Marker2D" parent="Slots"]
-position = Vector2(-5, -6)
+[node name="LeftSlot" type="Node2D" parent="Slots"]
+y_sort_enabled = true
+position = Vector2(-6, 1)
 
 [node name="FireRateTimer" type="Timer" parent="."]
 wait_time = 1.5

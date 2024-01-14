@@ -41,10 +41,10 @@ func _on_hurt_box_hurt(damage):
 	print(hp)
 
 func fire_weapon():
-	spawner_component.spawn(right_slot.global_position, {"direction": Vector2.RIGHT})
-	spawner_component.spawn(down_slot.global_position, {"direction": Vector2.DOWN})
-	spawner_component.spawn(left_slot.global_position, {"direction": Vector2.LEFT})
-	spawner_component.spawn(up_slot.global_position, {"direction": Vector2.UP})
+	spawner_component.spawn(right_slot.global_position, {"direction": Vector2.RIGHT}, get_parent())
+	spawner_component.spawn(down_slot.global_position, {"direction": Vector2.DOWN}, get_parent())
+	spawner_component.spawn(left_slot.global_position, {"direction": Vector2.LEFT}, get_parent())
+	spawner_component.spawn(up_slot.global_position, {"direction": Vector2.UP}, get_parent())
 	
 
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://yg11qveki1pj"]
 
 [ext_resource type="FontFile" uid="uid://dmompifepalc2" path="res://font/ttf/ChevyRay - Babyblocks.ttf" id="1_bymqs"]
-[ext_resource type="Script" path="res://gui/ExitButton.gd" id="2_kd7in"]
+[ext_resource type="Script" path="res://scenes/gui/ExitButton.gd" id="2_kd7in"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_onixx"]
 font = ExtResource("1_bymqs")

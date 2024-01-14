@@ -7,7 +7,7 @@
 size = Vector2(7, 6)
 
 [node name="WaterOrbProjectile" instance=ExtResource("1_adr4g")]
-speed = 25.0
+speed = 60.0
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(-2, 0)
