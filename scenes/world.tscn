@@ -20,10 +20,14 @@ region_rect = Rect2(-4000, -4000, 4000, 4000)
 position = Vector2(0, -3)
 
 [node name="FireOrbEnemy" parent="." instance=ExtResource("3_vh7tc")]
-position = Vector2(-165, -69)
+position = Vector2(-39, -32)
+collision_layer = 1
+collision_mask = 1
 
 [node name="WispEnemy" parent="." instance=ExtResource("4_y0un6")]
 position = Vector2(-95, -143)
+collision_layer = 1
+collision_mask = 1
 
 [node name="GameplayGUI" parent="." instance=ExtResource("4_u55po")]
 

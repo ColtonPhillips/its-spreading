@@ -2,6 +2,8 @@ class_name Enemy
 extends CharacterBody2D
 
 @export var move_speed = 20.0
+@export var hp = 80
+
 #optimize?
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var sprite_2d = $Sprite2D
@@ -20,3 +22,9 @@ func animation(delta):
 		sprite_2d.flip_h = true
 	if velocity.x < 0:
 		sprite_2d.flip_h = false
+
+
+func _on_hurt_box_hurt(damage):
+	hp -= damage
+	if hp <= 0:
+		queue_free()

@@ -1,12 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://0pcv5ermn1p"]
+[gd_scene load_steps=4 format=3 uid="uid://0pcv5ermn1p"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_bi6oj"]
+[ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://physics/hurt_box.tscn" id="2_jk4wm"]
+[ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://physics/hit_box.tscn" id="3_6m0l5"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 0
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_bi6oj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -5)
+
+[node name="HurtBox" parent="." instance=ExtResource("2_jk4wm")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="HitBox" parent="." instance=ExtResource("3_6m0l5")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+debug_color = Color(0.870588, 0.294118, 0.494118, 0.419608)
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

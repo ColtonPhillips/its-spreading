@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3vntakhy0jq7"]
+[gd_scene load_steps=14 format=3 uid="uid://c3vntakhy0jq7"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_2stqb"]
 [ext_resource type="Texture2D" uid="uid://d3nftxbopob5v" path="res://art/player.png" id="2_34rn8"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="3_8jtw5"]
+[ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://physics/hurt_box.tscn" id="3_b0mcm"]
 [ext_resource type="PackedScene" uid="uid://csafkqwts3rfk" path="res://scenes/projectiles/water_orb_projectile.tscn" id="4_r3uhc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjc6a"]
@@ -62,7 +63,13 @@ animations = [{
 radius = 2.0
 height = 16.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cstoa"]
+radius = 2.0
+height = 14.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 0
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_2stqb")
 
@@ -78,8 +85,17 @@ position = Vector2(0, -32)
 zoom = Vector2(4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_cfm71")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_b0mcm")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_cstoa")
 
 [node name="SpawnerComponent" type="Node2D" parent="."]
 script = ExtResource("3_8jtw5")
@@ -102,3 +118,7 @@ position = Vector2(-5, -6)
 [node name="FireRateTimer" type="Timer" parent="."]
 wait_time = 2.5
 autostart = true
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]

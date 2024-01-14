@@ -6,11 +6,11 @@ extends CharacterBody2D
 @onready var down_slot = $Slots/DownSlot
 @onready var up_slot = $Slots/UpSlot
 @onready var left_slot = $Slots/LeftSlot
-@onready var sprite_2d = $Sprite2D
 @onready var fire_rate_timer = $FireRateTimer
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 @export var move_speed = 40.0
+@export var hp = 80
 
 func _ready():
 	fire_rate_timer.timeout.connect(fire_weapon)
@@ -35,6 +35,10 @@ func animation(delta):
 		animated_sprite_2d.play("idle")
 	else:
 		animated_sprite_2d.play("walk")
+		
+func _on_hurt_box_hurt(damage):
+	hp -= damage
+	print(hp)
 
 func fire_weapon():
 	spawner_component.spawn(right_slot.global_position, {"direction": Vector2.RIGHT})
@@ -42,3 +46,5 @@ func fire_weapon():
 	spawner_component.spawn(left_slot.global_position, {"direction": Vector2.LEFT})
 	spawner_component.spawn(up_slot.global_position, {"direction": Vector2.UP})
 	
+
+

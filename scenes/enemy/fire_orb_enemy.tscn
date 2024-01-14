@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjopb88sq766e"]
+[gd_scene load_steps=6 format=3 uid="uid://bjopb88sq766e"]
 
 [ext_resource type="PackedScene" uid="uid://0pcv5ermn1p" path="res://scenes/enemy/enemy.tscn" id="1_ni0a7"]
 [ext_resource type="Texture2D" uid="uid://cjuoaowmdixmj" path="res://art/sheet.png" id="2_peauw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l1kca"]
 radius = 7.07107
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4j7yb"]
+size = Vector2(15, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ll4qu"]
+radius = 6.0
 
 [node name="FireOrbEnemy" instance=ExtResource("1_ni0a7")]
 
@@ -17,3 +23,15 @@ region_rect = Rect2(32, 0, 32, 32)
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_l1kca")
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0.5, -8)
+shape = SubResource("RectangleShape2D_4j7yb")
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_ll4qu")
+debug_color = Color(0.498039, 0.447059, 0.952941, 0.419608)
+
+[editable path="HurtBox"]
+[editable path="HitBox"]
