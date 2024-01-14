@@ -13,6 +13,7 @@ size = Vector2(15, 16)
 radius = 6.0
 
 [node name="FireOrbEnemy" instance=ExtResource("1_ni0a7")]
+hp = 100
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -15)

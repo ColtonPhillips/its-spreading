@@ -1,3 +1,4 @@
+class_name HurtBox
 extends Area2D
 
 @export_enum("Cooldown", "HitOnce", "DisableHit") var HurtBoxType = 0
@@ -24,3 +25,5 @@ func _on_area_entered(area):
 						area.tempDisable()
 			var damage = area.damage
 			emit_signal("hurt", damage)
+			if area.has_method("hit_received"):
+				area.hit_received()

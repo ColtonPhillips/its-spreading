@@ -15,7 +15,7 @@ region_enabled = true
 region_rect = Rect2(14.733, 22.757, 3.39906, 4.1338)
 
 [node name="HitBox" parent="." index="1"]
-damage = 1000
+damage = 50
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("RectangleShape2D_fnlgn")

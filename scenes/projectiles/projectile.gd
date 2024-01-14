@@ -13,3 +13,11 @@ func movement(delta):
 func spawn(variables: Dictionary) -> void:
 	for key in variables.keys():
 		set(key, variables[key])
+
+
+func _on_hit_box_hit():
+	queue_free()
+
+
+func _on_self_removal_timer_timeout():
+	queue_free()
