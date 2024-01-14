@@ -12,8 +12,6 @@ y_sort_enabled = true
 
 [node name="HitBox" parent="." instance=ExtResource("2_bty2l")]
 collision_layer = 4
-monitoring = false
-monitorable = false
 
 [node name="SelfRemovalTimer" type="Timer" parent="."]
 wait_time = 2.0

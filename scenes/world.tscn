@@ -35,7 +35,7 @@ position = Vector2(-143, -23)
 position = Vector2(-135, -33)
 
 [node name="Rock3" parent="YSortableSceneGraph" instance=ExtResource("6_kl1yl")]
-position = Vector2(-125, -42)
+position = Vector2(-80, -25)
 
 [node name="Menu" type="CanvasLayer" parent="."]
 process_mode = 3

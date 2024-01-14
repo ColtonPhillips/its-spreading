@@ -3,16 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://uga1vtov1byt" path="res://art/water_projectile.png" id="1_i4a4k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ny83r"]
-size = Vector2(11, 10)
+size = Vector2(9, 7)
 
 [node name="Rock" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 1)
+position = Vector2(8.5, 11.5)
 shape = SubResource("RectangleShape2D_ny83r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(8, 8)
 texture = ExtResource("1_i4a4k")
 region_enabled = true
 region_rect = Rect2(16, 0, 16, 16)

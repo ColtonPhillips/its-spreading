@@ -7,7 +7,7 @@
 radius = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j7yb"]
-size = Vector2(15, 16)
+size = Vector2(13, 10)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ll4qu"]
 radius = 6.0
@@ -27,7 +27,7 @@ position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_l1kca")
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(0.5, -8)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_4j7yb")
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]

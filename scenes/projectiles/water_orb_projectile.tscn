@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://uga1vtov1byt" path="res://art/water_projectile.png" id="2_8f5dk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fnlgn"]
-size = Vector2(7, 6)
+size = Vector2(3, 3)
 
 [node name="WaterOrbProjectile" instance=ExtResource("1_adr4g")]
 speed = 60.0
@@ -19,7 +19,7 @@ region_rect = Rect2(2.86145, 3.70108, 9.13855, 8.29892)
 damage = 50
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(-0.5, 0)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_fnlgn")
 
 [editable path="HitBox"]
