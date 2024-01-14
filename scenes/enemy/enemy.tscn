@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://0pcv5ermn1p"]
+[gd_scene load_steps=5 format=3 uid="uid://0pcv5ermn1p"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_bi6oj"]
 [ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/physics/hurt_box.tscn" id="2_lk76p"]
+[ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/loot/pickup.tscn" id="2_wgvuk"]
 [ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://scenes/physics/hit_box.tscn" id="3_nlj2i"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
@@ -10,6 +11,7 @@ collision_layer = 4
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_bi6oj")
+dropped_loot = ExtResource("2_wgvuk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

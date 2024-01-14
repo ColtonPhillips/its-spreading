@@ -26,15 +26,18 @@ enemy_num = 1
 enemy_spawn_delay = 2
 
 [node name="World" type="Node2D"]
+metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_repeat = 2
 texture = ExtResource("1_3fkv3")
 region_enabled = true
 region_rect = Rect2(-4000, -4000, 4000, 4000)
+metadata/_edit_lock_ = true
 
 [node name="YSortableSceneGraph" type="Node2D" parent="."]
 y_sort_enabled = true
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="YSortableSceneGraph" instance=ExtResource("1_5kmuy")]
 position = Vector2(0, -3)
@@ -49,7 +52,7 @@ position = Vector2(-143, -23)
 position = Vector2(-135, -33)
 
 [node name="Rock3" parent="YSortableSceneGraph" instance=ExtResource("6_kl1yl")]
-position = Vector2(-80, -25)
+position = Vector2(-40, -10)
 
 [node name="Menu" type="CanvasLayer" parent="."]
 process_mode = 3

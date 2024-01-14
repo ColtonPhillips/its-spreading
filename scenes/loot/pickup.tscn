@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://cjafynpl3f6fd"]
+
+[ext_resource type="Texture2D" uid="uid://35khk818c4kx" path="res://art/smoke.png" id="1_eykr0"]
+[ext_resource type="Script" path="res://scenes/physics/hit_box.gd" id="2_eu8r6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ivh7"]
+atlas = ExtResource("1_eykr0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vihju"]
+atlas = ExtResource("1_eykr0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeoup"]
+atlas = ExtResource("1_eykr0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtl5j"]
+atlas = ExtResource("1_eykr0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuvl3"]
+atlas = ExtResource("1_eykr0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofyqd"]
+atlas = ExtResource("1_eykr0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7i3q"]
+atlas = ExtResource("1_eykr0")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbyb3"]
+atlas = ExtResource("1_eykr0")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgbf2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ivh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vihju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeoup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtl5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuvl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofyqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7i3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbyb3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4nejt"]
+radius = 5.0
+
+[node name="Pickup" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lgbf2")
+autoplay = "default"
+frame_progress = 0.0837315
+
+[node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("2_eu8r6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_4nejt")

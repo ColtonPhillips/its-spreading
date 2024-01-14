@@ -3,9 +3,11 @@ extends CharacterBody2D
 
 @export var move_speed = 20.0
 @export var hp = 80
+@export var dropped_loot: Resource
 
 #optimize?
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var scenegraph = get_tree().get_first_node_in_group("player").get_parent()
 @onready var sprite_2d = $Sprite2D
 
 func _physics_process(delta):
@@ -28,4 +30,10 @@ func _on_hurt_box_hurt(damage):
 	hp -= damage
 	print(hp)
 	if hp <= 0:
+		spawn_exp()
 		queue_free()
+
+func spawn_exp():
+	var enemy_spawn = dropped_loot.instantiate()
+	enemy_spawn.global_position = self.global_position
+	scenegraph.add_child(enemy_spawn)
