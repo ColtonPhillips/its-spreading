@@ -31,7 +31,3 @@ process_mode = 3
 script = ExtResource("1_elxvf")
 
 [node name="Menu" parent="Menu" instance=ExtResource("7_pyd75")]
-
-[node name="Button" type="Button" parent="Menu"]
-offset_right = 8.0
-offset_bottom = 8.0

@@ -4,18 +4,19 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_yfq81"]
 font = ExtResource("1_1vptr")
-outline_size = 16
+font_size = 4
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
-shadow_size = 12
+shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.345098)
-shadow_offset = Vector2(0, 6)
+shadow_offset = Vector2(0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 15.0
-offset_top = 12.0
-offset_right = 794.0
-offset_bottom = 35.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 318.0
+offset_bottom = 26.0
 text = "The big stinky dog takes deep stinky breaths deeply into his dog lungs!"
 label_settings = SubResource("LabelSettings_yfq81")
