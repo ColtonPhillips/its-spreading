@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://art/grass.png" id="1_3fkv3"]
 [ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player.tscn" id="1_5kmuy"]
 [ext_resource type="Script" path="res://gui/main-menu.gd" id="1_elxvf"]
-[ext_resource type="PackedScene" uid="uid://bjopb88sq766e" path="res://scenes/enemy/fire_orb_enemy.tscn" id="3_vh7tc"]
+[ext_resource type="PackedScene" uid="uid://x43epic8paf7" path="res://gameplay/enemy_spawner.tscn" id="3_luq5g"]
 [ext_resource type="PackedScene" uid="uid://54h5abumwo2c" path="res://gui/gameplay_gui.tscn" id="4_u55po"]
 [ext_resource type="PackedScene" uid="uid://dkiuk5y53nmy2" path="res://scenes/enemy/wisp_enemy.tscn" id="4_y0un6"]
 [ext_resource type="PackedScene" uid="uid://yg11qveki1pj" path="res://gui/menu.tscn" id="7_pyd75"]
@@ -19,8 +19,7 @@ region_rect = Rect2(-4000, -4000, 4000, 4000)
 [node name="Player" parent="." instance=ExtResource("1_5kmuy")]
 position = Vector2(0, -3)
 
-[node name="FireOrbEnemy" parent="." instance=ExtResource("3_vh7tc")]
-position = Vector2(-39, -32)
+[node name="EnemySpawner" parent="." instance=ExtResource("3_luq5g")]
 
 [node name="WispEnemy" parent="." instance=ExtResource("4_y0un6")]
 position = Vector2(-95, -143)
