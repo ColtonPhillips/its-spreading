@@ -8,7 +8,8 @@ extends CharacterBody2D
 #optimize?
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var scenegraph = get_tree().get_first_node_in_group("player").get_parent()
-@onready var sprite_2d = $Sprite2D
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
 @onready var move_component = $MoveComponent
 
 func _physics_process(delta):
@@ -21,9 +22,9 @@ func movement(delta):
 
 func animation(delta):
 	if velocity.x > 0:
-		sprite_2d.flip_h = true
+		animated_sprite_2d.flip_h = false
 	if velocity.x < 0:
-		sprite_2d.flip_h = false
+		animated_sprite_2d.flip_h = true
 
 
 func _on_hurt_box_hurt(damage):

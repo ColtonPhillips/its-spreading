@@ -14,7 +14,7 @@ motion_mode = 1
 script = ExtResource("1_bi6oj")
 dropped_loot = ExtResource("2_wgvuk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

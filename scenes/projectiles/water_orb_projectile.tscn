@@ -1,7 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://csafkqwts3rfk"]
+[gd_scene load_steps=9 format=3 uid="uid://csafkqwts3rfk"]
 
 [ext_resource type="PackedScene" uid="uid://bgvdp80mpx8at" path="res://scenes/projectiles/projectile.tscn" id="1_adr4g"]
-[ext_resource type="Texture2D" uid="uid://uga1vtov1byt" path="res://art/water_projectile.png" id="2_8f5dk"]
+[ext_resource type="Texture2D" uid="uid://c2een0ewjk4wm" path="res://art/water_projectile.png" id="2_a5qq3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuo6n"]
+atlas = ExtResource("2_a5qq3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn8gb"]
+atlas = ExtResource("2_a5qq3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6c7x"]
+atlas = ExtResource("2_a5qq3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf45y"]
+atlas = ExtResource("2_a5qq3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sn847"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuo6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn8gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6c7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf45y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fnlgn"]
 size = Vector2(3, 3)
@@ -9,11 +45,10 @@ size = Vector2(3, 3)
 [node name="WaterOrbProjectile" instance=ExtResource("1_adr4g")]
 speed = 60.0
 
-[node name="Sprite2D" parent="." index="0"]
-position = Vector2(-2, 0)
-texture = ExtResource("2_8f5dk")
-region_enabled = true
-region_rect = Rect2(2.86145, 3.70108, 9.13855, 8.29892)
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_sn847")
+autoplay = "default"
+frame_progress = 0.68049
 
 [node name="HitBox" parent="." index="1"]
 damage = 50
@@ -21,5 +56,6 @@ damage = 50
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_fnlgn")
+debug_color = Color(0.796078, 0.286275, 0.792157, 0.419608)
 
 [editable path="HitBox"]
