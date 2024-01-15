@@ -4,7 +4,22 @@
 [ext_resource type="Script" path="res://scenes/gui/pause_menu/pause_menu.gd" id="2_vwlm7"]
 [ext_resource type="Theme" uid="uid://btmi0dwsxaokb" path="res://scenes/gui/pause_menu/paused_label.tres" id="3_05x3o"]
 
-[node name="PauseMenu" type="MarginContainer"]
+[node name="CanvasLayer2" type="CanvasLayer"]
+process_mode = 3
+layer = 3
+script = ExtResource("2_vwlm7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 0.407843)
+
+[node name="PauseMenu" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,27 +32,26 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 40
-script = ExtResource("2_vwlm7")
 
-[node name="PausedLabel" type="Label" parent="."]
+[node name="PausedLabel" type="Label" parent="PauseMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_05x3o")
 text = "PAUSED"
 
-[node name="ExitToMenuButton" type="LinkButton" parent="."]
+[node name="ExitToMenuButton" type="LinkButton" parent="PauseMenu"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Main Menu"
 underline = 2
 
-[node name="UnpauseButton" type="LinkButton" parent="."]
+[node name="UnpauseButton" type="LinkButton" parent="PauseMenu"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "Unpause"
 underline = 2
 
-[connection signal="pressed" from="ExitToMenuButton" to="." method="_on_exit_to_menu_button_pressed"]
-[connection signal="pressed" from="UnpauseButton" to="." method="_on_unpause_button_pressed"]
+[connection signal="pressed" from="PauseMenu/ExitToMenuButton" to="PauseMenu" method="_on_exit_to_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/UnpauseButton" to="PauseMenu" method="_on_unpause_button_pressed"]
