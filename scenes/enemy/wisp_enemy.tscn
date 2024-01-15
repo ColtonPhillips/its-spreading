@@ -1,28 +1,68 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkiuk5y53nmy2"]
+[gd_scene load_steps=11 format=3 uid="uid://dkiuk5y53nmy2"]
 
 [ext_resource type="PackedScene" uid="uid://0pcv5ermn1p" path="res://scenes/enemy/enemy.tscn" id="1_da14o"]
-[ext_resource type="Texture2D" uid="uid://cjuoaowmdixmj" path="res://art/sheet.png" id="2_svgh6"]
+[ext_resource type="Texture2D" uid="uid://i6jyp6ge72mt" path="res://art/wisp.png" id="2_ebks5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4aqi"]
+atlas = ExtResource("2_ebks5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3frc6"]
+atlas = ExtResource("2_ebks5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjicc"]
+atlas = ExtResource("2_ebks5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5umd"]
+atlas = ExtResource("2_ebks5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r0ghx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4aqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3frc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjicc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5umd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_np8qy"]
-radius = 1.0
-height = 20.0
+radius = 6.0
+height = 28.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c165k"]
 size = Vector2(12, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_34wgp"]
-size = Vector2(7.5, 25.25)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avoem"]
+radius = 8.0
+height = 32.0
 
 [node name="WispEnemy" instance=ExtResource("1_da14o")]
 move_speed = 17.67
+hp = 15
 
-[node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_svgh6")
-region_enabled = true
-region_rect = Rect2(64, 0, 32, 32)
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_r0ghx")
+autoplay = "default"
+frame_progress = 0.0894206
+
+[node name="Shadow" parent="AnimatedSprite2D" index="0"]
+position = Vector2(0, 2)
 
 [node name="CollisionShape2D" parent="." index="1"]
-visible = true
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_np8qy")
 
@@ -31,8 +71,8 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_c165k")
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(0, 2.375)
-shape = SubResource("RectangleShape2D_34wgp")
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_avoem")
 
 [editable path="HurtBox"]
 [editable path="HitBox"]

@@ -6,9 +6,12 @@ extends CharacterBody2D
 @export var dropped_loot: Resource
 
 #optimize?
-@onready var player = get_tree().get_first_node_in_group("player")
-@onready var scenegraph = get_tree().get_first_node_in_group("player").get_parent()
-@onready var sprite_2d = $Sprite2D
+@onready var player = Global.player
+@onready var scenegraph = Global.player.get_parent()
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
+@onready var move_component = $MoveComponent
+@onready var scale_component = $ScaleComponent
 
 func _physics_process(delta):
 	movement(delta)
@@ -16,19 +19,19 @@ func _physics_process(delta):
 	
 func movement(delta):
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * move_speed
-	move_and_slide()
+	move_component.velocity = direction * move_speed
 
 func animation(delta):
 	if velocity.x > 0:
-		sprite_2d.flip_h = true
+		animated_sprite_2d.flip_h = false
 	if velocity.x < 0:
-		sprite_2d.flip_h = false
+		animated_sprite_2d.flip_h = true
 
 
 func _on_hurt_box_hurt(damage):
 	hp -= damage
 	print(hp)
+	scale_component.tween_scale()
 	if hp <= 0:
 		spawn_exp()
 		queue_free()
@@ -36,4 +39,4 @@ func _on_hurt_box_hurt(damage):
 func spawn_exp():
 	var enemy_spawn = dropped_loot.instantiate()
 	enemy_spawn.global_position = self.global_position
-	scenegraph.add_child(enemy_spawn)
+	scenegraph.call_deferred("add_child", enemy_spawn)

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://0pcv5ermn1p"]
+[gd_scene load_steps=8 format=3 uid="uid://0pcv5ermn1p"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_bi6oj"]
 [ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/physics/hurt_box.tscn" id="2_lk76p"]
 [ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/loot/pickup.tscn" id="2_wgvuk"]
 [ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://scenes/physics/hit_box.tscn" id="3_nlj2i"]
+[ext_resource type="Script" path="res://scenes/components/move_character_body_2d_component.gd" id="3_ynl7d"]
+[ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://art/shadow.png" id="3_yvgpi"]
+[ext_resource type="Script" path="res://scenes/components/scale_component.gd" id="7_44dt6"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 y_sort_enabled = true
@@ -11,24 +14,42 @@ collision_layer = 4
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_bi6oj")
+hp = 10
 dropped_loot = ExtResource("2_wgvuk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="AnimatedSprite2D"]
+z_index = -1
+texture = ExtResource("3_yvgpi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -5)
+debug_color = Color(0.262745, 0, 0.572549, 0.313726)
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_ynl7d")
+actor = NodePath("..")
 
 [node name="HurtBox" parent="." instance=ExtResource("2_lk76p")]
 collision_layer = 4
 collision_mask = 4
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+debug_color = Color(0.976471, 0, 0.415686, 0.25098)
 
 [node name="HitBox" parent="." instance=ExtResource("3_nlj2i")]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-debug_color = Color(0.870588, 0.294118, 0.494118, 0.419608)
+debug_color = Color(0, 0.639216, 0.364706, 0.278431)
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("7_44dt6")
+sprite = NodePath("../AnimatedSprite2D")
+scale_amount = Vector2(1.3, 1.4)
+scale_duration = 0.6
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 

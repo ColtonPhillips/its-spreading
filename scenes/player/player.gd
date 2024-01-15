@@ -11,8 +11,10 @@ extends CharacterBody2D
 
 @export var move_speed = 40.0
 @export var hp = 80
+@export var projectiles_off = false
 
 func _ready():
+	Global.player = self
 	fire_rate_timer.timeout.connect(fire_weapon)
 
 func _physics_process(delta):
@@ -41,10 +43,15 @@ func _on_hurt_box_hurt(damage):
 	print(hp)
 
 func fire_weapon():
+	if projectiles_off:
+		return
 	spawner_component.spawn(right_slot.global_position, {"direction": Vector2.RIGHT}, get_parent())
 	spawner_component.spawn(down_slot.global_position, {"direction": Vector2.DOWN}, get_parent())
 	spawner_component.spawn(left_slot.global_position, {"direction": Vector2.LEFT}, get_parent())
 	spawner_component.spawn(up_slot.global_position, {"direction": Vector2.UP}, get_parent())
 	
-
-
+func _on_pickup_range_area_entered(area):
+	if area.is_in_group("pickup"):
+		if area.get_parent().has_method("chase_player"):
+			area.get_parent().chase_player()
+		

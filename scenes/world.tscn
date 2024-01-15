@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://27phkm3uydxm"]
+[gd_scene load_steps=14 format=3 uid="uid://27phkm3uydxm"]
 
 [ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://art/grass.png" id="1_3fkv3"]
 [ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player/player.tscn" id="1_5kmuy"]
@@ -7,14 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://dkiuk5y53nmy2" path="res://scenes/enemy/wisp_enemy.tscn" id="4_y0un6"]
 [ext_resource type="Script" path="res://scenes/gameplay/spawn_info.gd" id="5_7m54o"]
 [ext_resource type="PackedScene" uid="uid://ds5t4tdidh3t8" path="res://scenes/obstacles/rock.tscn" id="6_kl1yl"]
-[ext_resource type="PackedScene" uid="uid://cpdqptrcoi86i" path="res://scenes/gui/pause_menu/pause_menu.tscn" id="8_qheg6"]
+[ext_resource type="PackedScene" uid="uid://beswkj8fh8y7d" path="res://scenes/gui/menu.tscn" id="7_pyd75"]
+[ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/loot/pickup.tscn" id="8_6ieqd"]
+[ext_resource type="AudioStream" uid="uid://b2rln4mnh1h5c" path="res://sound/DarkTheme.mp3" id="9_prxxj"]
 
 [sub_resource type="Resource" id="Resource_3yj5a"]
 script = ExtResource("5_7m54o")
 time_start = 0
 time_end = 120
 enemy = ExtResource("4_p1ix0")
-enemy_num = 2
+enemy_num = 1
 enemy_spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_b4d00"]
@@ -25,12 +27,19 @@ enemy = ExtResource("4_y0un6")
 enemy_num = 1
 enemy_spawn_delay = 2
 
+[sub_resource type="Resource" id="Resource_nvg24"]
+script = ExtResource("5_7m54o")
+time_start = 120
+time_end = 1000
+enemy = ExtResource("4_y0un6")
+enemy_num = 2
+enemy_spawn_delay = 3
+
 [node name="World" type="Node2D"]
 metadata/_edit_lock_ = true
 
-[node name="PauseMenu" parent="." instance=ExtResource("8_qheg6")]
-
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -10
 texture_repeat = 2
 texture = ExtResource("1_3fkv3")
 region_enabled = true
@@ -45,7 +54,7 @@ metadata/_edit_lock_ = true
 position = Vector2(0, -3)
 
 [node name="EnemySpawner" parent="YSortableSceneGraph" instance=ExtResource("3_luq5g")]
-spawns = Array[ExtResource("5_7m54o")]([SubResource("Resource_3yj5a"), SubResource("Resource_b4d00")])
+spawns = Array[ExtResource("5_7m54o")]([SubResource("Resource_3yj5a"), SubResource("Resource_b4d00"), SubResource("Resource_nvg24")])
 
 [node name="Rock" parent="YSortableSceneGraph" instance=ExtResource("6_kl1yl")]
 position = Vector2(-143, -23)
@@ -55,3 +64,15 @@ position = Vector2(-135, -33)
 
 [node name="Rock3" parent="YSortableSceneGraph" instance=ExtResource("6_kl1yl")]
 position = Vector2(-40, -10)
+
+[node name="Pickup" parent="YSortableSceneGraph" instance=ExtResource("8_6ieqd")]
+position = Vector2(64, 0)
+
+[node name="Menu" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Menu" parent="Menu" instance=ExtResource("7_pyd75")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_prxxj")
+autoplay = true

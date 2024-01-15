@@ -1,14 +1,19 @@
 class_name Projectile
 extends Node2D
-@export var speed = 50.0 
+@export var speed = 65.0 
 var direction = Vector2.ZERO
+@onready var move_component = $MoveComponent
+@onready var scale_component = $ScaleComponent
 
-func _physics_process(delta):
+func _ready():
+	scale_component.tween_scale()
+
+func _process(delta):
 	movement(delta)
 	
 func movement(delta):
+	move_component.velocity = direction * speed
 	
-	translate(direction * speed * delta)
 	if direction.length_squared() > 0:
 		var rotation_radians = atan2(direction.y, direction.x)
 		# Assuming the node is a 2D node (Node2D)
