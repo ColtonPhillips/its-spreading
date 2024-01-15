@@ -8,10 +8,12 @@ extends CharacterBody2D
 #optimize?
 @onready var player = Global.player
 @onready var scenegraph = Global.player.get_parent()
-@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var move_component = $MoveComponent
 @onready var scale_component = $ScaleComponent
+@onready var hurt_sfx = $HurtSfx
+@onready var kill_sfx = $KillSfx
 
 func _physics_process(delta):
 	movement(delta)
@@ -27,14 +29,19 @@ func animation(delta):
 	if velocity.x < 0:
 		animated_sprite_2d.flip_h = true
 
+@onready var collision_shape_2d = $CollisionShape2D
 
 func _on_hurt_box_hurt(damage):
 	hp -= damage
-	print(hp)
 	scale_component.tween_scale()
+	hurt_sfx.play_with_variance()
 	if hp <= 0:
+		modulate.a = 0.2
 		spawn_exp()
-		queue_free()
+		scale_component.tween_scale()
+		kill_sfx.play_with_variance()
+		kill_sfx.finished.connect(queue_free)
+		collision_shape_2d.call_deferred("set", "disabled", false)
 
 func spawn_exp():
 	var enemy_spawn = dropped_loot.instantiate()

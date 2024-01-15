@@ -7,8 +7,13 @@
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 31.0
+offset_right = 117.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.6, 0.6)
 theme = ExtResource("1_x1b5j")
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 20
@@ -26,35 +31,38 @@ theme_override_constants/margin_right = 20
 layout_mode = 2
 size_flags_vertical = 0
 text = "Back"
-underline = 2
 script = ExtResource("2_0d3ck")
+
+[node name="Label7" type="Label" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Theme: 
+\"It's Spreading\"
+
+for the Pirate Software
+Video Game Jam"
 
 [node name="NameList" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/NameList"]
 layout_mode = 2
-text = "Developer
-"
+text = "Colton Phillips"
 
 [node name="Label2" type="Label" parent="HBoxContainer/NameList"]
 layout_mode = 2
-text = "Developer
+text = "Rose Dubord-Goulet
 "
 
 [node name="Label3" type="Label" parent="HBoxContainer/NameList"]
 layout_mode = 2
-text = "Developer
-"
+text = "Boyad Hollingshead"
 
 [node name="Label4" type="Label" parent="HBoxContainer/NameList"]
 layout_mode = 2
-text = "Developer
-"
+text = "Lee Gauthier"
 
 [node name="Label5" type="Label" parent="HBoxContainer/NameList"]
 layout_mode = 2
-text = "Developer
-"
+text = "Scott Hannan"
 
 [connection signal="pressed" from="HBoxContainer/MarginContainer/BackButton" to="HBoxContainer/MarginContainer/BackButton" method="_on_back_button_pressed"]

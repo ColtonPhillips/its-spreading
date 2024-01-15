@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://kcswp7pahkxl"]
+
+[node name="Block" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+debug_color = Color(0, 0.6, 0.701961, 0.207843)

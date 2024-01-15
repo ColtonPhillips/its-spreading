@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://cjafynpl3f6fd"]
 
 [ext_resource type="Texture2D" uid="uid://35khk818c4kx" path="res://art/smoke.png" id="1_eykr0"]
-[ext_resource type="Script" path="res://scenes/loot/pickup.gd" id="1_n707f"]
-[ext_resource type="Script" path="res://scenes/components/move_position_component.gd" id="3_cmepo"]
+[ext_resource type="Script" path="res://scenes/gameplay/loot/pickup.gd" id="1_n707f"]
+[ext_resource type="Script" path="res://scenes/components/movement/move_position_component.gd" id="3_cmepo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ivh7"]
 atlas = ExtResource("1_eykr0")

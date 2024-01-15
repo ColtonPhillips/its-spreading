@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://csafkqwts3rfk"]
+
+[ext_resource type="PackedScene" uid="uid://bgvdp80mpx8at" path="res://scenes/gameplay/projectiles/projectile.tscn" id="1_04puj"]
+[ext_resource type="Texture2D" uid="uid://c2een0ewjk4wm" path="res://art/water_projectile.png" id="2_2bdfl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuo6n"]
+atlas = ExtResource("2_2bdfl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn8gb"]
+atlas = ExtResource("2_2bdfl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6c7x"]
+atlas = ExtResource("2_2bdfl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf45y"]
+atlas = ExtResource("2_2bdfl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sn847"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuo6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn8gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6c7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf45y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnlgn"]
+size = Vector2(3, 3)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wrw4n"]
+radius = 191.262
+
+[node name="WaterOrbProjectile" instance=ExtResource("1_04puj")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_sn847")
+autoplay = "default"
+frame_progress = 0.68049
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_fnlgn")
+debug_color = Color(0.796078, 0.286275, 0.792157, 0.419608)
+
+[node name="EnemyChaseRange" type="Area2D" parent="." index="5"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyChaseRange" index="0"]
+shape = SubResource("CircleShape2D_wrw4n")
+
+[connection signal="area_entered" from="EnemyChaseRange" to="." method="_on_enemy_chase_range_area_entered"]
+[connection signal="body_entered" from="EnemyChaseRange" to="." method="_on_enemy_chase_range_body_entered"]
+
+[editable path="HitBox"]

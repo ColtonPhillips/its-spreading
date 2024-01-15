@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://boxf2pg7c1da4"]
+
+[ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/gameplay/loot/pickup.tscn" id="1_dpjdh"]
+[ext_resource type="PackedScene" uid="uid://bk8yby3ot6nju" path="res://scenes/gameplay/obstacles/blocks/bale_block.tscn" id="2_74otc"]
+[ext_resource type="PackedScene" uid="uid://ir75jd4mwilt" path="res://scenes/gameplay/obstacles/blocks/rock_block.tscn" id="3_3diva"]
+
+[node name="TestingChamber" type="Node2D"]
+
+[node name="Pickup" parent="." instance=ExtResource("1_dpjdh")]
+position = Vector2(64, 0)
+
+[node name="BaleBlock" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(130, -57)
+
+[node name="BaleBlock2" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(154, -67)
+
+[node name="BlockRiock" parent="." instance=ExtResource("3_3diva")]
+position = Vector2(194, -173)
+
+[node name="BaleBlock3" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(148, -50)
+
+[node name="BaleBlock4" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(96, -125)
+
+[node name="BaleBlock5" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(140, -72)
+
+[node name="BaleBlock8" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(338, -122)
+
+[node name="BaleBlock9" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(362, -132)
+
+[node name="BaleBlock10" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(356, -115)
+
+[node name="BaleBlock11" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(348, -137)
+
+[node name="BaleBlock6" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(-18, -91)
+
+[node name="BlockRiock2" parent="." instance=ExtResource("3_3diva")]
+position = Vector2(123, 108)
+
+[node name="BaleBlock12" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(25, 156)
+
+[node name="BaleBlock13" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(267, 159)
+
+[node name="BaleBlock14" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(291, 149)
+
+[node name="BaleBlock15" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(285, 166)
+
+[node name="BaleBlock16" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(277, 144)
+
+[node name="BaleBlock17" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(-89, 190)
+
+[node name="BaleBlock7" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(269, 24)
+
+[node name="BaleBlock18" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(831, 120)
+
+[node name="BaleBlock19" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(801, 128)
+
+[node name="BaleBlock20" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(742, 127)
+
+[node name="BaleBlock21" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(712, 135)
+
+[node name="BaleBlock22" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(577, -29)
+
+[node name="BaleBlock23" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(547, -21)
+
+[node name="BaleBlock24" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(488, -22)
+
+[node name="BaleBlock25" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(458, -14)

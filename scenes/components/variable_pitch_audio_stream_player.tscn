@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://wmy5jl3qkhlp"]
+
+[ext_resource type="Script" path="res://scenes/components/variable_pitch_audio_stream_player.gd" id="1_q4526"]
+
+[node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer2D"]
+script = ExtResource("1_q4526")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

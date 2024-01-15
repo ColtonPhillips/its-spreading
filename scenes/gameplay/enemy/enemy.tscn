@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://0pcv5ermn1p"]
+[gd_scene load_steps=11 format=3 uid="uid://0pcv5ermn1p"]
 
-[ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_bi6oj"]
-[ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/physics/hurt_box.tscn" id="2_lk76p"]
-[ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/loot/pickup.tscn" id="2_wgvuk"]
-[ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://scenes/physics/hit_box.tscn" id="3_nlj2i"]
-[ext_resource type="Script" path="res://scenes/components/move_character_body_2d_component.gd" id="3_ynl7d"]
+[ext_resource type="Script" path="res://scenes/gameplay/enemy/enemy.gd" id="1_bi6oj"]
+[ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/components/physics/hurt_box.tscn" id="2_lk76p"]
+[ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/gameplay/loot/pickup.tscn" id="2_wgvuk"]
+[ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://scenes/components/physics/hit_box.tscn" id="3_nlj2i"]
+[ext_resource type="Script" path="res://scenes/components/movement/move_character_body_2d_component.gd" id="3_ynl7d"]
 [ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://art/shadow.png" id="3_yvgpi"]
-[ext_resource type="Script" path="res://scenes/components/scale_component.gd" id="7_44dt6"]
+[ext_resource type="Script" path="res://scenes/components/scale/scale_component.gd" id="7_44dt6"]
+[ext_resource type="AudioStream" uid="uid://cuj7221o7bai8" path="res://sound/sfx/hurt_enemy.wav" id="8_d7esr"]
+[ext_resource type="Script" path="res://scenes/components/variable_pitch_audio_stream_player.gd" id="9_lleqn"]
+[ext_resource type="AudioStream" uid="uid://d5y37mp1gb6e" path="res://sound/sfx/kill_enemy.wav" id="10_f1etg"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 y_sort_enabled = true
@@ -34,6 +37,7 @@ actor = NodePath("..")
 [node name="HurtBox" parent="." instance=ExtResource("2_lk76p")]
 collision_layer = 4
 collision_mask = 4
+HurtBoxType = 1
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 debug_color = Color(0.976471, 0, 0.415686, 0.25098)
@@ -50,6 +54,16 @@ script = ExtResource("7_44dt6")
 sprite = NodePath("../AnimatedSprite2D")
 scale_amount = Vector2(1.3, 1.4)
 scale_duration = 0.6
+
+[node name="HurtSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_d7esr")
+volume_db = -6.012
+script = ExtResource("9_lleqn")
+
+[node name="KillSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_f1etg")
+volume_db = -7.012
+script = ExtResource("9_lleqn")
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 

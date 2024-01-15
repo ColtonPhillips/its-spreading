@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bjopb88sq766e"]
 
-[ext_resource type="PackedScene" uid="uid://0pcv5ermn1p" path="res://scenes/enemy/enemy.tscn" id="1_ni0a7"]
+[ext_resource type="PackedScene" uid="uid://0pcv5ermn1p" path="res://scenes/gameplay/enemy/enemy.tscn" id="1_ni0a7"]
 [ext_resource type="Texture2D" uid="uid://cfwrapopm5gpd" path="res://art/fire_orb.png" id="2_4w3uu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_chd8f"]
@@ -54,17 +54,12 @@ frame_progress = 0.138607
 position = Vector2(0, 2)
 
 [node name="CollisionShape2D" parent="." index="1"]
-visible = false
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_l1kca")
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-visible = false
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_4j7yb")
-
-[node name="HitBox" parent="." index="4"]
-visible = false
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(0, -6)
