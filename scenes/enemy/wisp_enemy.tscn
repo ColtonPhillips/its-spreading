@@ -10,8 +10,9 @@ height = 20.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c165k"]
 size = Vector2(12, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_34wgp"]
-size = Vector2(7.5, 25.25)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avoem"]
+radius = 8.0
+height = 32.0
 
 [node name="WispEnemy" instance=ExtResource("1_da14o")]
 move_speed = 17.67
@@ -31,8 +32,8 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_c165k")
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(0, 2.375)
-shape = SubResource("RectangleShape2D_34wgp")
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_avoem")
 
 [editable path="HurtBox"]
 [editable path="HitBox"]

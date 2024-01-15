@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjuoaowmdixmj" path="res://art/sheet.png" id="2_peauw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l1kca"]
-radius = 5.0
+radius = 7.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j7yb"]
 size = Vector2(13, 12)

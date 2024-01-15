@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjafynpl3f6fd"]
+[gd_scene load_steps=14 format=3 uid="uid://cjafynpl3f6fd"]
 
 [ext_resource type="Texture2D" uid="uid://35khk818c4kx" path="res://art/smoke.png" id="1_eykr0"]
 [ext_resource type="Script" path="res://scenes/loot/pickup.gd" id="1_n707f"]
+[ext_resource type="Script" path="res://scenes/components/move_position_component.gd" id="3_cmepo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ivh7"]
 atlas = ExtResource("1_eykr0")
@@ -85,3 +86,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_4nejt")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_cmepo")
+actor = NodePath("..")

@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var scenegraph = get_tree().get_first_node_in_group("player").get_parent()
 @onready var sprite_2d = $Sprite2D
+@onready var move_component = $MoveComponent
 
 func _physics_process(delta):
 	movement(delta)
@@ -16,8 +17,7 @@ func _physics_process(delta):
 	
 func movement(delta):
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * move_speed
-	move_and_slide()
+	move_component.velocity = direction * move_speed
 
 func animation(delta):
 	if velocity.x > 0:
@@ -36,4 +36,4 @@ func _on_hurt_box_hurt(damage):
 func spawn_exp():
 	var enemy_spawn = dropped_loot.instantiate()
 	enemy_spawn.global_position = self.global_position
-	scenegraph.add_child(enemy_spawn)
+	scenegraph.call_deferred("add_child", enemy_spawn)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://0pcv5ermn1p"]
+[gd_scene load_steps=6 format=3 uid="uid://0pcv5ermn1p"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_bi6oj"]
 [ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/physics/hurt_box.tscn" id="2_lk76p"]
 [ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/loot/pickup.tscn" id="2_wgvuk"]
 [ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://scenes/physics/hit_box.tscn" id="3_nlj2i"]
+[ext_resource type="Script" path="res://scenes/components/move_character_body_2d_component.gd" id="3_ynl7d"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 y_sort_enabled = true
@@ -18,6 +19,10 @@ dropped_loot = ExtResource("2_wgvuk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0, -5)
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_ynl7d")
+actor = NodePath("..")
 
 [node name="HurtBox" parent="." instance=ExtResource("2_lk76p")]
 collision_layer = 4
