@@ -43,15 +43,11 @@ animations = [{
 size = Vector2(3, 3)
 
 [node name="WaterOrbProjectile" instance=ExtResource("1_adr4g")]
-speed = 60.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_sn847")
 autoplay = "default"
 frame_progress = 0.68049
-
-[node name="HitBox" parent="." index="1"]
-damage = 50
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(-0.5, 0.5)

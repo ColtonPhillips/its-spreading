@@ -40,8 +40,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_np8qy"]
-radius = 1.0
-height = 20.0
+radius = 6.0
+height = 28.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c165k"]
 size = Vector2(12, 24)
@@ -52,14 +52,17 @@ height = 32.0
 
 [node name="WispEnemy" instance=ExtResource("1_da14o")]
 move_speed = 17.67
+hp = 15
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_r0ghx")
 autoplay = "default"
 frame_progress = 0.0894206
 
+[node name="Shadow" parent="AnimatedSprite2D" index="0"]
+position = Vector2(0, 2)
+
 [node name="CollisionShape2D" parent="." index="1"]
-visible = true
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_np8qy")
 

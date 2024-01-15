@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dkiuk5y53nmy2" path="res://scenes/enemy/wisp_enemy.tscn" id="4_y0un6"]
 [ext_resource type="Script" path="res://scenes/gameplay/spawn_info.gd" id="5_7m54o"]
 [ext_resource type="PackedScene" uid="uid://ds5t4tdidh3t8" path="res://scenes/obstacles/rock.tscn" id="6_kl1yl"]
-[ext_resource type="PackedScene" uid="uid://yg11qveki1pj" path="res://scenes/gui/menu.tscn" id="7_pyd75"]
+[ext_resource type="PackedScene" uid="uid://beswkj8fh8y7d" path="res://scenes/gui/menu.tscn" id="7_pyd75"]
 [ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/loot/pickup.tscn" id="8_6ieqd"]
 [ext_resource type="AudioStream" uid="uid://b2rln4mnh1h5c" path="res://sound/DarkTheme.mp3" id="9_prxxj"]
 

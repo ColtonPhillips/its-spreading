@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 @onready var move_component = $MoveComponent
+@onready var scale_component = $ScaleComponent
 
 func _physics_process(delta):
 	movement(delta)
@@ -30,6 +31,7 @@ func animation(delta):
 func _on_hurt_box_hurt(damage):
 	hp -= damage
 	print(hp)
+	scale_component.tween_scale()
 	if hp <= 0:
 		spawn_exp()
 		queue_free()

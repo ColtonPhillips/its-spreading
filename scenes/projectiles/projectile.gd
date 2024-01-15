@@ -1,6 +1,6 @@
 class_name Projectile
 extends Node2D
-@export var speed = 50.0 
+@export var speed = 65.0 
 var direction = Vector2.ZERO
 @onready var move_component = $MoveComponent
 
