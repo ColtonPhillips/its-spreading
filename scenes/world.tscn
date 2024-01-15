@@ -39,6 +39,7 @@ enemy_spawn_delay = 3
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -10
 texture_repeat = 2
 texture = ExtResource("1_3fkv3")
 region_enabled = true
