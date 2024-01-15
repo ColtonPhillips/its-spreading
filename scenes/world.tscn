@@ -54,10 +54,4 @@ position = Vector2(-135, -33)
 [node name="Rock3" parent="YSortableSceneGraph" instance=ExtResource("6_kl1yl")]
 position = Vector2(-40, -10)
 
-[node name="UILayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="UILayer" instance=ExtResource("8_qheg6")]
-process_mode = 3
-visible = false
-size_flags_horizontal = 1
-size_flags_vertical = 1
+[node name="PauseMenu" parent="." instance=ExtResource("8_qheg6")]
