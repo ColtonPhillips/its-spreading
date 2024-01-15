@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6djgc5rsd3g2"]
+[gd_scene load_steps=6 format=3 uid="uid://c6djgc5rsd3g2"]
 
 [ext_resource type="Theme" uid="uid://bcf1wtgftcnmh" path="res://font/font_theme.tres" id="1_142fs"]
 [ext_resource type="Script" path="res://scenes/gui/main_menu/main_menu.gd" id="2_7dbyw"]
 [ext_resource type="Theme" uid="uid://ybvdicuwr115" path="res://scenes/gui/main_menu/main_menu.tres" id="3_84nfo"]
+[ext_resource type="PackedScene" uid="uid://27phkm3uydxm" path="res://scenes/world.tscn" id="3_h4g7h"]
+[ext_resource type="PackedScene" uid="uid://51831lqhf2oq" path="res://scenes/gui/credits/credits.tscn" id="3_m02a8"]
 
 [node name="MainMenuContainer" type="CenterContainer"]
 anchors_preset = 15
@@ -12,6 +14,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_142fs")
 script = ExtResource("2_7dbyw")
+start_game_scene = ExtResource("3_h4g7h")
+credits_scene = ExtResource("3_m02a8")
 
 [node name="MenuLabelsContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
