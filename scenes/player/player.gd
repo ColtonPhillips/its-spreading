@@ -14,6 +14,7 @@ extends CharacterBody2D
 @export var projectiles_off = false
 
 func _ready():
+	Global.player = self
 	fire_rate_timer.timeout.connect(fire_weapon)
 
 func _physics_process(delta):
@@ -51,8 +52,6 @@ func fire_weapon():
 	
 func _on_pickup_range_area_entered(area):
 	if area.is_in_group("pickup"):
-		print("area in group") 
 		if area.get_parent().has_method("chase_player"):
-			print ("area chaseyboys")
 			area.get_parent().chase_player()
 		

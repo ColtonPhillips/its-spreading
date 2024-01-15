@@ -6,8 +6,8 @@ extends CharacterBody2D
 @export var dropped_loot: Resource
 
 #optimize?
-@onready var player = get_tree().get_first_node_in_group("player")
-@onready var scenegraph = get_tree().get_first_node_in_group("player").get_parent()
+@onready var player = Global.player
+@onready var scenegraph = Global.player.get_parent()
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 @onready var move_component = $MoveComponent

@@ -1,7 +1,7 @@
 class_name Pickup
 extends Node2D
 
-@onready var player = get_tree().get_first_node_in_group("player")
+@onready var player = Global.player
 @export var move_speed = 100.0
 @export var chasing_player = false
 @onready var move_component = $MoveComponent

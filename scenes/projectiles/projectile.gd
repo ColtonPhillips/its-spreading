@@ -3,6 +3,10 @@ extends Node2D
 @export var speed = 65.0 
 var direction = Vector2.ZERO
 @onready var move_component = $MoveComponent
+@onready var scale_component = $ScaleComponent
+
+func _ready():
+	scale_component.tween_scale()
 
 func _process(delta):
 	movement(delta)
