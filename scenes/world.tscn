@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dkiuk5y53nmy2" path="res://scenes/enemy/wisp_enemy.tscn" id="4_y0un6"]
 [ext_resource type="Script" path="res://scenes/gameplay/spawn_info.gd" id="5_7m54o"]
 [ext_resource type="PackedScene" uid="uid://ds5t4tdidh3t8" path="res://scenes/obstacles/rock.tscn" id="6_kl1yl"]
-[ext_resource type="PackedScene" uid="uid://yg11qveki1pj" path="res://scenes/gui/menu.tscn" id="7_pyd75"]
+[ext_resource type="PackedScene" uid="uid://cpdqptrcoi86i" path="res://scenes/gui/pause_menu/pause_menu.tscn" id="8_qheg6"]
 
 [sub_resource type="Resource" id="Resource_3yj5a"]
 script = ExtResource("5_7m54o")
@@ -54,7 +54,10 @@ position = Vector2(-135, -33)
 [node name="Rock3" parent="YSortableSceneGraph" instance=ExtResource("6_kl1yl")]
 position = Vector2(-40, -10)
 
-[node name="Menu" type="CanvasLayer" parent="."]
-process_mode = 3
+[node name="UILayer" type="CanvasLayer" parent="."]
 
-[node name="Menu" parent="Menu" instance=ExtResource("7_pyd75")]
+[node name="PauseMenu" parent="UILayer" instance=ExtResource("8_qheg6")]
+process_mode = 3
+visible = false
+size_flags_horizontal = 1
+size_flags_vertical = 1
