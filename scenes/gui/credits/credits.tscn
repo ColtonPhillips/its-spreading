@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://51831lqhf2oq"]
+
+[ext_resource type="Theme" uid="uid://bcf1wtgftcnmh" path="res://font/font_theme.tres" id="1_x1b5j"]
+[ext_resource type="Script" path="res://scenes/gui/credits/back_button.gd" id="2_0d3ck"]
+
+[node name="Credits" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_x1b5j")
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 20
+
+[node name="BackButton" type="LinkButton" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Back"
+underline = 2
+script = ExtResource("2_0d3ck")
+
+[node name="NameList" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/NameList"]
+layout_mode = 2
+text = "Developer
+"
+
+[node name="Label2" type="Label" parent="HBoxContainer/NameList"]
+layout_mode = 2
+text = "Developer
+"
+
+[node name="Label3" type="Label" parent="HBoxContainer/NameList"]
+layout_mode = 2
+text = "Developer
+"
+
+[node name="Label4" type="Label" parent="HBoxContainer/NameList"]
+layout_mode = 2
+text = "Developer
+"
+
+[node name="Label5" type="Label" parent="HBoxContainer/NameList"]
+layout_mode = 2
+text = "Developer
+"
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer/BackButton" to="HBoxContainer/MarginContainer/BackButton" method="_on_back_button_pressed"]

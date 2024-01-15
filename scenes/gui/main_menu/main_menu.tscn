@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6djgc5rsd3g2"]
+
+[ext_resource type="Theme" uid="uid://bcf1wtgftcnmh" path="res://font/font_theme.tres" id="1_142fs"]
+[ext_resource type="Script" path="res://scenes/gui/main_menu/main_menu.gd" id="2_7dbyw"]
+[ext_resource type="Theme" uid="uid://ybvdicuwr115" path="res://scenes/gui/main_menu/main_menu.tres" id="3_84nfo"]
+
+[node name="MainMenuContainer" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_142fs")
+script = ExtResource("2_7dbyw")
+
+[node name="MenuLabelsContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("3_84nfo")
+
+[node name="TitleLabel" type="Label" parent="MenuLabelsContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Its Spreading"
+horizontal_alignment = 1
+
+[node name="StartGameLink" type="LinkButton" parent="MenuLabelsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start Game"
+underline = 2
+
+[node name="CreditsLink" type="LinkButton" parent="MenuLabelsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Credits"
+underline = 2
+
+[node name="ExitLink" type="LinkButton" parent="MenuLabelsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Exit"
+underline = 2
+
+[connection signal="pressed" from="MenuLabelsContainer/StartGameLink" to="." method="_on_start_game_link_pressed"]
+[connection signal="pressed" from="MenuLabelsContainer/CreditsLink" to="." method="_on_credits_link_pressed"]
+[connection signal="pressed" from="MenuLabelsContainer/ExitLink" to="." method="_on_exit_link_pressed"]

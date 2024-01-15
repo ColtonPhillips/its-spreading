@@ -13,9 +13,6 @@ func toggle_pause():
 	get_tree().paused = not get_tree().paused
 	self.visible = not self.visible
 
-func _ready():
-	pause()
-
 func _input(event):
 	if Input.is_action_just_pressed("pause"):
 		toggle_pause()
