@@ -1,13 +1,133 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpdqptrcoi86i"]
+[gd_scene load_steps=10 format=3 uid="uid://cpdqptrcoi86i"]
 
 [ext_resource type="Theme" uid="uid://bcf1wtgftcnmh" path="res://font/font_theme.tres" id="1_g8ox3"]
+[ext_resource type="PackedScene" uid="uid://c6djgc5rsd3g2" path="res://scenes/gui/main_menu/main_menu.tscn" id="2_34mhg"]
 [ext_resource type="Script" path="res://scenes/gui/pause_menu/pause_menu.gd" id="2_vwlm7"]
 [ext_resource type="Theme" uid="uid://btmi0dwsxaokb" path="res://scenes/gui/pause_menu/paused_label.tres" id="3_05x3o"]
 
-[node name="CanvasLayer2" type="CanvasLayer"]
+[sub_resource type="Animation" id="Animation_ub5aw"]
+resource_name = "pause_fade_in"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.407843)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ptm4n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.407843)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_afk0p"]
+resource_name = "pause_fade_out"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.407843), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vasrs"]
+resource_name = "fade_to_black_for_main_menu"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.407843), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ri5qs"]
+_data = {
+"RESET": SubResource("Animation_ptm4n"),
+"fade_to_black_for_main_menu": SubResource("Animation_vasrs"),
+"pause_fade_in": SubResource("Animation_ub5aw"),
+"pause_fade_out": SubResource("Animation_afk0p")
+}
+
+[node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
-layer = 3
 script = ExtResource("2_vwlm7")
+main_menu_scene = ExtResource("2_34mhg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -53,5 +173,11 @@ size_flags_vertical = 8
 text = "Unpause"
 underline = 2
 
-[connection signal="pressed" from="PauseMenu/ExitToMenuButton" to="PauseMenu" method="_on_exit_to_menu_button_pressed"]
-[connection signal="pressed" from="PauseMenu/UnpauseButton" to="PauseMenu" method="_on_unpause_button_pressed"]
+[node name="Fader" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ri5qs")
+}
+
+[connection signal="pressed" from="PauseMenu/ExitToMenuButton" to="." method="_on_exit_to_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/UnpauseButton" to="." method="_on_unpause_button_pressed"]
+[connection signal="animation_finished" from="Fader" to="." method="_on_fader_animation_finished"]

@@ -28,6 +28,8 @@ enemy_spawn_delay = 2
 [node name="World" type="Node2D"]
 metadata/_edit_lock_ = true
 
+[node name="PauseMenu" parent="." instance=ExtResource("8_qheg6")]
+
 [node name="Background" type="Sprite2D" parent="."]
 texture_repeat = 2
 texture = ExtResource("1_3fkv3")
@@ -53,5 +55,3 @@ position = Vector2(-135, -33)
 
 [node name="Rock3" parent="YSortableSceneGraph" instance=ExtResource("6_kl1yl")]
 position = Vector2(-40, -10)
-
-[node name="PauseMenu" parent="." instance=ExtResource("8_qheg6")]
