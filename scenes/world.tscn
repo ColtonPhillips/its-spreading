@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://27phkm3uydxm"]
+[gd_scene load_steps=13 format=3 uid="uid://27phkm3uydxm"]
 
 [ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://art/grass.png" id="1_3fkv3"]
 [ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player/player.tscn" id="1_5kmuy"]
@@ -72,7 +72,7 @@ position = Vector2(420, -54)
 
 [node name="TestingChamber3" parent="YSortableSceneGraph" instance=ExtResource("7_3lalr")]
 y_sort_enabled = true
-position = Vector2(125, -150)
+position = Vector2(80, -69)
 
 [node name="TestingChamber4" parent="YSortableSceneGraph" instance=ExtResource("7_3lalr")]
 y_sort_enabled = true
