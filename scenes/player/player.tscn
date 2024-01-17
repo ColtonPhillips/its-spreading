@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c3vntakhy0jq7"]
+[gd_scene load_steps=21 format=3 uid="uid://c3vntakhy0jq7"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_2stqb"]
 [ext_resource type="Texture2D" uid="uid://d3nftxbopob5v" path="res://art/gameplay/player/player.png" id="2_mluj1"]
@@ -7,8 +7,10 @@
 [ext_resource type="Script" path="res://scenes/components/movement/move_character_body_2d_component.gd" id="3_ijo0d"]
 [ext_resource type="Script" path="res://scenes/components/movement/move_input_component.gd" id="3_ptxy4"]
 [ext_resource type="PackedScene" uid="uid://csafkqwts3rfk" path="res://scenes/gameplay/projectiles/projectiles/water_orb_projectile.tscn" id="4_r3uhc"]
+[ext_resource type="Resource" uid="uid://ci047nbwo55s2" path="res://resources/stats/player/player_stats.tres" id="5_4c67a"]
 [ext_resource type="AudioStream" uid="uid://vs343xtxovq0" path="res://sound/sfx/exp_pickup.wav" id="6_7leyi"]
 [ext_resource type="Script" path="res://scenes/components/sound/variable_pitch_audio_stream_player.gd" id="7_5wn3i"]
+[ext_resource type="Script" path="res://scenes/components/stats/actor_stats_component.gd" id="10_heau0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjc6a"]
 atlas = ExtResource("2_mluj1")
@@ -98,9 +100,14 @@ shape = SubResource("CapsuleShape2D_cfm71")
 script = ExtResource("3_ijo0d")
 actor = NodePath("..")
 
-[node name="MoveInputComponent" type="Node" parent="." node_paths=PackedStringArray("move_component")]
+[node name="MoveInputComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "move_component")]
 script = ExtResource("3_ptxy4")
+stats_component = NodePath("../PlayerStatsComponent")
 move_component = NodePath("../MoveComponent")
+
+[node name="PlayerStatsComponent" type="Node" parent="."]
+script = ExtResource("10_heau0")
+stats = ExtResource("5_4c67a")
 
 [node name="HurtBox" parent="." instance=ExtResource("3_b0mcm")]
 position = Vector2(0, 1)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjopb88sq766e"]
+[gd_scene load_steps=11 format=3 uid="uid://bjopb88sq766e"]
 
 [ext_resource type="PackedScene" uid="uid://0pcv5ermn1p" path="res://scenes/gameplay/enemy/enemy.tscn" id="1_ni0a7"]
 [ext_resource type="Texture2D" uid="uid://cfwrapopm5gpd" path="res://art/gameplay/enemies/fire_orb.png" id="2_4w3uu"]
+[ext_resource type="Resource" uid="uid://bu1pcfn87u3ow" path="res://resources/stats/actor/enemies/fire_orb_stats.tres" id="3_rn4ym"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_chd8f"]
 atlas = ExtResource("2_4w3uu")
@@ -42,7 +43,6 @@ size = Vector2(13, 12)
 radius = 6.0
 
 [node name="FireOrbEnemy" instance=ExtResource("1_ni0a7")]
-hp = 15
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -15)
@@ -56,6 +56,9 @@ position = Vector2(0, 2)
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_l1kca")
+
+[node name="StatsComponent" parent="." index="4"]
+stats = ExtResource("3_rn4ym")
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(0, -6)

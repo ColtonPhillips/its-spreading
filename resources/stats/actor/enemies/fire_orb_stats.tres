@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ActorStats" load_steps=2 format=3 uid="uid://bu1pcfn87u3ow"]
+
+[ext_resource type="Script" path="res://resources/stats/actor_stats.gd" id="1_kfecm"]
+
+[resource]
+script = ExtResource("1_kfecm")
+speed = 18
+hp = 15
+damage = 25

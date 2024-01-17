@@ -15,8 +15,8 @@ extends CharacterBody2D
 @onready var pickup_sfx = $PickupSfx
 @onready var move_component = $MoveComponent
 @onready var move_input_component = $MoveInputComponent
+@onready var stats_component = $StatsComponent
 
-@export var hp = 80	
 @export var projectiles_off = false
 
 func _ready():
@@ -37,9 +37,10 @@ func animation(delta):
 		animated_sprite_2d.play("walk")
 		
 func _on_hurt_box_hurt(damage):
-	hp -= damage
-	print(hp)
+	stats_component.hp -= damage
+	print(stats_component.hp)
 var flip_flop = true
+
 func fire_weapon():
 	if projectiles_off:
 		return

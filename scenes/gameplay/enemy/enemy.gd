@@ -1,8 +1,6 @@
 class_name Enemy
 extends CharacterBody2D
 
-@export var move_speed = 20.0
-@export var hp = 80
 @export var dropped_loot: Resource
 
 #optimize?
@@ -12,6 +10,7 @@ extends CharacterBody2D
 
 @onready var move_component = $MoveComponent
 @onready var scale_component = $ScaleComponent
+@onready var stats_component = $StatsComponent
 @onready var hurt_sfx = $HurtSfx
 @onready var kill_sfx = $KillSfx
 
@@ -24,7 +23,7 @@ func _physics_process(delta):
 	
 func movement(delta):
 	var direction = global_position.direction_to(player.global_position)
-	move_component.velocity = direction * move_speed
+	move_component.velocity = direction * stats_component.speed
 
 func animation(delta):
 	if velocity.x > 0:
@@ -35,10 +34,10 @@ func animation(delta):
 @onready var collision_shape_2d = $CollisionShape2D
 
 func _on_hurt_box_hurt(damage):
-	hp -= damage
+	stats_component.hp -= damage
 	scale_component.tween_scale()
 	hurt_sfx.play_with_variance()
-	if hp <= 0:
+	if stats_component.hp <= 0:
 		modulate.a = 0.2
 		spawn_exp()
 		scale_component.tween_scale()
