@@ -15,7 +15,7 @@ extends CharacterBody2D
 @onready var pickup_sfx = $PickupSfx
 @onready var move_component = $MoveComponent
 @onready var move_input_component = $MoveInputComponent
-@onready var stats_component = $StatsComponent
+@onready var stats_component = $PlayerStatsComponent
 
 @export var projectiles_off = false
 
