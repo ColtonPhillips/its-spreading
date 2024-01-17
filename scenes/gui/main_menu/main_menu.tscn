@@ -1,20 +1,30 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6djgc5rsd3g2"]
+[gd_scene load_steps=21 format=3 uid="uid://c6djgc5rsd3g2"]
 
 [ext_resource type="Script" path="res://scenes/gui/main_menu/main_menu.gd" id="2_7dbyw"]
 [ext_resource type="Theme" uid="uid://ybvdicuwr115" path="res://scenes/gui/main_menu/main_menu.tres" id="3_84nfo"]
 [ext_resource type="PackedScene" uid="uid://27phkm3uydxm" path="res://scenes/world.tscn" id="3_h4g7h"]
 [ext_resource type="PackedScene" uid="uid://51831lqhf2oq" path="res://scenes/gui/credits/credits.tscn" id="3_m02a8"]
+[ext_resource type="Texture2D" uid="uid://ccilmhs4gr7ct" path="res://res/art/main_menu/menu_background.png" id="4_h22au"]
 [ext_resource type="FontFile" uid="uid://dm3ughxiux3id" path="res://res/font/ttf/lowres/ChevyRay - Bird Seed.ttf" id="6_0fs6r"]
-[ext_resource type="Texture2D" uid="uid://6liiirbd1fed" path="res://res/art/gameplay/environment/hay_bale.png" id="6_024mt"]
-[ext_resource type="FontFile" uid="uid://pl05vf8mg4tl" path="res://res/font/ttf/detail/ChevyRay - Bubble Time.ttf" id="6_jha0i"]
+[ext_resource type="FontFile" uid="uid://bsgwxsvilbma6" path="res://res/font/ttf/highres/ChevyRay - Rise.ttf" id="6_3h4sx"]
+[ext_resource type="FontFile" uid="uid://btyeuqqrwnge2" path="res://res/font/ttf/highres/ChevyRay - Stapler.ttf" id="6_q755q"]
+[ext_resource type="FontFile" uid="uid://cm5u3vv7bosl2" path="res://res/font/ttf/highres/ChevyRay - Roundabout.ttf" id="7_3y3mg"]
+[ext_resource type="Texture2D" uid="uid://dqfy3boylpdxa" path="res://res/art/gui/iconography/hay_bale_cute.png" id="10_nnjmx"]
 
 [sub_resource type="Theme" id="Theme_xiyjw"]
 default_font = ExtResource("6_0fs6r")
 default_font_size = 10
 
+[sub_resource type="Theme" id="Theme_mc04k"]
+default_font = ExtResource("6_3h4sx")
+default_font_size = 14
+
+[sub_resource type="Theme" id="Theme_3mdx1"]
+default_font = ExtResource("7_3y3mg")
+
 [sub_resource type="Theme" id="Theme_r36pu"]
-default_font = ExtResource("6_jha0i")
-default_font_size = 22
+default_font = ExtResource("6_q755q")
+default_font_size = 13
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0hpo"]
 
@@ -91,6 +101,12 @@ script = ExtResource("2_7dbyw")
 start_game_scene = ExtResource("3_h4g7h")
 credits_scene = ExtResource("3_m02a8")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -3)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("4_h22au")
+offset = Vector2(242, 136.5)
+
 [node name="MainMenuContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -106,24 +122,29 @@ theme = ExtResource("3_84nfo")
 [node name="TitleLabel" type="Label" parent="MainMenuContainer/MenuLabelsContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = "Its Spreading"
+theme = SubResource("Theme_mc04k")
+text = "MIRA:
+PRAIRIE RIVER ON FIRE"
 horizontal_alignment = 1
 
 [node name="StartGameLink" type="LinkButton" parent="MainMenuContainer/MenuLabelsContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = SubResource("Theme_3mdx1")
 text = "Start Game"
 underline = 2
 
 [node name="CreditsLink" type="LinkButton" parent="MainMenuContainer/MenuLabelsContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = SubResource("Theme_3mdx1")
 text = "Credits"
 underline = 2
 
 [node name="ExitLink" type="LinkButton" parent="MainMenuContainer/MenuLabelsContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = SubResource("Theme_3mdx1")
 text = "Exit"
 underline = 2
 
@@ -134,16 +155,16 @@ scale = Vector2(1.015, 1.015)
 [node name="CheckButton" type="CheckButton" parent="MainMenuContainer/MenuLabelsContainer/Node2D"]
 custom_minimum_size = Vector2(200, 0)
 layout_direction = 2
-offset_left = -67.2906
-offset_top = 116.158
-offset_right = 132.709
-offset_bottom = 147.158
-tooltip_text = "big ole "
+offset_left = -1.28079
+offset_top = 113.202
+offset_right = 198.719
+offset_bottom = 144.202
+tooltip_text = "Thank you for playing my game!"
 theme = SubResource("Theme_r36pu")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_e0hpo")
 shortcut = SubResource("Shortcut_u8gym")
 text = "Fullscreen"
-icon = ExtResource("6_024mt")
+icon = ExtResource("10_nnjmx")
 alignment = 2
 expand_icon = true
 

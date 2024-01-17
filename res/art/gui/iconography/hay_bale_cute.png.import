@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2c1jgtrm2fpy"
-path="res://.godot/imported/select_arrow.png-5275c9ac8066f0f6f640ff1b12065913.ctex"
+uid="uid://dqfy3boylpdxa"
+path="res://.godot/imported/hay_bale_cute.png-e09bd3c360cf8397ada2a16508efe9af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/art/gui/select_arrow.png"
-dest_files=["res://.godot/imported/select_arrow.png-5275c9ac8066f0f6f640ff1b12065913.ctex"]
+source_file="res://res/art/gui/iconography/hay_bale_cute.png"
+dest_files=["res://.godot/imported/hay_bale_cute.png-e09bd3c360cf8397ada2a16508efe9af.ctex"]
 
 [params]
 
