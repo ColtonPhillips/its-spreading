@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://0pcv5ermn1p"]
+[gd_scene load_steps=13 format=3 uid="uid://0pcv5ermn1p"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemy/enemy.gd" id="1_bi6oj"]
 [ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/components/physics/hurt_box.tscn" id="2_lk76p"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/components/movement/move_character_body_2d_component.gd" id="3_ynl7d"]
 [ext_resource type="Script" path="res://scenes/components/stats/actor_stats_component.gd" id="6_ysjh2"]
 [ext_resource type="Script" path="res://scenes/components/scale/scale_component.gd" id="7_44dt6"]
+[ext_resource type="PackedScene" uid="uid://be7cq2knfj5bf" path="res://scenes/components/health/health_bar_component.tscn" id="7_y3leb"]
 [ext_resource type="AudioStream" uid="uid://cuj7221o7bai8" path="res://res/sound/sfx/hurt_enemy.wav" id="8_d7esr"]
 [ext_resource type="Script" path="res://scenes/components/sound/variable_pitch_audio_stream_player.gd" id="9_lleqn"]
 [ext_resource type="AudioStream" uid="uid://d5y37mp1gb6e" path="res://res/sound/sfx/kill_enemy.wav" id="10_f1etg"]
@@ -43,6 +44,9 @@ scale_duration = 0.6
 [node name="StatsComponent" type="Node" parent="."]
 script = ExtResource("6_ysjh2")
 
+[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("actorStatsComponent") instance=ExtResource("7_y3leb")]
+actorStatsComponent = NodePath("../StatsComponent")
+
 [node name="HurtBox" parent="." instance=ExtResource("2_lk76p")]
 collision_layer = 4
 collision_mask = 4
@@ -54,6 +58,7 @@ debug_color = Color(0.976471, 0, 0.415686, 0.25098)
 [node name="HitBox" parent="." instance=ExtResource("3_nlj2i")]
 collision_layer = 2
 collision_mask = 2
+damage = 5
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 debug_color = Color(0, 0.639216, 0.364706, 0.278431)

@@ -7,6 +7,7 @@ extends Node
 var speed: int = 10
 
 # Create the health variable and connect a setter
+var max_hp: int = 16
 var hp: int = 15:
 	set(value):
 		hp = value
@@ -24,4 +25,5 @@ signal no_hp() # Emit when there is no health left
 func _ready():
 	# copy default values from tres file
 	hp = stats.hp
+	max_hp = hp
 	speed = stats.speed

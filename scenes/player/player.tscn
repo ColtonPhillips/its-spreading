@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c3vntakhy0jq7"]
+[gd_scene load_steps=22 format=3 uid="uid://c3vntakhy0jq7"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_2stqb"]
 [ext_resource type="Texture2D" uid="uid://d3nftxbopob5v" path="res://res/art/gameplay/player/player.png" id="2_mluj1"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://ci047nbwo55s2" path="res://resources/stats/player/player_stats.tres" id="5_4c67a"]
 [ext_resource type="AudioStream" uid="uid://vs343xtxovq0" path="res://res/sound/sfx/exp_pickup.wav" id="6_7leyi"]
 [ext_resource type="Script" path="res://scenes/components/sound/variable_pitch_audio_stream_player.gd" id="7_5wn3i"]
+[ext_resource type="PackedScene" uid="uid://be7cq2knfj5bf" path="res://scenes/components/health/health_bar_component.tscn" id="7_h60ml"]
 [ext_resource type="Script" path="res://scenes/components/stats/actor_stats_component.gd" id="10_heau0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjc6a"]
@@ -108,6 +109,9 @@ move_component = NodePath("../MoveComponent")
 [node name="PlayerStatsComponent" type="Node" parent="."]
 script = ExtResource("10_heau0")
 stats = ExtResource("5_4c67a")
+
+[node name="HealthBarComponent" parent="." node_paths=PackedStringArray("actorStatsComponent") instance=ExtResource("7_h60ml")]
+actorStatsComponent = NodePath("../PlayerStatsComponent")
 
 [node name="HurtBox" parent="." instance=ExtResource("3_b0mcm")]
 position = Vector2(0, 1)
