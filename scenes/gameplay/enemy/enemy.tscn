@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://0pcv5ermn1p"]
+[gd_scene load_steps=14 format=3 uid="uid://0pcv5ermn1p"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemy/enemy.gd" id="1_bi6oj"]
 [ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/components/physics/hurt_box.tscn" id="2_lk76p"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cuj7221o7bai8" path="res://res/sound/sfx/hurt_enemy.wav" id="8_d7esr"]
 [ext_resource type="Script" path="res://scenes/components/sound/variable_pitch_audio_stream_player.gd" id="9_lleqn"]
 [ext_resource type="AudioStream" uid="uid://d5y37mp1gb6e" path="res://res/sound/sfx/kill_enemy.wav" id="10_f1etg"]
+[ext_resource type="Texture2D" uid="uid://dhqkdvk3ji5yw" path="res://res/art/gameplay/actor_light.png" id="13_u4b3e"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 y_sort_enabled = true
@@ -72,6 +73,10 @@ script = ExtResource("9_lleqn")
 stream = ExtResource("10_f1etg")
 volume_db = -7.012
 script = ExtResource("9_lleqn")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.2
+texture = ExtResource("13_u4b3e")
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 
