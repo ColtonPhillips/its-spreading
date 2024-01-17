@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scenes/components/movement/move_input_component.gd" id="3_ptxy4"]
 [ext_resource type="PackedScene" uid="uid://csafkqwts3rfk" path="res://scenes/gameplay/projectiles/projectiles/water_orb_projectile.tscn" id="4_r3uhc"]
 [ext_resource type="AudioStream" uid="uid://vs343xtxovq0" path="res://sound/sfx/exp_pickup.wav" id="6_7leyi"]
-[ext_resource type="Script" path="res://scenes/components/variable_pitch_audio_stream_player.gd" id="7_5wn3i"]
+[ext_resource type="Script" path="res://scenes/components/sound/variable_pitch_audio_stream_player.gd" id="7_5wn3i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjc6a"]
 atlas = ExtResource("2_mluj1")
