@@ -15,6 +15,9 @@ extends CharacterBody2D
 @onready var hurt_sfx = $HurtSfx
 @onready var kill_sfx = $KillSfx
 
+func _ready():
+	kill_sfx.finished.connect(queue_free)
+
 func _physics_process(delta):
 	movement(delta)
 	animation(delta)
@@ -40,7 +43,7 @@ func _on_hurt_box_hurt(damage):
 		spawn_exp()
 		scale_component.tween_scale()
 		kill_sfx.play_with_variance()
-		kill_sfx.finished.connect(queue_free)
+		
 		collision_shape_2d.call_deferred("set", "disabled", false)
 
 func spawn_exp():
