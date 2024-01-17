@@ -24,15 +24,7 @@ func _ready():
 	fire_rate_timer.timeout.connect(fire_weapon)
 
 func _physics_process(delta):
-	movement(delta)
 	animation(delta)
-		
-func movement(delta):
-	#var x_mov = Input.get_axis("move_left", "move_right")
-	#var y_mov = Input.get_axis("move_up", "move_down")
-	#var mov = Vector2(x_mov, y_mov)
-	#velocity = mov.normalized() * move_speed
-	move_and_slide()
 
 func animation(delta):
 	if velocity.x > 0:
