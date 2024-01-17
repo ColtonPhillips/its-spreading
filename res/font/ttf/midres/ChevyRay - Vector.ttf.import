@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://b8ob2jsrfxhgx"
+path="res://.godot/imported/ChevyRay - Vector.ttf-5b0a6e33e7e8bf7494e88650987f101d.fontdata"
+
+[deps]
+
+source_file="res://res/font/ttf/midres/ChevyRay - Vector.ttf"
+dest_files=["res://.godot/imported/ChevyRay - Vector.ttf-5b0a6e33e7e8bf7494e88650987f101d.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bcf1wtgftcnmh"]
+
+[ext_resource type="FontFile" uid="uid://dmompifepalc2" path="res://res/font/ttf/lowres/ChevyRay - Babyblocks.ttf" id="1_ygrel"]
+
+[resource]
+default_font = ExtResource("1_ygrel")

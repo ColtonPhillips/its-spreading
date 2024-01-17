@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cjafynpl3f6fd"]
 
-[ext_resource type="Texture2D" uid="uid://35khk818c4kx" path="res://art/gameplay/pickups/smoke_pickup.png" id="1_eykr0"]
+[ext_resource type="Texture2D" uid="uid://35khk818c4kx" path="res://res/art/gameplay/pickups/smoke_pickup.png" id="1_eykr0"]
 [ext_resource type="Script" path="res://scenes/gameplay/loot/pickup.gd" id="1_n707f"]
 [ext_resource type="Script" path="res://scenes/components/movement/move_position_component.gd" id="3_cmepo"]
 

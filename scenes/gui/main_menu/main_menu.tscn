@@ -1,10 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6djgc5rsd3g2"]
+[gd_scene load_steps=16 format=3 uid="uid://c6djgc5rsd3g2"]
 
-[ext_resource type="Theme" uid="uid://bcf1wtgftcnmh" path="res://font/font_theme.tres" id="1_142fs"]
 [ext_resource type="Script" path="res://scenes/gui/main_menu/main_menu.gd" id="2_7dbyw"]
 [ext_resource type="Theme" uid="uid://ybvdicuwr115" path="res://scenes/gui/main_menu/main_menu.tres" id="3_84nfo"]
 [ext_resource type="PackedScene" uid="uid://27phkm3uydxm" path="res://scenes/world.tscn" id="3_h4g7h"]
 [ext_resource type="PackedScene" uid="uid://51831lqhf2oq" path="res://scenes/gui/credits/credits.tscn" id="3_m02a8"]
+[ext_resource type="FontFile" uid="uid://dm3ughxiux3id" path="res://res/font/ttf/lowres/ChevyRay - Bird Seed.ttf" id="6_0fs6r"]
+[ext_resource type="Texture2D" uid="uid://6liiirbd1fed" path="res://res/art/gameplay/environment/hay_bale.png" id="6_024mt"]
+[ext_resource type="FontFile" uid="uid://pl05vf8mg4tl" path="res://res/font/ttf/detail/ChevyRay - Bubble Time.ttf" id="6_jha0i"]
+
+[sub_resource type="Theme" id="Theme_xiyjw"]
+default_font = ExtResource("6_0fs6r")
+default_font_size = 10
+
+[sub_resource type="Theme" id="Theme_r36pu"]
+default_font = ExtResource("6_jha0i")
+default_font_size = 22
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0hpo"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_g2038"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_u8gym"]
+events = [SubResource("InputEventKey_g2038")]
 
 [sub_resource type="Animation" id="Animation_pmv3q"]
 length = 0.001
@@ -78,7 +97,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_142fs")
+theme = SubResource("Theme_xiyjw")
 
 [node name="MenuLabelsContainer" type="VBoxContainer" parent="MainMenuContainer"]
 layout_mode = 2
@@ -108,6 +127,26 @@ size_flags_horizontal = 4
 text = "Exit"
 underline = 2
 
+[node name="Node2D" type="Node2D" parent="MainMenuContainer/MenuLabelsContainer"]
+position = Vector2(5.3, 7.1)
+scale = Vector2(1.015, 1.015)
+
+[node name="CheckButton" type="CheckButton" parent="MainMenuContainer/MenuLabelsContainer/Node2D"]
+custom_minimum_size = Vector2(200, 0)
+layout_direction = 2
+offset_left = -67.2906
+offset_top = 116.158
+offset_right = 132.709
+offset_bottom = 147.158
+tooltip_text = "big ole "
+theme = SubResource("Theme_r36pu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e0hpo")
+shortcut = SubResource("Shortcut_u8gym")
+text = "Fullscreen"
+icon = ExtResource("6_024mt")
+alignment = 2
+expand_icon = true
+
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 anchors_preset = 15
@@ -125,3 +164,4 @@ libraries = {
 [connection signal="pressed" from="MainMenuContainer/MenuLabelsContainer/StartGameLink" to="." method="_on_start_game_link_pressed"]
 [connection signal="pressed" from="MainMenuContainer/MenuLabelsContainer/CreditsLink" to="." method="_on_credits_link_pressed"]
 [connection signal="pressed" from="MainMenuContainer/MenuLabelsContainer/ExitLink" to="." method="_on_exit_link_pressed"]
+[connection signal="toggled" from="MainMenuContainer/MenuLabelsContainer/Node2D/CheckButton" to="." method="_on_check_button_toggled"]

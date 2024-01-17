@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://btyeuqqrwnge2"
+path="res://.godot/imported/ChevyRay - Stapler.ttf-06b448c28f0ae464ada4b2c3e9313589.fontdata"
+
+[deps]
+
+source_file="res://res/font/ttf/highres/ChevyRay - Stapler.ttf"
+dest_files=["res://.godot/imported/ChevyRay - Stapler.ttf-06b448c28f0ae464ada4b2c3e9313589.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

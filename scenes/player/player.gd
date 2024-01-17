@@ -23,6 +23,12 @@ func _ready():
 	Global.player = self
 	fire_rate_timer.timeout.connect(fire_weapon)
 
+func _input(event: InputEvent) -> void:
+	var x_mov = Input.get_axis("move_left", "move_right")
+	var x = Input.get("toggle_fullscreen")
+	
+	if event.is_action_pressed("toggle_fullscreen"):
+		Global.Toggle_Fullscreen()
 func _physics_process(delta):
 	animation(delta)
 

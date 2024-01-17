@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://27phkm3uydxm"]
 
 [ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player/player.tscn" id="1_5kmuy"]
-[ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://art/gameplay/environment/grass.png" id="1_m36ed"]
+[ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://res/art/gameplay/environment/grass.png" id="1_m36ed"]
 [ext_resource type="PackedScene" uid="uid://x43epic8paf7" path="res://scenes/gameplay/enemy_spawner.tscn" id="3_luq5g"]
 [ext_resource type="PackedScene" uid="uid://bjopb88sq766e" path="res://scenes/gameplay/enemy/enemies/fire_orb_enemy.tscn" id="4_p1ix0"]
 [ext_resource type="PackedScene" uid="uid://dkiuk5y53nmy2" path="res://scenes/gameplay/enemy/enemies/wisp_enemy.tscn" id="4_y0un6"]
 [ext_resource type="Script" path="res://scenes/gameplay/spawn_info.gd" id="5_7m54o"]
 [ext_resource type="PackedScene" uid="uid://boxf2pg7c1da4" path="res://scenes/gameplay/testing_chamber.tscn" id="7_3lalr"]
-[ext_resource type="AudioStream" uid="uid://b2rln4mnh1h5c" path="res://sound/music/DarkTheme.mp3" id="9_prxxj"]
+[ext_resource type="AudioStream" uid="uid://b2rln4mnh1h5c" path="res://res/sound/music/DarkTheme.mp3" id="9_prxxj"]
 
 [sub_resource type="Resource" id="Resource_3yj5a"]
 script = ExtResource("5_7m54o")

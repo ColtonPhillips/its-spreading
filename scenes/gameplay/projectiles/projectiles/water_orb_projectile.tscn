@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://csafkqwts3rfk"]
 
 [ext_resource type="PackedScene" uid="uid://bgvdp80mpx8at" path="res://scenes/gameplay/projectiles/projectile.tscn" id="1_04puj"]
-[ext_resource type="Texture2D" uid="uid://c2een0ewjk4wm" path="res://art/gameplay/powers/water_projectile.png" id="2_2bdfl"]
+[ext_resource type="Texture2D" uid="uid://c2een0ewjk4wm" path="res://res/art/gameplay/powers/water_projectile.png" id="2_2bdfl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kuo6n"]
 atlas = ExtResource("2_2bdfl")

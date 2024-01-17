@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ir75jd4mwilt"]
 
 [ext_resource type="PackedScene" uid="uid://kcswp7pahkxl" path="res://scenes/gameplay/obstacles/block.tscn" id="1_nc0cd"]
-[ext_resource type="Texture2D" uid="uid://uga1vtov1byt" path="res://art/gameplay/environment/misc.png" id="2_iprcv"]
-[ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://art/gameplay/shadow.png" id="3_gi6u7"]
+[ext_resource type="Texture2D" uid="uid://uga1vtov1byt" path="res://res/art/gameplay/environment/misc.png" id="2_iprcv"]
+[ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://res/art/gameplay/shadow.png" id="3_gi6u7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ghy3b"]
 radius = 4.5

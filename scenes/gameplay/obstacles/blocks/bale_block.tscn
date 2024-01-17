@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bk8yby3ot6nju"]
 
 [ext_resource type="PackedScene" uid="uid://kcswp7pahkxl" path="res://scenes/gameplay/obstacles/block.tscn" id="1_1qq4d"]
-[ext_resource type="Texture2D" uid="uid://6liiirbd1fed" path="res://art/gameplay/environment/hay_bale.png" id="2_ahk8s"]
+[ext_resource type="Texture2D" uid="uid://6liiirbd1fed" path="res://res/art/gameplay/environment/hay_bale.png" id="2_ahk8s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3nsp"]
 radius = 11.5417
