@@ -10,3 +10,11 @@ func Toggle_Fullscreen():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func Toggle_Fullscreen_On():
+	ToggledOn = true
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+func Toggle_Fullscreen_Off():
+	ToggledOn = false
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
