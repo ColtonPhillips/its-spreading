@@ -1,31 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk8yby3ot6nju"]
+[gd_scene load_steps=4 format=3 uid="uid://bk8yby3ot6nju"]
 
 [ext_resource type="PackedScene" uid="uid://kcswp7pahkxl" path="res://scenes/gameplay/obstacles/block.tscn" id="1_1qq4d"]
-[ext_resource type="Texture2D" uid="uid://uga1vtov1byt" path="res://art/gameplay/environment/misc.png" id="2_tgjao"]
-[ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://art/gameplay/shadow.png" id="3_36vbj"]
+[ext_resource type="Texture2D" uid="uid://6liiirbd1fed" path="res://art/gameplay/environment/hay_bale.png" id="2_ahk8s"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gura5"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3nsp"]
+radius = 11.5417
+height = 43.1045
 
 [node name="BaleBlock" instance=ExtResource("1_1qq4d")]
-scale = Vector2(2, 2)
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(1.375, 5.78)
-texture = ExtResource("2_tgjao")
-region_enabled = true
+position = Vector2(0, -0.5)
+texture = ExtResource("2_ahk8s")
 region_rect = Rect2(0, 15.3248, 17.2166, 16.6752)
 
-[node name="Shadow" type="Sprite2D" parent="Sprite2D" index="0"]
-z_index = -1
-position = Vector2(-0.375001, -7.28)
-scale = Vector2(0.8125, 0.875)
-texture = ExtResource("3_36vbj")
-
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(1.375, 5.78)
-shape = SubResource("CircleShape2D_gura5")
-disabled = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
-position = Vector2(1.275, 5.48)
-polygon = PackedVector2Array(-4.1, 5.7, -7.85, -2.15, 1.9, -5.4, 6.9, 1.7)
+position = Vector2(1, 10)
+rotation = 1.50098
+shape = SubResource("CapsuleShape2D_m3nsp")

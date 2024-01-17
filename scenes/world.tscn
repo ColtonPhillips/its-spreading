@@ -64,35 +64,35 @@ spawns = Array[ExtResource("5_7m54o")]([SubResource("Resource_3yj5a"), SubResour
 
 [node name="TestingChamber" parent="YSortableSceneGraph" instance=ExtResource("7_3lalr")]
 y_sort_enabled = true
-position = Vector2(-582, 28)
+position = Vector2(-1476, 733)
 
 [node name="TestingChamber2" parent="YSortableSceneGraph" instance=ExtResource("7_3lalr")]
 y_sort_enabled = true
-position = Vector2(420, -54)
+position = Vector2(1275, -1380)
 
 [node name="TestingChamber3" parent="YSortableSceneGraph" instance=ExtResource("7_3lalr")]
 y_sort_enabled = true
-position = Vector2(80, -69)
+position = Vector2(216, -1292)
 
 [node name="TestingChamber4" parent="YSortableSceneGraph" instance=ExtResource("7_3lalr")]
 y_sort_enabled = true
-position = Vector2(-351, 462)
+position = Vector2(-779, -1250)
 
 [node name="TestingChamber5" parent="YSortableSceneGraph" instance=ExtResource("7_3lalr")]
 y_sort_enabled = true
-position = Vector2(664, 449)
+position = Vector2(540, 442)
 
 [node name="TestingChamber6" parent="YSortableSceneGraph" instance=ExtResource("7_3lalr")]
 y_sort_enabled = true
-position = Vector2(-804, -618)
+position = Vector2(1310, 312)
 
 [node name="TestingChamber7" parent="YSortableSceneGraph" instance=ExtResource("7_3lalr")]
 y_sort_enabled = true
-position = Vector2(-1253, 436)
+position = Vector2(-442, 591)
 
 [node name="TestingChamber8" parent="YSortableSceneGraph" instance=ExtResource("7_3lalr")]
 y_sort_enabled = true
-position = Vector2(-1497, -161)
+position = Vector2(-1646, -1041)
 
 [node name="Menu" type="CanvasLayer" parent="."]
 process_mode = 3
