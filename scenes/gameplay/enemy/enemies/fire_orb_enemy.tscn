@@ -66,5 +66,21 @@ position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_ll4qu")
 debug_color = Color(0.498039, 0.447059, 0.952941, 0.419608)
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="8"]
+position = Vector2(-1, -9)
+amount = 5
+lifetime = 0.7
+speed_scale = 0.5
+emission_shape = 2
+emission_sphere_radius = 7.5
+direction = Vector2(10, 12)
+spread = 75.91
+gravity = Vector2(0, -210)
+radial_accel_min = -57.14
+scale_amount_min = 0.1
+color = Color(0.729412, 0.109804, 0.156863, 1)
+hue_variation_min = -0.19
+hue_variation_max = 1.0
+
 [editable path="HurtBox"]
 [editable path="HitBox"]
