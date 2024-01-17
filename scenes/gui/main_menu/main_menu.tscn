@@ -157,7 +157,6 @@ offset_left = 6.60099
 offset_top = 108.276
 offset_right = 206.601
 offset_bottom = 139.276
-tooltip_text = "Thank you for playing my game!"
 theme = SubResource("Theme_r36pu")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_e0hpo")
 shortcut = SubResource("Shortcut_u8gym")
