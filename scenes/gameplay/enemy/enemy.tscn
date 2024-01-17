@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scenes/gameplay/enemy/enemy.gd" id="1_bi6oj"]
 [ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/components/physics/hurt_box.tscn" id="2_lk76p"]
 [ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/gameplay/loot/pickup.tscn" id="2_wgvuk"]
+[ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://art/gameplay/shadow.png" id="3_cl4l7"]
 [ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://scenes/components/physics/hit_box.tscn" id="3_nlj2i"]
 [ext_resource type="Script" path="res://scenes/components/movement/move_character_body_2d_component.gd" id="3_ynl7d"]
-[ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://art/shadow.png" id="3_yvgpi"]
 [ext_resource type="Script" path="res://scenes/components/scale/scale_component.gd" id="7_44dt6"]
 [ext_resource type="AudioStream" uid="uid://cuj7221o7bai8" path="res://sound/sfx/hurt_enemy.wav" id="8_d7esr"]
 [ext_resource type="Script" path="res://scenes/components/variable_pitch_audio_stream_player.gd" id="9_lleqn"]
@@ -24,7 +24,7 @@ dropped_loot = ExtResource("2_wgvuk")
 
 [node name="Shadow" type="Sprite2D" parent="AnimatedSprite2D"]
 z_index = -1
-texture = ExtResource("3_yvgpi")
+texture = ExtResource("3_cl4l7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -57,7 +57,7 @@ scale_duration = 0.6
 
 [node name="HurtSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_d7esr")
-volume_db = -6.012
+volume_db = -8.012
 script = ExtResource("9_lleqn")
 
 [node name="KillSfx" type="AudioStreamPlayer" parent="."]

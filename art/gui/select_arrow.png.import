@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5dtxv8q8u4ae"
-path="res://.godot/imported/grass.png-af9205a0fdfd145e55fd9de45a00e35a.ctex"
+uid="uid://d2c1jgtrm2fpy"
+path="res://.godot/imported/select_arrow.png-593ba4d99dfc5521825310523164a9a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/grass.png"
-dest_files=["res://.godot/imported/grass.png-af9205a0fdfd145e55fd9de45a00e35a.ctex"]
+source_file="res://art/gui/select_arrow.png"
+dest_files=["res://.godot/imported/select_arrow.png-593ba4d99dfc5521825310523164a9a0.ctex"]
 
 [params]
 

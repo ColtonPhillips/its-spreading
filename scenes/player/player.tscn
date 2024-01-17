@@ -1,31 +1,33 @@
-[gd_scene load_steps=17 format=3 uid="uid://c3vntakhy0jq7"]
+[gd_scene load_steps=19 format=3 uid="uid://c3vntakhy0jq7"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_2stqb"]
-[ext_resource type="Texture2D" uid="uid://d3nftxbopob5v" path="res://art/player.png" id="2_34rn8"]
+[ext_resource type="Texture2D" uid="uid://d3nftxbopob5v" path="res://art/gameplay/player/player.png" id="2_mluj1"]
 [ext_resource type="Script" path="res://scenes/components/spawn/spawner_component.gd" id="3_8jtw5"]
 [ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/components/physics/hurt_box.tscn" id="3_b0mcm"]
+[ext_resource type="Script" path="res://scenes/components/movement/move_character_body_2d_component.gd" id="3_ijo0d"]
+[ext_resource type="Script" path="res://scenes/components/movement/move_input_component.gd" id="3_ptxy4"]
 [ext_resource type="PackedScene" uid="uid://csafkqwts3rfk" path="res://scenes/gameplay/projectiles/projectiles/water_orb_projectile.tscn" id="4_r3uhc"]
 [ext_resource type="AudioStream" uid="uid://vs343xtxovq0" path="res://sound/sfx/exp_pickup.wav" id="6_7leyi"]
 [ext_resource type="Script" path="res://scenes/components/variable_pitch_audio_stream_player.gd" id="7_5wn3i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjc6a"]
-atlas = ExtResource("2_34rn8")
+atlas = ExtResource("2_mluj1")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l4n5j"]
-atlas = ExtResource("2_34rn8")
+atlas = ExtResource("2_mluj1")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ajhn"]
-atlas = ExtResource("2_34rn8")
+atlas = ExtResource("2_mluj1")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oqqmm"]
-atlas = ExtResource("2_34rn8")
+atlas = ExtResource("2_mluj1")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fu6ld"]
-atlas = ExtResource("2_34rn8")
+atlas = ExtResource("2_mluj1")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4goky"]
@@ -91,6 +93,14 @@ position = Vector2(0, -31)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_cfm71")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_ijo0d")
+actor = NodePath("..")
+
+[node name="MoveInputComponent" type="Node" parent="." node_paths=PackedStringArray("move_component")]
+script = ExtResource("3_ptxy4")
+move_component = NodePath("../MoveComponent")
 
 [node name="HurtBox" parent="." instance=ExtResource("3_b0mcm")]
 position = Vector2(0, 1)

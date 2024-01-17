@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://27phkm3uydxm"]
 
-[ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://art/grass.png" id="1_3fkv3"]
 [ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player/player.tscn" id="1_5kmuy"]
+[ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://art/gameplay/environment/grass.png" id="1_m36ed"]
 [ext_resource type="PackedScene" uid="uid://x43epic8paf7" path="res://scenes/gameplay/enemy_spawner.tscn" id="3_luq5g"]
 [ext_resource type="PackedScene" uid="uid://bjopb88sq766e" path="res://scenes/gameplay/enemy/enemies/fire_orb_enemy.tscn" id="4_p1ix0"]
 [ext_resource type="PackedScene" uid="uid://dkiuk5y53nmy2" path="res://scenes/gameplay/enemy/enemies/wisp_enemy.tscn" id="4_y0un6"]
@@ -47,7 +47,7 @@ metadata/_edit_lock_ = true
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -10
 texture_repeat = 2
-texture = ExtResource("1_3fkv3")
+texture = ExtResource("1_m36ed")
 region_enabled = true
 region_rect = Rect2(-4000, -4000, 4000, 4000)
 metadata/_edit_lock_ = true
