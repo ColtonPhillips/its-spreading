@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://scenes/components/movement/move_input_component.gd" id="3_ptxy4"]
 [ext_resource type="PackedScene" uid="uid://csafkqwts3rfk" path="res://scenes/gameplay/projectiles/projectiles/water_orb_projectile.tscn" id="4_r3uhc"]
 [ext_resource type="Resource" uid="uid://ci047nbwo55s2" path="res://resources/stats/player/player_stats.tres" id="5_4c67a"]
+[ext_resource type="Script" path="res://scenes/components/stats/player_stats_component.gd" id="5_qbk8r"]
 [ext_resource type="AudioStream" uid="uid://vs343xtxovq0" path="res://res/sound/sfx/exp_pickup.wav" id="6_7leyi"]
 [ext_resource type="Script" path="res://scenes/components/sound/variable_pitch_audio_stream_player.gd" id="7_5wn3i"]
 [ext_resource type="PackedScene" uid="uid://be7cq2knfj5bf" path="res://scenes/components/health/health_bar_component.tscn" id="7_h60ml"]
-[ext_resource type="Script" path="res://scenes/components/stats/actor_stats_component.gd" id="10_heau0"]
 [ext_resource type="Texture2D" uid="uid://b3yhq4mnobip1" path="res://res/art/gameplay/lighting/actor_highres_light.png" id="13_8qh5f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjc6a"]
@@ -109,7 +109,7 @@ stats_component = NodePath("../PlayerStatsComponent")
 move_component = NodePath("../MoveComponent")
 
 [node name="PlayerStatsComponent" type="Node" parent="."]
-script = ExtResource("10_heau0")
+script = ExtResource("5_qbk8r")
 stats = ExtResource("5_4c67a")
 
 [node name="HealthBarComponent" parent="." node_paths=PackedStringArray("actorStatsComponent") instance=ExtResource("7_h60ml")]

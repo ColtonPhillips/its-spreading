@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ow0h34umieqd"]
+
+[ext_resource type="Script" path="res://scenes/gui/gameplay/gui_gameplay.gd" id="1_5ucst"]
+[ext_resource type="PackedScene" uid="uid://cdlpg5jr6471u" path="res://scenes/components/exp_bar_component/exp_bar_component.tscn" id="1_c74ic"]
+
+[node name="GUIGameplay" type="Node2D"]
+script = ExtResource("1_5ucst")
+
+[node name="ExpBarComponent" parent="." instance=ExtResource("1_c74ic")]

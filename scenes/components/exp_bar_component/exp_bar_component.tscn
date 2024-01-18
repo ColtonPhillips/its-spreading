@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdlpg5jr6471u"]
+
+[ext_resource type="Script" path="res://scenes/components/exp_bar_component/exp_bar_component.gd" id="1_6dl4t"]
+[ext_resource type="Texture2D" uid="uid://dve7m7egxlnr" path="res://res/art/gui/exp/exp_under.png" id="2_6bk6m"]
+[ext_resource type="Texture2D" uid="uid://dep5ppxt8bl7h" path="res://res/art/gui/exp/exp_progress.png" id="3_e7bad"]
+
+[node name="ExpBarComponent" type="CanvasLayer"]
+script = ExtResource("1_6dl4t")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_right = 88.0
+offset_bottom = 8.0
+texture_under = ExtResource("2_6bk6m")
+texture_progress = ExtResource("3_e7bad")
+texture_progress_offset = Vector2(5, 0)
