@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv8xddaxna8oj"]
+
+[ext_resource type="Script" path="res://scenes/gui/gameplay/level_label_component.gd" id="1_iknci"]
+[ext_resource type="FontFile" uid="uid://c2aksi4rm4nso" path="res://res/font/ttf/lowres/ChevyRay - Magic Book.ttf" id="2_m3m53"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m7nsh"]
+font = ExtResource("2_m3m53")
+font_size = 12
+
+[node name="LevelLabelComponent" type="CanvasLayer"]
+script = ExtResource("1_iknci")
+
+[node name="levelLabel" type="Label" parent="."]
+offset_right = 41.0
+offset_bottom = 13.0
+text = "LVL:1"
+label_settings = SubResource("LabelSettings_m7nsh")

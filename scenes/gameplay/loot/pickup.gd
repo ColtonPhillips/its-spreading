@@ -12,7 +12,7 @@ func _process(delta):
 		move_component.velocity = direction * move_speed
 		
 		if global_position.distance_to(player.global_position) < 2.0:
-			Global.player.stats_component.exp += 5
+			Global.player.stats_component.exp += 15
 			queue_free()
 
 func chase_player():
