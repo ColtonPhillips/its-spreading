@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/gameplay/projectiles/projectile.gd" id="1_pymdo"]
 [ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://scenes/components/physics/hit_box.tscn" id="2_bty2l"]
 [ext_resource type="Script" path="res://scenes/components/movement/move_position_component.gd" id="3_ll1l8"]
-[ext_resource type="Script" path="res://scenes/components/scale/scale_component.gd" id="4_xg0vb"]
+[ext_resource type="Script" path="res://scenes/components/effects/scale/scale_component.gd" id="4_xg0vb"]
 
 [node name="Projectile" type="Node2D" groups=["attack"]]
 y_sort_enabled = true

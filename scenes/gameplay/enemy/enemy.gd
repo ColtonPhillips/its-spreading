@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var player = Global.player
 @onready var scenegraph = Global.player.get_parent()
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var flash_component = $FlashComponent
 
 @onready var move_component = $MoveComponent
 @onready var scale_component = $ScaleComponent
@@ -37,6 +38,7 @@ func _on_hurt_box_hurt(damage):
 	stats_component.hp -= damage
 	scale_component.tween_scale()
 	hurt_sfx.play_with_variance()
+	flash_component.flash()
 	if stats_component.hp <= 0:
 		modulate.a = 0.2
 		spawn_exp()

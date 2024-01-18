@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb3nyk7dh7bdw"]
+
+[ext_resource type="Script" path="res://scenes/components/effects/flash/flash_component.gd" id="1_47hvl"]
+
+[node name="FlashComponent" type="Node"]
+script = ExtResource("1_47hvl")
+flash_duration = 1.0
