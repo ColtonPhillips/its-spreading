@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://0pcv5ermn1p"]
+[gd_scene load_steps=15 format=3 uid="uid://0pcv5ermn1p"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemy/enemy.gd" id="1_bi6oj"]
 [ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/components/physics/hurt_box.tscn" id="2_lk76p"]
@@ -6,13 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://res/art/gameplay/shadow.png" id="3_cl4l7"]
 [ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://scenes/components/physics/hit_box.tscn" id="3_nlj2i"]
 [ext_resource type="Script" path="res://scenes/components/movement/move_character_body_2d_component.gd" id="3_ynl7d"]
+[ext_resource type="Texture2D" uid="uid://b4fhi75sk51gg" path="res://res/art/gameplay/lighting/actor_orange_light.png" id="4_i7onb"]
 [ext_resource type="Script" path="res://scenes/components/stats/actor_stats_component.gd" id="6_ysjh2"]
 [ext_resource type="Script" path="res://scenes/components/scale/scale_component.gd" id="7_44dt6"]
 [ext_resource type="PackedScene" uid="uid://be7cq2knfj5bf" path="res://scenes/components/health/health_bar_component.tscn" id="7_y3leb"]
 [ext_resource type="AudioStream" uid="uid://cuj7221o7bai8" path="res://res/sound/sfx/hurt_enemy.wav" id="8_d7esr"]
 [ext_resource type="Script" path="res://scenes/components/sound/variable_pitch_audio_stream_player.gd" id="9_lleqn"]
 [ext_resource type="AudioStream" uid="uid://d5y37mp1gb6e" path="res://res/sound/sfx/kill_enemy.wav" id="10_f1etg"]
-[ext_resource type="Texture2D" uid="uid://dhqkdvk3ji5yw" path="res://res/art/gameplay/actor_light.png" id="13_u4b3e"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yets1"]
+blend_mode = 1
+light_mode = 1
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 y_sort_enabled = true
@@ -27,6 +31,13 @@ dropped_loot = ExtResource("2_wgvuk")
 [node name="Shadow" type="Sprite2D" parent="AnimatedSprite2D"]
 z_index = -1
 texture = ExtResource("3_cl4l7")
+
+[node name="AdditiveBlendLight" type="Sprite2D" parent="AnimatedSprite2D"]
+modulate = Color(1, 1, 1, 0.14902)
+z_index = -10
+material = SubResource("CanvasItemMaterial_yets1")
+position = Vector2(1, 11)
+texture = ExtResource("4_i7onb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -73,10 +84,6 @@ script = ExtResource("9_lleqn")
 stream = ExtResource("10_f1etg")
 volume_db = -7.012
 script = ExtResource("9_lleqn")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 0.2
-texture = ExtResource("13_u4b3e")
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 

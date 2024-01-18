@@ -10,4 +10,6 @@ func _physics_process(delta):
 		
 func movement(delta):
 	actor.velocity = velocity
+	if (actor.velocity.length() < 5):
+		return
 	actor.move_and_slide()

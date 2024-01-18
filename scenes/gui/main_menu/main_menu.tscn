@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6djgc5rsd3g2"]
+[gd_scene load_steps=22 format=3 uid="uid://c6djgc5rsd3g2"]
 
 [ext_resource type="Script" path="res://scenes/gui/main_menu/main_menu.gd" id="2_7dbyw"]
 [ext_resource type="Theme" uid="uid://ybvdicuwr115" path="res://scenes/gui/main_menu/main_menu.tres" id="3_84nfo"]
@@ -19,6 +19,18 @@ default_font_size = 16
 
 [sub_resource type="Theme" id="Theme_3mdx1"]
 default_font = ExtResource("7_3y3mg")
+
+[sub_resource type="InputEventKey" id="InputEventKey_srnm1"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_6cjii"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_60odf"]
+events = [SubResource("InputEventKey_srnm1"), SubResource("InputEventKey_6cjii")]
 
 [sub_resource type="Theme" id="Theme_r36pu"]
 default_font = ExtResource("6_q755q")
@@ -129,6 +141,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_3mdx1")
+shortcut = SubResource("Shortcut_60odf")
 text = "Start Game"
 underline = 2
 

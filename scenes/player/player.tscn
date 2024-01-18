@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://scenes/components/sound/variable_pitch_audio_stream_player.gd" id="7_5wn3i"]
 [ext_resource type="PackedScene" uid="uid://be7cq2knfj5bf" path="res://scenes/components/health/health_bar_component.tscn" id="7_h60ml"]
 [ext_resource type="Script" path="res://scenes/components/stats/actor_stats_component.gd" id="10_heau0"]
-[ext_resource type="Texture2D" uid="uid://b3yhq4mnobip1" path="res://res/art/gameplay/actor_highres_light.png" id="13_8qh5f"]
+[ext_resource type="Texture2D" uid="uid://b3yhq4mnobip1" path="res://res/art/gameplay/lighting/actor_highres_light.png" id="13_8qh5f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjc6a"]
 atlas = ExtResource("2_mluj1")
@@ -92,7 +92,8 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -31)
+modulate = Color(1, 1, 1, 0.654902)
+position = Vector2(0, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -184,9 +185,19 @@ volume_db = -12.0
 script = ExtResource("7_5wn3i")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -11)
 energy = 0.4
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.368627)
 texture = ExtResource("13_8qh5f")
 texture_scale = 1.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(0, -11)
+energy = 0.2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.368627)
+texture = ExtResource("13_8qh5f")
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="area_entered" from="PickupRange" to="." method="_on_pickup_range_area_entered"]

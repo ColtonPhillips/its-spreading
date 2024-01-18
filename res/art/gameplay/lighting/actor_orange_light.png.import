@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhqkdvk3ji5yw"
-path="res://.godot/imported/actor_light.png-32d19b40b9deccb31e7fd74102d0d3f5.ctex"
+uid="uid://b4fhi75sk51gg"
+path="res://.godot/imported/actor_orange_light.png-aa55af2fd1d1ef40b3aabe5f1f960f5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/art/gameplay/actor_light.png"
-dest_files=["res://.godot/imported/actor_light.png-32d19b40b9deccb31e7fd74102d0d3f5.ctex"]
+source_file="res://res/art/gameplay/lighting/actor_orange_light.png"
+dest_files=["res://.godot/imported/actor_orange_light.png-aa55af2fd1d1ef40b3aabe5f1f960f5f.ctex"]
 
 [params]
 
