@@ -96,7 +96,7 @@ y_sort_enabled = true
 position = Vector2(-1646, -1041)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="YSortableSceneGraph"]
-color = Color(0.454902, 0.454902, 0.639216, 1)
+color = Color(0.662745, 0.666667, 0.654902, 1)
 
 [node name="GUIGameplay" parent="." instance=ExtResource("9_e0dv3")]
 
