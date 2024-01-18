@@ -42,7 +42,7 @@ func animation(delta):
 	else:
 		animated_sprite_2d.play("walk")
 		
-func _on_hurt_box_hurt(damage):
+func _on_hurt_box_hurt(damage, angle):
 	stats_component.hp -= damage
 	print(stats_component.hp)
 var flip_flop = true
