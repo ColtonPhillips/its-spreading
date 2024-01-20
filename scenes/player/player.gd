@@ -85,6 +85,9 @@ func _on_hurtbox_component_hurt(hitbox: HitboxComponent):
 	delay_create(2.5, func():
 		strobe_component.stop()
 		hurtbox_component.process_mode = Node.PROCESS_MODE_INHERIT
+		if (stats_component.hp <= 0):
+			get_tree().get_nodes_in_group("PauseMenu")[0].pause()
+			get_tree().get_nodes_in_group("PauseMenu")[0]._on_exit_to_menu_button_pressed()
 	)
 	
 

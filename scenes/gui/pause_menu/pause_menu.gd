@@ -1,3 +1,4 @@
+class_name PauseMenu
 extends Node
 
 @export var main_menu_scene: Resource
