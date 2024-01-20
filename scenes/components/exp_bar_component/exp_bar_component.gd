@@ -13,6 +13,9 @@ func _ready():
 	playerStatsComponent.exp_changed.connect( func():
 		set_texture_progress()
 	)
+	playerStatsComponent.level_up.connect( func():
+		texture_progress_bar.max_value = playerStatsComponent.max_exp	
+	)
 	set_texture_progress()
 	
 func set_texture_progress():

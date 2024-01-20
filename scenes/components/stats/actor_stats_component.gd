@@ -7,11 +7,15 @@ extends Node
 var speed: int = 10
 var damage: int = 5
 # Create the health variable and connect a setter
-var max_hp: int = 16
+var max_hp: int = 15
+var hp_initialized = false
 var hp: int = 15:
 	set(value):
-		hp = value
+		if not hp_initialized:
+			value = max_hp
+			hp_initialized = true
 		
+		hp = min(value, max_hp)
 		# Signal out that the hp has changed
 		hp_changed.emit()
 		
@@ -25,8 +29,8 @@ signal no_hp() # Emit when there is no health left
 func _ready():
 	# copy default values from tres file
 	add_to_group("ActorStatsComponent")
+	max_hp = stats.hp
 	hp = stats.hp
-	max_hp = hp
 	speed = stats.speed
 	damage = stats.damage
 	

@@ -19,6 +19,8 @@ var exp: int = 0:
 		if exp >= max_exp: 
 			level += 1
 			exp = exp - max_exp
+			max_exp *= 1.1
+			speed *= 1.1
 			level_up.emit()
 			
 		# Signal out that the exp has changed

@@ -128,6 +128,8 @@ script = ExtResource("5_qbk8r")
 stats = ExtResource("5_4c67a")
 
 [node name="HealthBarComponent" parent="." node_paths=PackedStringArray("actorStatsComponent") instance=ExtResource("7_h60ml")]
+position = Vector2(0, 18.825)
+scale = Vector2(2, 2)
 actorStatsComponent = NodePath("../PlayerStatsComponent")
 
 [node name="SpawnerComponent" type="Node2D" parent="."]
@@ -220,5 +222,6 @@ shape = SubResource("CapsuleShape2D_1prqd")
 script = ExtResource("16_jgv0s")
 sprite = NodePath("../AnimatedSprite2D")
 
+[connection signal="level_up" from="PlayerStatsComponent" to="." method="_on_player_stats_component_level_up"]
 [connection signal="area_entered" from="PickupRange" to="." method="_on_pickup_range_area_entered"]
 [connection signal="hurt" from="HurtboxComponent" to="." method="_on_hurtbox_component_hurt"]
