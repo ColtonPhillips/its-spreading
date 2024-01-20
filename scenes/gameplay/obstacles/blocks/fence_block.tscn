@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://hvii8sqsbf4n"]
+
+[ext_resource type="PackedScene" uid="uid://kcswp7pahkxl" path="res://scenes/gameplay/obstacles/block.tscn" id="1_wa1ni"]
+[ext_resource type="Texture2D" uid="uid://0wykwgpj5tie" path="res://res/art/gameplay/environment/fence.png" id="2_ut5ch"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w4a1i"]
+radius = 2.0
+height = 96.0
+
+[node name="fence_block" instance=ExtResource("1_wa1ni")]
+position = Vector2(1, -10)
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ut5ch")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, 16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_w4a1i")

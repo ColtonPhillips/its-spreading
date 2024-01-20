@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://boxf2pg7c1da4"]
+[gd_scene load_steps=5 format=3 uid="uid://boxf2pg7c1da4"]
 
 [ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/gameplay/loot/pickup.tscn" id="1_dpjdh"]
 [ext_resource type="PackedScene" uid="uid://bk8yby3ot6nju" path="res://scenes/gameplay/obstacles/blocks/bale_block.tscn" id="2_74otc"]
 [ext_resource type="PackedScene" uid="uid://ir75jd4mwilt" path="res://scenes/gameplay/obstacles/blocks/rock_block.tscn" id="3_3diva"]
+[ext_resource type="PackedScene" uid="uid://hvii8sqsbf4n" path="res://scenes/gameplay/obstacles/blocks/fence_block.tscn" id="4_alukt"]
 
 [node name="TestingChamber" type="Node2D"]
 
@@ -59,3 +60,18 @@ position = Vector2(588, 584)
 
 [node name="BaleBlock24" parent="." instance=ExtResource("2_74otc")]
 position = Vector2(174, -464)
+
+[node name="fence_block" parent="." instance=ExtResource("4_alukt")]
+position = Vector2(-518, -634)
+
+[node name="fence_block2" parent="." instance=ExtResource("4_alukt")]
+position = Vector2(500, -616)
+
+[node name="fence_block3" parent="." instance=ExtResource("4_alukt")]
+position = Vector2(36, 281)
+
+[node name="fence_block4" parent="." instance=ExtResource("4_alukt")]
+position = Vector2(-57, 281)
+
+[node name="fence_block5" parent="." instance=ExtResource("4_alukt")]
+position = Vector2(130, 281)
