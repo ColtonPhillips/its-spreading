@@ -23,7 +23,6 @@ Global="*res://scenes/global.gd"
 
 window/size/viewport_width=320
 window/size/viewport_height=200
-window/size/initial_position_type=0
 window/size/window_width_override=1280
 window/size/window_height_override=800
 window/stretch/mode="canvas_items"

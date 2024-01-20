@@ -78,8 +78,8 @@ animations = [{
 radius = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1prqd"]
-radius = 1.08696
-height = 5.07246
+radius = 0.724638
+height = 4.34783
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
