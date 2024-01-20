@@ -79,7 +79,7 @@ radius = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1prqd"]
 radius = 0.724638
-height = 4.34783
+height = 3.9
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
@@ -101,7 +101,7 @@ autoplay = "idle"
 [node name="Shadow" type="Sprite2D" parent="AnimatedSprite2D"]
 modulate = Color(1, 1, 1, 0.380392)
 z_index = -3
-position = Vector2(1, 2)
+position = Vector2(0.5, 2)
 texture = ExtResource("3_sehm1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -213,7 +213,7 @@ collision_mask = 0
 script = ExtResource("14_w7aay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(0, -7)
+position = Vector2(0, -8)
 scale = Vector2(2.76, 2.76)
 shape = SubResource("CapsuleShape2D_1prqd")
 

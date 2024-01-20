@@ -38,6 +38,7 @@ dropped_loot = ExtResource("2_wgvuk")
 material = SubResource("ShaderMaterial_vkjpo")
 
 [node name="Shadow" type="Sprite2D" parent="AnimatedSprite2D"]
+self_modulate = Color(1, 1, 1, 0.317647)
 z_index = -1
 texture = ExtResource("3_cl4l7")
 

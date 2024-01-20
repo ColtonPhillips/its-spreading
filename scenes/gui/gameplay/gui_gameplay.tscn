@@ -20,3 +20,4 @@ offset = Vector2(58, 9)
 transform = Transform2D(1, 0, 0, 1, 58, 9)
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_wdcqs")]
+visible = false
