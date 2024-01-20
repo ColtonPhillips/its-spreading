@@ -13,8 +13,8 @@
 [ext_resource type="Script" path="res://scenes/components/sound/variable_pitch_audio_stream_player.gd" id="9_lleqn"]
 [ext_resource type="AudioStream" uid="uid://d5y37mp1gb6e" path="res://res/sound/sfx/kill_enemy.wav" id="10_f1etg"]
 [ext_resource type="Script" path="res://scenes/components/effects/flash/flash_component.gd" id="14_nprog"]
-[ext_resource type="Script" path="res://scenes/components/physics/new/hurtbox_component.gd" id="15_gn7cp"]
-[ext_resource type="Script" path="res://scenes/components/physics/new/hitbox_component.gd" id="16_camdy"]
+[ext_resource type="Script" path="res://scenes/components/physics/hurtbox_component.gd" id="15_gn7cp"]
+[ext_resource type="Script" path="res://scenes/components/physics/hitbox_component.gd" id="16_camdy"]
 [ext_resource type="Script" path="res://scenes/components/movement/augment_motion/augment_knockback_motion.gd" id="16_wiwmn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vkjpo"]

@@ -43,8 +43,10 @@ func spawn_exp():
 
 
 func _on_hurtbox_component_hurt(hitbox):
-	stats_component.hp -= hitbox.damage
-	augment_knockback_motion.knockback_angle(Vector2.LEFT)
+	if (hitbox.collision_info.stats):
+		stats_component.hp -= hitbox.collision_info.stats.damage
+	
+	augment_knockback_motion.knockback_angle(hitbox.collision_info.angle)
 	
 	scale_component.tween_scale()
 	hurt_sfx.play_with_variance()

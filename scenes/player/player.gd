@@ -16,6 +16,7 @@ extends CharacterBody2D
 @onready var move_component = $MoveComponent
 @onready var move_input_component = $MoveInputComponent
 @onready var stats_component = $PlayerStatsComponent
+@onready var augment_knockback_motion = $MoveComponent/AugmentKnockbackMotion
 
 @export var projectiles_off = false
 
@@ -24,11 +25,10 @@ func _ready():
 	fire_rate_timer.timeout.connect(fire_weapon)
 
 func _input(event: InputEvent) -> void:
-	var x_mov = Input.get_axis("move_left", "move_right")
 	var x = Input.get("toggle_fullscreen")
-	
 	if event.is_action_pressed("toggle_fullscreen"):
 		Global.Toggle_Fullscreen()
+		
 func _physics_process(delta):
 	animation(delta)
 
@@ -68,4 +68,7 @@ func _on_pickup_range_area_entered(area):
 			
 		
 func _on_hurtbox_component_hurt(hitbox: HitboxComponent):
-	stats_component.hp -= hitbox.damage
+	if (hitbox.collision_info.stats):
+		stats_component.hp -= hitbox.collision_info.stats.damage
+	augment_knockback_motion.knockback_angle(hitbox.collision_info.angle)
+	

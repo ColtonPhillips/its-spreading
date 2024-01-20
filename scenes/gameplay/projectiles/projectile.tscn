@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgvdp80mpx8at"]
+[gd_scene load_steps=7 format=3 uid="uid://bgvdp80mpx8at"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/projectiles/projectile.gd" id="1_pymdo"]
 [ext_resource type="Script" path="res://scenes/components/movement/move_position_component.gd" id="3_ll1l8"]
-[ext_resource type="Script" path="res://scenes/components/physics/new/hitbox_component.gd" id="4_773ic"]
+[ext_resource type="Script" path="res://scenes/components/physics/hitbox_component.gd" id="4_003t7"]
 [ext_resource type="Script" path="res://scenes/components/effects/scale/scale_component.gd" id="4_xg0vb"]
+[ext_resource type="Script" path="res://scenes/components/stats/actor_stats_component.gd" id="5_3h7iq"]
+[ext_resource type="Resource" uid="uid://n6k5a0twtqok" path="res://resources/stats/actor/projectiles/default_projectile_stats.tres" id="6_loy6f"]
 
 [node name="Projectile" type="Node2D" groups=["attack"]]
 y_sort_enabled = true
@@ -16,6 +18,10 @@ y_sort_enabled = true
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="ActorStatsComponent" type="Node" parent="."]
+script = ExtResource("5_3h7iq")
+stats = ExtResource("6_loy6f")
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("3_ll1l8")
@@ -30,8 +36,7 @@ scale_duration = 2.0
 [node name="HitboxComponent" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 8
-script = ExtResource("4_773ic")
-damage = 5.0
+script = ExtResource("4_003t7")
 
 [connection signal="timeout" from="SelfRemovalTimer" to="." method="_on_self_removal_timer_timeout"]
 [connection signal="hit_hurtbox" from="HitboxComponent" to="." method="_on_hitbox_component_hit_hurtbox"]

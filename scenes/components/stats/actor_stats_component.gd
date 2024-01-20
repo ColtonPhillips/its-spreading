@@ -5,7 +5,7 @@ extends Node
 @export var stats: ActorStats
 
 var speed: int = 10
-
+var damage: int = 5
 # Create the health variable and connect a setter
 var max_hp: int = 16
 var hp: int = 15:
@@ -24,6 +24,9 @@ signal no_hp() # Emit when there is no health left
 
 func _ready():
 	# copy default values from tres file
+	add_to_group("ActorStatsComponent")
 	hp = stats.hp
 	max_hp = hp
 	speed = stats.speed
+	damage = stats.damage
+	
