@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c3vntakhy0jq7"]
+[gd_scene load_steps=24 format=3 uid="uid://c3vntakhy0jq7"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_2stqb"]
 [ext_resource type="Texture2D" uid="uid://d3nftxbopob5v" path="res://res/art/gameplay/player/player.png" id="2_mluj1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/components/physics/hurt_box.tscn" id="3_b0mcm"]
 [ext_resource type="Script" path="res://scenes/components/movement/move_character_body_2d_component.gd" id="3_ijo0d"]
 [ext_resource type="Script" path="res://scenes/components/movement/move_input_component.gd" id="3_ptxy4"]
+[ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://res/art/gameplay/shadow.png" id="3_sehm1"]
 [ext_resource type="PackedScene" uid="uid://csafkqwts3rfk" path="res://scenes/gameplay/projectiles/projectiles/water_orb_projectile.tscn" id="4_r3uhc"]
 [ext_resource type="Resource" uid="uid://ci047nbwo55s2" path="res://resources/stats/player/player_stats.tres" id="5_4c67a"]
 [ext_resource type="Script" path="res://scenes/components/stats/player_stats_component.gd" id="5_qbk8r"]
@@ -90,6 +91,12 @@ position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_4goky")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Shadow" type="Sprite2D" parent="AnimatedSprite2D"]
+modulate = Color(1, 1, 1, 0.380392)
+z_index = -3
+position = Vector2(1, 2)
+texture = ExtResource("3_sehm1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 modulate = Color(1, 1, 1, 0.654902)
@@ -186,7 +193,7 @@ script = ExtResource("7_5wn3i")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -11)
-energy = 0.4
+energy = 0.2
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.368627)
 texture = ExtResource("13_8qh5f")
@@ -198,6 +205,7 @@ energy = 0.2
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.368627)
 texture = ExtResource("13_8qh5f")
+texture_scale = 0.6
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="area_entered" from="PickupRange" to="." method="_on_pickup_range_area_entered"]
