@@ -103,6 +103,7 @@ modulate = Color(1, 1, 1, 0.654902)
 position = Vector2(0, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_cfm71")
 
@@ -123,6 +124,7 @@ stats = ExtResource("5_4c67a")
 actorStatsComponent = NodePath("../PlayerStatsComponent")
 
 [node name="HurtBox" parent="." instance=ExtResource("3_b0mcm")]
+visible = false
 position = Vector2(0, 1)
 collision_layer = 2
 collision_mask = 2
@@ -182,6 +184,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
+visible = false
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_wqknu")
 debug_color = Color(0, 0.6, 0.701961, 0.101961)
@@ -192,16 +195,16 @@ volume_db = -12.0
 script = ExtResource("7_5wn3i")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, -11)
+position = Vector2(0, -4)
 energy = 0.2
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.368627)
 texture = ExtResource("13_8qh5f")
-texture_scale = 1.5
+texture_scale = 0.4
 
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(0, -11)
-energy = 0.2
+[node name="LargeRadiusPointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -4)
+energy = 0.3
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.368627)
 texture = ExtResource("13_8qh5f")

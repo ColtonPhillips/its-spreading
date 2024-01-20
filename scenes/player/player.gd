@@ -44,7 +44,6 @@ func animation(delta):
 		
 func _on_hurt_box_hurt(damage, angle):
 	stats_component.hp -= damage
-	print(stats_component.hp)
 var flip_flop = true
 
 func fire_weapon():

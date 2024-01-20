@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://0pcv5ermn1p"]
+[gd_scene load_steps=18 format=3 uid="uid://0pcv5ermn1p"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemy/enemy.gd" id="1_bi6oj"]
 [ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/components/physics/hurt_box.tscn" id="2_lk76p"]
 [ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/gameplay/loot/pickup.tscn" id="2_wgvuk"]
+[ext_resource type="Shader" path="res://resources/shaders/invert_canvas_modulation.gdshader" id="3_18q73"]
 [ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://res/art/gameplay/shadow.png" id="3_cl4l7"]
 [ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://scenes/components/physics/hit_box.tscn" id="3_nlj2i"]
 [ext_resource type="Script" path="res://scenes/components/movement/move_character_body_2d_component.gd" id="3_ynl7d"]
@@ -14,6 +15,10 @@
 [ext_resource type="Script" path="res://scenes/components/sound/variable_pitch_audio_stream_player.gd" id="9_lleqn"]
 [ext_resource type="AudioStream" uid="uid://d5y37mp1gb6e" path="res://res/sound/sfx/kill_enemy.wav" id="10_f1etg"]
 [ext_resource type="Script" path="res://scenes/components/effects/flash/flash_component.gd" id="14_nprog"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vkjpo"]
+shader = ExtResource("3_18q73")
+shader_parameter/canvas_modulate = Color(0.686275, 0.686275, 0.686275, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yets1"]
 blend_mode = 1
@@ -28,6 +33,7 @@ script = ExtResource("1_bi6oj")
 dropped_loot = ExtResource("2_wgvuk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_vkjpo")
 
 [node name="Shadow" type="Sprite2D" parent="AnimatedSprite2D"]
 z_index = -1
@@ -41,6 +47,7 @@ position = Vector2(1, 11)
 texture = ExtResource("4_i7onb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -5)
 debug_color = Color(0.262745, 0, 0.572549, 0.313726)
 
@@ -61,6 +68,7 @@ script = ExtResource("6_ysjh2")
 actorStatsComponent = NodePath("../StatsComponent")
 
 [node name="HurtBox" parent="." instance=ExtResource("2_lk76p")]
+visible = false
 collision_layer = 4
 collision_mask = 4
 HurtBoxType = 1
@@ -69,6 +77,7 @@ HurtBoxType = 1
 debug_color = Color(0.976471, 0, 0.415686, 0.25098)
 
 [node name="HitBox" parent="." instance=ExtResource("3_nlj2i")]
+visible = false
 collision_layer = 2
 collision_mask = 2
 damage = 5

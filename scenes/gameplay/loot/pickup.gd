@@ -16,5 +16,4 @@ func _process(delta):
 			queue_free()
 
 func chase_player():
-	print("the chase is on")
 	chasing_player = true
