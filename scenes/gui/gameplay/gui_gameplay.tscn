@@ -12,12 +12,12 @@ script = ExtResource("1_5ucst")
 [node name="ExpBarComponent" parent="." instance=ExtResource("1_c74ic")]
 
 [node name="StopwatchCompoent" parent="." instance=ExtResource("3_3krq4")]
-offset = Vector2(1, 9)
-transform = Transform2D(1, 0, 0, 1, 1, 9)
+offset = Vector2(5, 9)
+transform = Transform2D(1, 0, 0, 1, 5, 9)
 
 [node name="LevelLabelComponent" parent="." instance=ExtResource("4_q73xd")]
-offset = Vector2(58, 9)
-transform = Transform2D(1, 0, 0, 1, 58, 9)
+offset = Vector2(60, 9)
+transform = Transform2D(1, 0, 0, 1, 60, 9)
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_wdcqs")]
 visible = false
