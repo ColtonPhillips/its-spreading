@@ -17,6 +17,7 @@ extends CharacterBody2D
 @onready var move_input_component = $MoveInputComponent
 @onready var stats_component = $PlayerStatsComponent
 @onready var augment_knockback_motion = $MoveComponent/AugmentKnockbackMotion
+@onready var strobe_component = $StrobeComponent
 
 @export var projectiles_off = false
 
@@ -66,9 +67,8 @@ func _on_pickup_range_area_entered(area):
 			area.get_parent().chase_player()
 			pickup_sfx.play_with_variance()
 			
-		
 func _on_hurtbox_component_hurt(hitbox: HitboxComponent):
 	if (hitbox.collision_info.stats):
 		stats_component.hp -= hitbox.collision_info.stats.damage
 	augment_knockback_motion.knockback_angle(hitbox.collision_info.angle)
-	
+	strobe_component.start()

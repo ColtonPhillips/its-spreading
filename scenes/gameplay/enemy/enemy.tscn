@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://0pcv5ermn1p"]
+[gd_scene load_steps=20 format=3 uid="uid://0pcv5ermn1p"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemy/enemy.gd" id="1_bi6oj"]
 [ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/gameplay/loot/pickup.tscn" id="2_wgvuk"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scenes/components/physics/hurtbox_component.gd" id="15_gn7cp"]
 [ext_resource type="Script" path="res://scenes/components/physics/hitbox_component.gd" id="16_camdy"]
 [ext_resource type="Script" path="res://scenes/components/movement/augment_motion/augment_knockback_motion.gd" id="16_wiwmn"]
+[ext_resource type="Script" path="res://scenes/components/effects/flash/strobe_component.gd" id="17_rcbfr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vkjpo"]
 shader = ExtResource("3_18q73")
@@ -97,5 +98,9 @@ script = ExtResource("15_gn7cp")
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("16_camdy")
+
+[node name="StrobeComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("17_rcbfr")
+sprite = NodePath("../AnimatedSprite2D")
 
 [connection signal="hurt" from="HurtboxComponent" to="." method="_on_hurtbox_component_hurt"]

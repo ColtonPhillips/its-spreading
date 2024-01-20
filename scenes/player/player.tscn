@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c3vntakhy0jq7"]
+[gd_scene load_steps=26 format=3 uid="uid://c3vntakhy0jq7"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_2stqb"]
 [ext_resource type="Texture2D" uid="uid://d3nftxbopob5v" path="res://res/art/gameplay/player/player.png" id="2_mluj1"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://be7cq2knfj5bf" path="res://scenes/components/health/health_bar_component.tscn" id="7_h60ml"]
 [ext_resource type="Texture2D" uid="uid://b3yhq4mnobip1" path="res://res/art/gameplay/lighting/actor_highres_light.png" id="13_8qh5f"]
 [ext_resource type="Script" path="res://scenes/components/physics/hurtbox_component.gd" id="14_w7aay"]
+[ext_resource type="Script" path="res://scenes/components/effects/flash/strobe_component.gd" id="16_jgv0s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cfm71"]
 radius = 2.0
@@ -115,7 +116,7 @@ augment_motions = [NodePath("AugmentKnockbackMotion")]
 [node name="AugmentKnockbackMotion" type="Node" parent="MoveComponent"]
 script = ExtResource("5_fo1cu")
 knockback_force = 200
-dampen_force = 4
+dampen_force = 8
 
 [node name="MoveInputComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "move_component")]
 script = ExtResource("3_ptxy4")
@@ -215,6 +216,10 @@ script = ExtResource("14_w7aay")
 position = Vector2(0, -7)
 scale = Vector2(2.76, 2.76)
 shape = SubResource("CapsuleShape2D_1prqd")
+
+[node name="StrobeComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("16_jgv0s")
+sprite = NodePath("../AnimatedSprite2D")
 
 [connection signal="area_entered" from="PickupRange" to="." method="_on_pickup_range_area_entered"]
 [connection signal="hurt" from="HurtboxComponent" to="." method="_on_hurtbox_component_hurt"]
