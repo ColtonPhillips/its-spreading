@@ -33,14 +33,14 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_l1kca"]
-radius = 7.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_6uykx"]
+radius = 7.07107
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4j7yb"]
-size = Vector2(13, 12)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ctsek"]
+radius = 10.0499
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ll4qu"]
-radius = 6.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_vakxk"]
+radius = 2.39726
 
 [node name="FireOrbEnemy" instance=ExtResource("1_ni0a7")]
 
@@ -54,22 +54,14 @@ frame_progress = 0.138607
 position = Vector2(0, 2)
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = true
 position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_l1kca")
+shape = SubResource("CircleShape2D_6uykx")
 
 [node name="StatsComponent" parent="." index="4"]
 stats = ExtResource("3_rn4ym")
 
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(0, -6)
-shape = SubResource("RectangleShape2D_4j7yb")
-
-[node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_ll4qu")
-debug_color = Color(0.498039, 0.447059, 0.952941, 0.419608)
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="8"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="7"]
 position = Vector2(-1, -9)
 amount = 5
 lifetime = 0.7
@@ -85,5 +77,13 @@ color = Color(0.729412, 0.109804, 0.156863, 1)
 hue_variation_min = -0.19
 hue_variation_max = 1.0
 
-[editable path="HurtBox"]
-[editable path="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_ctsek")
+
+[node name="HitboxComponent" parent="." index="11"]
+scale = Vector2(2.92, 2.92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(1.19209e-07, -2.05479)
+shape = SubResource("CircleShape2D_vakxk")

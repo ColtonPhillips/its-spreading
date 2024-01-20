@@ -40,16 +40,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_np8qy"]
-radius = 6.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i521s"]
+radius = 7.0
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oyumw"]
+radius = 8.0
 height = 28.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c165k"]
-size = Vector2(12, 24)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avoem"]
-radius = 8.0
-height = 32.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rftmv"]
+radius = 6.0
+height = 24.0
 
 [node name="WispEnemy" instance=ExtResource("1_da14o")]
 
@@ -62,19 +63,17 @@ frame_progress = 0.0894206
 position = Vector2(0, 2)
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_np8qy")
+visible = true
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_i521s")
 
 [node name="StatsComponent" parent="." index="4"]
 stats = ExtResource("3_6gfxt")
 
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_c165k")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_oyumw")
 
-[node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_avoem")
-
-[editable path="HurtBox"]
-[editable path="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_rftmv")

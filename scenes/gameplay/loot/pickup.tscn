@@ -80,7 +80,7 @@ autoplay = "default"
 frame_progress = 0.0837315
 
 [node name="PickupArea" type="Area2D" parent="." groups=["pickup"]]
-collision_layer = 8
+collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]

@@ -42,8 +42,7 @@ func animation(delta):
 	else:
 		animated_sprite_2d.play("walk")
 		
-func _on_hurt_box_hurt(damage, angle):
-	stats_component.hp -= damage
+
 var flip_flop = true
 
 func fire_weapon():
@@ -68,3 +67,5 @@ func _on_pickup_range_area_entered(area):
 			pickup_sfx.play_with_variance()
 			
 		
+func _on_hurtbox_component_hurt(hitbox: HitboxComponent):
+	stats_component.hp -= hitbox.damage

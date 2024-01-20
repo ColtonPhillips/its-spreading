@@ -39,11 +39,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnlgn"]
-size = Vector2(3, 3)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_wrw4n"]
 radius = 44.0114
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5i7o6"]
+radius = 2.0
 
 [node name="WaterOrbProjectile" instance=ExtResource("1_04puj")]
 z_index = 1
@@ -56,31 +56,25 @@ sprite_frames = SubResource("SpriteFrames_sn847")
 autoplay = "default"
 frame_progress = 0.68049
 
-[node name="HitBox" parent="." index="1"]
-collision_layer = 5
-
-[node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_fnlgn")
-debug_color = Color(0.796078, 0.286275, 0.792157, 0.419608)
-
-[node name="SelfRemovalTimer" parent="." index="2"]
+[node name="SelfRemovalTimer" parent="." index="1"]
 wait_time = 6.0
 
-[node name="EnemyChaseRange" type="Area2D" parent="." index="5"]
+[node name="EnemyChaseRange" type="Area2D" parent="." index="4"]
+visible = false
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyChaseRange" index="0"]
 shape = SubResource("CircleShape2D_wrw4n")
 
-[node name="EnableChaseTimer" type="Timer" parent="." index="6"]
+[node name="EnableChaseTimer" type="Timer" parent="." index="5"]
 wait_time = 0.514
 one_shot = true
 autostart = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_5i7o6")
+
 [connection signal="area_entered" from="EnemyChaseRange" to="." method="_on_enemy_chase_range_area_entered"]
 [connection signal="body_entered" from="EnemyChaseRange" to="." method="_on_enemy_chase_range_body_entered"]
 [connection signal="timeout" from="EnableChaseTimer" to="." method="_on_enable_chase_timer_timeout"]
-
-[editable path="HitBox"]

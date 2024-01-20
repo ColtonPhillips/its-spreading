@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bgvdp80mpx8at"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/projectiles/projectile.gd" id="1_pymdo"]
-[ext_resource type="PackedScene" uid="uid://bdm5fxr8cplx8" path="res://scenes/components/physics/hit_box.tscn" id="2_bty2l"]
 [ext_resource type="Script" path="res://scenes/components/movement/move_position_component.gd" id="3_ll1l8"]
+[ext_resource type="Script" path="res://scenes/components/physics/new/hitbox_component.gd" id="4_773ic"]
 [ext_resource type="Script" path="res://scenes/components/effects/scale/scale_component.gd" id="4_xg0vb"]
 
 [node name="Projectile" type="Node2D" groups=["attack"]]
@@ -11,10 +11,6 @@ script = ExtResource("1_pymdo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
-
-[node name="HitBox" parent="." instance=ExtResource("2_bty2l")]
-collision_layer = 4
-damage = 5
 
 [node name="SelfRemovalTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -31,7 +27,11 @@ sprite = NodePath("../AnimatedSprite2D")
 scale_amount = Vector2(1.4, 1.4)
 scale_duration = 2.0
 
-[connection signal="hit" from="HitBox" to="." method="_on_hit_box_hit"]
-[connection signal="timeout" from="SelfRemovalTimer" to="." method="_on_self_removal_timer_timeout"]
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("4_773ic")
+damage = 5.0
 
-[editable path="HitBox"]
+[connection signal="timeout" from="SelfRemovalTimer" to="." method="_on_self_removal_timer_timeout"]
+[connection signal="hit_hurtbox" from="HitboxComponent" to="." method="_on_hitbox_component_hit_hurtbox"]

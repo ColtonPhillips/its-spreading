@@ -16,7 +16,6 @@ extends CharacterBody2D
 @onready var stats_component = $StatsComponent
 @onready var hurt_sfx = $HurtSfx
 @onready var kill_sfx = $KillSfx
-@onready var hurt_box = $HurtBox
 
 func _ready():
 	kill_sfx.finished.connect(queue_free)
@@ -37,9 +36,15 @@ func animation(delta):
 
 @onready var collision_shape_2d = $CollisionShape2D
 
-func _on_hurt_box_hurt(damage, angle):
-	stats_component.hp -= damage
-	augment_knockback_motion.knockback_angle(angle)
+func spawn_exp():
+	var enemy_spawn = dropped_loot.instantiate()
+	enemy_spawn.global_position = self.global_position
+	scenegraph.call_deferred("add_child", enemy_spawn)
+
+
+func _on_hurtbox_component_hurt(hitbox):
+	stats_component.hp -= hitbox.damage
+	augment_knockback_motion.knockback_angle(Vector2.LEFT)
 	
 	scale_component.tween_scale()
 	hurt_sfx.play_with_variance()
@@ -51,8 +56,3 @@ func _on_hurt_box_hurt(damage, angle):
 		kill_sfx.play_with_variance()
 		
 		collision_shape_2d.call_deferred("set", "disabled", false)
-
-func spawn_exp():
-	var enemy_spawn = dropped_loot.instantiate()
-	enemy_spawn.global_position = self.global_position
-	scenegraph.call_deferred("add_child", enemy_spawn)

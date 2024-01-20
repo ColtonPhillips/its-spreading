@@ -50,10 +50,6 @@ func spawn(variables: Dictionary) -> void:
 	for key in variables.keys():
 		set(key, variables[key])
 
-func _on_hit_box_hit():
-	
-	queue_free()
-
 func _on_self_removal_timer_timeout():
 	queue_free()
 
@@ -74,3 +70,7 @@ var the_chase_may_proceed = false
 
 func _on_enable_chase_timer_timeout():
 	the_chase_may_proceed = true
+
+
+func _on_hitbox_component_hit_hurtbox(hurtbox):
+	queue_free()

@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_2stqb"]
 [ext_resource type="Texture2D" uid="uid://d3nftxbopob5v" path="res://res/art/gameplay/player/player.png" id="2_mluj1"]
 [ext_resource type="Script" path="res://scenes/components/spawn/spawner_component.gd" id="3_8jtw5"]
-[ext_resource type="PackedScene" uid="uid://dxwaejsl8qimd" path="res://scenes/components/physics/hurt_box.tscn" id="3_b0mcm"]
 [ext_resource type="Script" path="res://scenes/components/movement/move_character_body_2d_component.gd" id="3_ijo0d"]
 [ext_resource type="Script" path="res://scenes/components/movement/move_input_component.gd" id="3_ptxy4"]
 [ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://res/art/gameplay/shadow.png" id="3_sehm1"]
@@ -14,6 +13,11 @@
 [ext_resource type="Script" path="res://scenes/components/sound/variable_pitch_audio_stream_player.gd" id="7_5wn3i"]
 [ext_resource type="PackedScene" uid="uid://be7cq2knfj5bf" path="res://scenes/components/health/health_bar_component.tscn" id="7_h60ml"]
 [ext_resource type="Texture2D" uid="uid://b3yhq4mnobip1" path="res://res/art/gameplay/lighting/actor_highres_light.png" id="13_8qh5f"]
+[ext_resource type="Script" path="res://scenes/components/physics/new/hurtbox_component.gd" id="14_7dpbv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cfm71"]
+radius = 2.0
+height = 12.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjc6a"]
 atlas = ExtResource("2_mluj1")
@@ -68,23 +72,23 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cfm71"]
-radius = 2.0
-height = 12.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cstoa"]
-radius = 3.0
-height = 16.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_wqknu"]
 radius = 16.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1prqd"]
+radius = 1.08696
+height = 5.07246
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_2stqb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(1.04, 1.04)
+shape = SubResource("CapsuleShape2D_cfm71")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
@@ -102,11 +106,6 @@ texture = ExtResource("3_sehm1")
 modulate = Color(1, 1, 1, 0.654902)
 position = Vector2(0, -9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -5)
-shape = SubResource("CapsuleShape2D_cfm71")
-
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("3_ijo0d")
 actor = NodePath("..")
@@ -122,17 +121,6 @@ stats = ExtResource("5_4c67a")
 
 [node name="HealthBarComponent" parent="." node_paths=PackedStringArray("actorStatsComponent") instance=ExtResource("7_h60ml")]
 actorStatsComponent = NodePath("../PlayerStatsComponent")
-
-[node name="HurtBox" parent="." instance=ExtResource("3_b0mcm")]
-visible = false
-position = Vector2(0, 1)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(0, -7)
-shape = SubResource("CapsuleShape2D_cstoa")
-debug_color = Color(0, 0.6, 0.701961, 0.0117647)
 
 [node name="SpawnerComponent" type="Node2D" parent="."]
 position = Vector2(0, 1)
@@ -181,7 +169,7 @@ autostart = true
 
 [node name="PickupRange" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
 visible = false
@@ -210,7 +198,16 @@ shadow_color = Color(0, 0, 0, 0.368627)
 texture = ExtResource("13_8qh5f")
 texture_scale = 0.6
 
-[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
-[connection signal="area_entered" from="PickupRange" to="." method="_on_pickup_range_area_entered"]
+[node name="HurtboxComponent" type="Area2D" parent="."]
+position = Vector2(0, 2)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("14_7dpbv")
 
-[editable path="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, -7)
+scale = Vector2(2.76, 2.76)
+shape = SubResource("CapsuleShape2D_1prqd")
+
+[connection signal="area_entered" from="PickupRange" to="." method="_on_pickup_range_area_entered"]
+[connection signal="hurt" from="HurtboxComponent" to="." method="_on_hurtbox_component_hurt"]
