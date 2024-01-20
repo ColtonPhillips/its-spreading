@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://da3vbyp7pptx5"]
+
+[ext_resource type="PackedScene" uid="uid://hvii8sqsbf4n" path="res://scenes/gameplay/obstacles/blocks/fence_block.tscn" id="1_r4mee"]
+[ext_resource type="PackedScene" uid="uid://ir75jd4mwilt" path="res://scenes/gameplay/obstacles/blocks/rock_block.tscn" id="2_bm2xq"]
+[ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/gameplay/loot/pickup.tscn" id="3_ro6vq"]
+[ext_resource type="PackedScene" uid="uid://bk8yby3ot6nju" path="res://scenes/gameplay/obstacles/blocks/bale_block.tscn" id="4_ka5ni"]
+
+[node name="StartingChamber" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(2, 2)
+
+[node name="fence_block" parent="." instance=ExtResource("1_r4mee")]
+y_sort_enabled = true
+position = Vector2(111, -38)
+
+[node name="BlockRiock" parent="." instance=ExtResource("2_bm2xq")]
+y_sort_enabled = true
+position = Vector2(-77, -9)
+
+[node name="BlockRiock2" parent="." instance=ExtResource("2_bm2xq")]
+y_sort_enabled = true
+position = Vector2(74, -22)
+
+[node name="BlockRiock3" parent="." instance=ExtResource("2_bm2xq")]
+y_sort_enabled = true
+position = Vector2(-2, 57)
+
+[node name="Pickup" parent="." instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(-61, 48)
+
+[node name="Pickup2" parent="." instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(-4, -45)
+
+[node name="Pickup3" parent="." instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(67, 42)
+
+[node name="BaleBlock" parent="." instance=ExtResource("4_ka5ni")]
+y_sort_enabled = true
+position = Vector2(152, -22)
+
+[node name="BaleBlock2" parent="." instance=ExtResource("4_ka5ni")]
+y_sort_enabled = true
+position = Vector2(166, -8)
+
+[node name="BaleBlock3" parent="." instance=ExtResource("4_ka5ni")]
+y_sort_enabled = true
+position = Vector2(180, 6)
+
+[node name="BaleBlock4" parent="." instance=ExtResource("4_ka5ni")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(181, -20)
+
+[node name="BaleBlock5" parent="." instance=ExtResource("4_ka5ni")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(167, -32)

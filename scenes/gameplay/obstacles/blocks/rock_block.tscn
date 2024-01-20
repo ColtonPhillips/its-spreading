@@ -1,28 +1,28 @@
 [gd_scene load_steps=5 format=3 uid="uid://ir75jd4mwilt"]
 
 [ext_resource type="PackedScene" uid="uid://kcswp7pahkxl" path="res://scenes/gameplay/obstacles/block.tscn" id="1_nc0cd"]
-[ext_resource type="Texture2D" uid="uid://uga1vtov1byt" path="res://res/art/gameplay/environment/misc.png" id="2_iprcv"]
+[ext_resource type="Texture2D" uid="uid://c64u6vrebutrn" path="res://res/art/gameplay/environment/rock.png" id="2_pmhuc"]
 [ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://res/art/gameplay/shadow.png" id="3_gi6u7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ghy3b"]
-radius = 4.5
-height = 14.5
+radius = 6.0
+height = 26.0
 
 [node name="BlockRiock" instance=ExtResource("1_nc0cd")]
-scale = Vector2(4, 4)
+position = Vector2(0, -4)
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_iprcv")
-region_enabled = true
+texture = ExtResource("2_pmhuc")
 region_rect = Rect2(15.7265, 1.24125, 14.5941, 14.8644)
 
 [node name="Shadow" type="Sprite2D" parent="Sprite2D" index="0"]
+self_modulate = Color(1, 1, 1, 0.258824)
 z_index = -1
-position = Vector2(0.25, -7.5)
-scale = Vector2(0.859375, 1)
+position = Vector2(2, -10)
+scale = Vector2(1.96, 1.96)
 texture = ExtResource("3_gi6u7")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-0.5, 1.5)
+position = Vector2(1, 8)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ghy3b")

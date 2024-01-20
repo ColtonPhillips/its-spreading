@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://27phkm3uydxm"]
+[gd_scene load_steps=15 format=3 uid="uid://27phkm3uydxm"]
 
 [ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player/player.tscn" id="1_5kmuy"]
 [ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://res/art/gameplay/environment/grass.png" id="1_m36ed"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://boxf2pg7c1da4" path="res://scenes/gameplay/testing_chamber.tscn" id="7_3lalr"]
 [ext_resource type="PackedScene" uid="uid://ow0h34umieqd" path="res://scenes/gui/gameplay/gui_gameplay.tscn" id="9_e0dv3"]
 [ext_resource type="AudioStream" uid="uid://b2rln4mnh1h5c" path="res://res/sound/music/DarkTheme.mp3" id="9_prxxj"]
+[ext_resource type="PackedScene" uid="uid://da3vbyp7pptx5" path="res://scenes/gameplay/staring_chamber.tscn" id="10_yvvlj"]
 
 [sub_resource type="Resource" id="Resource_3yj5a"]
 script = ExtResource("5_7m54o")
@@ -50,7 +51,7 @@ z_index = -10
 texture_repeat = 2
 texture = ExtResource("1_m36ed")
 region_enabled = true
-region_rect = Rect2(-4000, -4000, 4000, 4000)
+region_rect = Rect2(-4000, -8000, 8000, 4000)
 metadata/_edit_lock_ = true
 
 [node name="YSortableSceneGraph" type="Node2D" parent="."]
@@ -89,11 +90,14 @@ position = Vector2(1310, 312)
 
 [node name="TestingChamber7" parent="YSortableSceneGraph" instance=ExtResource("7_3lalr")]
 y_sort_enabled = true
-position = Vector2(-442, 591)
+position = Vector2(-450, 418)
 
 [node name="TestingChamber8" parent="YSortableSceneGraph" instance=ExtResource("7_3lalr")]
 y_sort_enabled = true
 position = Vector2(-1646, -1041)
+
+[node name="StaringChamber" parent="YSortableSceneGraph" instance=ExtResource("10_yvvlj")]
+position = Vector2(172, 92)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="YSortableSceneGraph"]
 color = Color(0.686275, 0.686275, 0.686275, 1)

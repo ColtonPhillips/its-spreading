@@ -16,6 +16,7 @@ texture = ExtResource("2_ahk8s")
 region_rect = Rect2(0, 15.3248, 17.2166, 16.6752)
 
 [node name="Shadow" type="Sprite2D" parent="Sprite2D" index="0"]
+self_modulate = Color(1, 1, 1, 0.439216)
 z_index = -1
 position = Vector2(1, -12)
 scale = Vector2(2.5, 2.5)

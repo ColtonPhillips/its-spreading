@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://hvii8sqsbf4n"]
+[gd_scene load_steps=5 format=3 uid="uid://hvii8sqsbf4n"]
 
 [ext_resource type="PackedScene" uid="uid://kcswp7pahkxl" path="res://scenes/gameplay/obstacles/block.tscn" id="1_wa1ni"]
 [ext_resource type="Texture2D" uid="uid://0wykwgpj5tie" path="res://res/art/gameplay/environment/fence.png" id="2_ut5ch"]
+[ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://res/art/gameplay/shadow.png" id="3_cgybf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w4a1i"]
 radius = 2.0
@@ -12,6 +13,13 @@ position = Vector2(1, -10)
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_ut5ch")
+
+[node name="Shadow" type="Sprite2D" parent="Sprite2D" index="0"]
+self_modulate = Color(1, 1, 1, 0.0941176)
+z_index = -1
+position = Vector2(4, 6)
+scale = Vector2(5.775, 1.34)
+texture = ExtResource("3_cgybf")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, 16)

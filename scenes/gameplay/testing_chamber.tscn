@@ -75,3 +75,12 @@ position = Vector2(-57, 281)
 
 [node name="fence_block5" parent="." instance=ExtResource("4_alukt")]
 position = Vector2(130, 281)
+
+[node name="BlockRiock3" parent="." instance=ExtResource("3_3diva")]
+position = Vector2(-371, -695)
+
+[node name="BlockRiock4" parent="." instance=ExtResource("3_3diva")]
+position = Vector2(-830, -365)
+
+[node name="BlockRiock5" parent="." instance=ExtResource("3_3diva")]
+position = Vector2(486, -541)
