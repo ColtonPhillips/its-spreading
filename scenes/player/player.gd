@@ -18,11 +18,20 @@ extends CharacterBody2D
 @onready var stats_component = $PlayerStatsComponent
 @onready var augment_knockback_motion = $MoveComponent/AugmentKnockbackMotion
 @onready var strobe_component = $StrobeComponent
+@onready var hurtbox_component = $HurtboxComponent
 
 @export var projectiles_off = false
 
+var timer = Timer.new()
+func delay_create(delay_seconds: float, callback_function):
+	timer.connect("timeout", callback_function)
+	timer.wait_time = delay_seconds
+	timer.start()
+	
 func _ready():
 	Global.player = self
+	add_child(timer)
+	
 	fire_rate_timer.timeout.connect(fire_weapon)
 
 func _input(event: InputEvent) -> void:
@@ -72,3 +81,10 @@ func _on_hurtbox_component_hurt(hitbox: HitboxComponent):
 		stats_component.hp -= hitbox.collision_info.stats.damage
 	augment_knockback_motion.knockback_angle(hitbox.collision_info.angle)
 	strobe_component.start()
+	hurtbox_component.process_mode = Node.PROCESS_MODE_DISABLED
+	delay_create(2.5, func():
+		strobe_component.stop()
+		hurtbox_component.process_mode = Node.PROCESS_MODE_INHERIT
+	)
+	
+

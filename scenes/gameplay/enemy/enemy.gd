@@ -60,7 +60,6 @@ func _on_hurtbox_component_hurt(hitbox):
 		modulate.a = 0.2
 		spawn_exp()
 		scale_component.tween_scale()
-		collision_shape_2d.disabled = true
 		hitbox_component.process_mode = Node.PROCESS_MODE_DISABLED
 		hurtbox_component.process_mode = Node.PROCESS_MODE_DISABLED
 		__state_alive__ = false

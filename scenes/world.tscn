@@ -59,6 +59,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="YSortableSceneGraph" instance=ExtResource("1_5kmuy")]
 position = Vector2(171, 109)
+projectiles_off = null
 
 [node name="EnemySpawner" parent="YSortableSceneGraph" instance=ExtResource("3_luq5g")]
 spawns = Array[ExtResource("5_7m54o")]([SubResource("Resource_3yj5a"), SubResource("Resource_ag33h"), SubResource("Resource_b4d00"), SubResource("Resource_nvg24")])
