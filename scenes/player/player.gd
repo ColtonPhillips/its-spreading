@@ -95,4 +95,3 @@ func _on_hurtbox_component_hurt(hitbox: HitboxComponent):
 
 func _on_player_stats_component_level_up():
 	stats_component.hp += 10
-	stats_component.exp

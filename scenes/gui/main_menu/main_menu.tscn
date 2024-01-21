@@ -109,7 +109,7 @@ _data = {
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("2_7dbyw")
 start_game_scene = "res://scenes/world.tscn"
-credits_scene = "res://scenes/gui/credits/credits.tscn"
+credits_scene = "res://CREDITS/GodotCredits.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-4, -1)

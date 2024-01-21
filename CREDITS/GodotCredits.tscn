@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://ck3n3m7ercoyc"]
+
+[ext_resource type="Script" path="res://CREDITS/GodotCredits.gd" id="1_wrfx0"]
+[ext_resource type="PackedScene" uid="uid://c6djgc5rsd3g2" path="res://scenes/gui/main_menu/main_menu.tscn" id="2_4alxb"]
+[ext_resource type="FontFile" uid="uid://cm5u3vv7bosl2" path="res://res/font/ttf/highres/ChevyRay - Roundabout.ttf" id="3_04y2x"]
+[ext_resource type="FontFile" uid="uid://c4oowbv62l0sb" path="res://res/font/ttf/midres/ChevyRay - Chocolate.ttf" id="4_pxgt1"]
+[ext_resource type="Shader" path="res://CREDITS/GodotCredits.gdshader" id="6_p24tb"]
+[ext_resource type="Texture2D" uid="uid://cn3ha58p4ijs6" path="res://res/art/cc0/starfield.png" id="7_cfigb"]
+[ext_resource type="Texture2D" uid="uid://0wykwgpj5tie" path="res://res/art/gameplay/environment/fence.png" id="8_uo7ix"]
+[ext_resource type="Texture2D" uid="uid://6liiirbd1fed" path="res://res/art/gameplay/environment/hay_bale.png" id="9_jope0"]
+[ext_resource type="Texture2D" uid="uid://dqfy3boylpdxa" path="res://res/art/gui/iconography/hay_bale_cute.png" id="10_a37gf"]
+[ext_resource type="AudioStream" uid="uid://bwebqi54byvh2" path="res://res/sound/cc0/oi_ya_nestchastay.mp3" id="10_dxw4k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gh0mf"]
+shader = ExtResource("6_p24tb")
+shader_parameter/screen_size = Vector2(2880, 1620)
+shader_parameter/time = 0.0
+
+[node name="GodotCredits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wrfx0")
+to_scene = ExtResource("2_4alxb")
+title_color = Color(0.631373, 0.694118, 0.898039, 1)
+title_font = ExtResource("3_04y2x")
+text_font = ExtResource("4_pxgt1")
+
+[node name="Credits" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 323.0
+offset_bottom = 204.0
+color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+material = SubResource("ShaderMaterial_gh0mf")
+position = Vector2(181, 100)
+scale = Vector2(-0.378, -0.378)
+texture = ExtResource("7_cfigb")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+autoplay = true
+expand = true
+loop = true
+
+[node name="CreditsContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 325.0
+offset_bottom = 204.0
+
+[node name="Line" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.825
+anchor_bottom = -0.825
+offset_left = 10.0
+offset_top = 386.775
+offset_right = 144.0
+offset_bottom = 409.775
+text = "Ho boy!"
+
+[node name="Fence" type="Sprite2D" parent="."]
+position = Vector2(267, 169)
+texture = ExtResource("8_uo7ix")
+
+[node name="HayBale" type="Sprite2D" parent="."]
+position = Vector2(270, 173)
+texture = ExtResource("9_jope0")
+
+[node name="HayBaleCute" type="Sprite2D" parent="."]
+position = Vector2(272, 147)
+texture = ExtResource("10_a37gf")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_dxw4k")
+volume_db = -8.0
+autoplay = true
