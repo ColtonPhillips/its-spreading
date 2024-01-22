@@ -87,7 +87,7 @@ radius = 10.0499
 [sub_resource type="CircleShape2D" id="CircleShape2D_vakxk"]
 radius = 2.39726
 
-[node name="FireOrbEnemy" instance=ExtResource("1_wax8s")]
+[node name="FlorbEnemy" instance=ExtResource("1_wax8s")]
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -15)

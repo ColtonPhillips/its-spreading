@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://iglbjvvq4tfx"]
+
+[ext_resource type="Script" path="res://scenes/components/powers/player_powers/test_power.gd" id="1_87y1i"]
+[ext_resource type="Script" path="res://scenes/components/spawn/spawner_component.gd" id="3_6wlj0"]
+[ext_resource type="PackedScene" uid="uid://csafkqwts3rfk" path="res://scenes/gameplay/projectiles/projectiles/water_orb_projectile.tscn" id="4_g56t1"]
+[ext_resource type="Texture2D" uid="uid://d2c1jgtrm2fpy" path="res://res/art/gui/iconography/select_arrow.png" id="4_krjsa"]
+
+[node name="TestPower" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_87y1i")
+
+[node name="SpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("3_6wlj0")
+scene = ExtResource("4_g56t1")
+
+[node name="UIPivot" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.466667)
+position = Vector2(0, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="UIPivot"]
+z_index = -2
+position = Vector2(-24, 24)
+rotation = 0.785398
+texture = ExtResource("4_krjsa")
+
+[node name="Sprite2D2" type="Sprite2D" parent="UIPivot"]
+z_index = -2
+position = Vector2(24, 24)
+rotation = -0.785398
+texture = ExtResource("4_krjsa")
+
+[node name="Sprite2D3" type="Sprite2D" parent="UIPivot"]
+z_index = -2
+position = Vector2(-24, -24)
+rotation = 2.35619
+texture = ExtResource("4_krjsa")
+
+[node name="Sprite2D4" type="Sprite2D" parent="UIPivot"]
+z_index = -2
+position = Vector2(24, -24)
+rotation = -2.35619
+texture = ExtResource("4_krjsa")

@@ -21,13 +21,10 @@ extends CharacterBody2D
 @onready var hurtbox_component = $HurtboxComponent
 @onready var state_machine: StateMachine = $StateMachine
 
-@export var projectiles_off = false
 	
 func _ready():
 	Global.player = self
 	state_machine.init(self)
-	
-	var timer = Global.delay_create_loop(self, 3.5, fire_weapon)
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
@@ -64,19 +61,4 @@ func _on_pickup_range_area_entered(area):
 			area.get_parent().chase_player()
 			pickup_sfx.play_with_variance()
 
-var flip_flop = true
-func fire_weapon():
-	if projectiles_off:
-		return
-	flip_flop = !flip_flop
-	if flip_flop == true:
-		spawner_component.spawn(right_slot.global_position, {"direction": Vector2.RIGHT}, get_parent())
-		spawner_component.spawn(down_slot.global_position, {"direction": Vector2.DOWN}, get_parent())
-		spawner_component.spawn(left_slot.global_position, {"direction": Vector2.LEFT}, get_parent())
-		spawner_component.spawn(up_slot.global_position, {"direction": Vector2.UP}, get_parent())
-	else:
-		spawner_component.spawn(top_left_slot.global_position, {"direction": (Vector2.UP + Vector2.LEFT) / 2}, get_parent())
-		spawner_component.spawn(top_right_slot.global_position, {"direction": (Vector2.UP + Vector2.RIGHT) / 2}, get_parent())
-		spawner_component.spawn(bottom_left_slot.global_position, {"direction": (Vector2.DOWN + Vector2.LEFT) / 2}, get_parent())
-		spawner_component.spawn(bottom_right_slot.global_position, {"direction": (Vector2.DOWN + Vector2.RIGHT) / 2}, get_parent())
-	
+

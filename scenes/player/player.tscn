@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c3vntakhy0jq7"]
+[gd_scene load_steps=39 format=3 uid="uid://c3vntakhy0jq7"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_2stqb"]
 [ext_resource type="Texture2D" uid="uid://d3nftxbopob5v" path="res://res/art/gameplay/player/player.png" id="2_mluj1"]
@@ -22,6 +22,8 @@
 [ext_resource type="Script" path="res://scenes/player/states/flinch_state.gd" id="20_0jo2p"]
 [ext_resource type="Script" path="res://scenes/player/states/death_state.gd" id="21_3p0xg"]
 [ext_resource type="Script" path="res://scenes/player/states/level_up_state.gd" id="22_n3hr5"]
+[ext_resource type="Script" path="res://scenes/components/powers/powers_component.gd" id="23_7ah85"]
+[ext_resource type="PackedScene" uid="uid://iglbjvvq4tfx" path="res://scenes/components/powers/player_powers/test_power.tscn" id="24_070cw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cfm71"]
 radius = 2.0
@@ -302,6 +304,13 @@ script = ExtResource("21_3p0xg")
 [node name="LevelUpState" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("22_n3hr5")
 idle_state = NodePath("../IdleState")
+
+[node name="PowersComponent" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+process_mode = 1
+y_sort_enabled = true
+script = ExtResource("23_7ah85")
+player = NodePath("..")
+starting_power = ExtResource("24_070cw")
 
 [connection signal="level_up" from="PlayerStatsComponent" to="." method="_on_player_stats_component_level_up"]
 [connection signal="no_hp" from="PlayerStatsComponent" to="." method="_on_player_stats_component_no_hp"]
