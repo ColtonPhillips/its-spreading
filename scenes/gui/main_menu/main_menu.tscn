@@ -1,21 +1,75 @@
-[gd_scene load_steps=22 format=3 uid="uid://c6djgc5rsd3g2"]
+[gd_scene load_steps=25 format=3 uid="uid://c6djgc5rsd3g2"]
 
+[ext_resource type="Texture2D" uid="uid://dmiiidgf12gpw" path="res://res/art/main_menu/game_title.png" id="2_5gdmf"]
 [ext_resource type="Script" path="res://scenes/gui/main_menu/main_menu.gd" id="2_7dbyw"]
+[ext_resource type="Texture2D" uid="uid://d2ts0668vfwtf" path="res://res/art/main_menu/start_screen_background.png" id="2_8a52h"]
 [ext_resource type="Theme" uid="uid://ybvdicuwr115" path="res://scenes/gui/main_menu/main_menu.tres" id="3_84nfo"]
-[ext_resource type="Texture2D" uid="uid://ccilmhs4gr7ct" path="res://res/art/main_menu/menu_background.png" id="4_h22au"]
+[ext_resource type="Texture2D" uid="uid://cglgbyyvlh6uv" path="res://res/art/main_menu/character_portrait.png" id="4_ss5pj"]
 [ext_resource type="FontFile" uid="uid://dm3ughxiux3id" path="res://res/font/ttf/lowres/ChevyRay - Bird Seed.ttf" id="6_0fs6r"]
-[ext_resource type="FontFile" uid="uid://bsgwxsvilbma6" path="res://res/font/ttf/highres/ChevyRay - Rise.ttf" id="6_3h4sx"]
 [ext_resource type="FontFile" uid="uid://btyeuqqrwnge2" path="res://res/font/ttf/highres/ChevyRay - Stapler.ttf" id="6_q755q"]
 [ext_resource type="FontFile" uid="uid://cm5u3vv7bosl2" path="res://res/font/ttf/highres/ChevyRay - Roundabout.ttf" id="7_3y3mg"]
 [ext_resource type="Texture2D" uid="uid://dqfy3boylpdxa" path="res://res/art/gui/iconography/hay_bale_cute.png" id="10_nnjmx"]
 
+[sub_resource type="Animation" id="Animation_fimwr"]
+resource_name = "wobble"
+length = 16.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-17, -0.25, 0, 0.25, 0, -35, -0.25, 0, 0.25, 0, -19, -0.25, 0, 0.25, 0, 4.76837e-07, -0.25, 0, 0.25, 0, -17, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 4, 8, 12, 16)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 4, 8, 12, 16)
+}
+
+[sub_resource type="Animation" id="Animation_0fk1h"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-17, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qy77i"]
+_data = {
+"RESET": SubResource("Animation_0fk1h"),
+"wobble": SubResource("Animation_fimwr")
+}
+
 [sub_resource type="Theme" id="Theme_xiyjw"]
 default_font = ExtResource("6_0fs6r")
 default_font_size = 10
-
-[sub_resource type="Theme" id="Theme_mc04k"]
-default_font = ExtResource("6_3h4sx")
-default_font_size = 16
 
 [sub_resource type="Theme" id="Theme_3mdx1"]
 default_font = ExtResource("7_3y3mg")
@@ -111,16 +165,43 @@ script = ExtResource("2_7dbyw")
 start_game_scene = "res://scenes/world.tscn"
 credits_scene = "res://CREDITS/GodotCredits.tscn"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4, -1)
-scale = Vector2(0.681818, 0.74359)
-texture = ExtResource("4_h22au")
-offset = Vector2(242, 136.5)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(-17, 0)
+scale = Vector2(0.741, 0.741)
+texture = ExtResource("2_8a52h")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="GameTitle" type="Sprite2D" parent="CanvasLayer"]
+z_index = 2
+position = Vector2(208, 52)
+scale = Vector2(0.666, 0.661)
+texture = ExtResource("2_5gdmf")
+
+[node name="CharacterPortrait" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(7, 134)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("4_ss5pj")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_qy77i")
+}
+autoplay = "wobble"
+speed_scale = 0.1
 
 [node name="MainMenuContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 63.0
+offset_right = -33.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_xiyjw")
@@ -128,14 +209,6 @@ theme = SubResource("Theme_xiyjw")
 [node name="MenuLabelsContainer" type="VBoxContainer" parent="MainMenuContainer"]
 layout_mode = 2
 theme = ExtResource("3_84nfo")
-
-[node name="TitleLabel" type="Label" parent="MainMenuContainer/MenuLabelsContainer"]
-custom_minimum_size = Vector2(0, 51.975)
-layout_mode = 2
-theme = SubResource("Theme_mc04k")
-text = "MIRA:
-PRAIRIE RIVER ON FIRE"
-horizontal_alignment = 1
 
 [node name="StartGameLink" type="LinkButton" parent="MainMenuContainer/MenuLabelsContainer"]
 layout_mode = 2
@@ -160,17 +233,19 @@ text = "Exit"
 underline = 2
 
 [node name="Node2D" type="Node2D" parent="MainMenuContainer/MenuLabelsContainer"]
-position = Vector2(5.3, 7.1)
+position = Vector2(-59, -46)
 scale = Vector2(1.015, 1.015)
 
 [node name="CheckButton" type="CheckButton" parent="MainMenuContainer/MenuLabelsContainer/Node2D"]
 custom_minimum_size = Vector2(200, 0)
 layout_direction = 2
-offset_left = 6.60099
-offset_top = 108.276
-offset_right = 206.601
-offset_bottom = 139.276
+offset_left = 48.2759
+offset_top = 112.315
+offset_right = 248.276
+offset_bottom = 143.315
 theme = SubResource("Theme_r36pu")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_styles/focus = SubResource("StyleBoxEmpty_e0hpo")
 shortcut = SubResource("Shortcut_u8gym")
 text = "Fullscreen"
