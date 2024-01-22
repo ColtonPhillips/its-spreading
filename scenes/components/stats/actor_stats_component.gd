@@ -20,7 +20,7 @@ var hp: int = 15:
 		hp_changed.emit()
 		
 		# Signal out when hp is at 0
-		if hp == 0: no_hp.emit()
+		if hp <= 0: no_hp.emit()
 
 # Create our signals for hp
 signal hp_changed() # Emit when the hp value has changed
