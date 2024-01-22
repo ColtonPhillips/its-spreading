@@ -6,7 +6,7 @@ extends Node
 
 @export var augment_motions: Array[AugmentMotion] = []
 
-func _physics_process(delta):
+func process_physics(delta):
 	movement(delta)
 		
 func movement(delta):

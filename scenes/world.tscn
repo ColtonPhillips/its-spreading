@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player/player.tscn" id="1_5kmuy"]
 [ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://res/art/gameplay/environment/grass.png" id="1_m36ed"]
 [ext_resource type="PackedScene" uid="uid://x43epic8paf7" path="res://scenes/gameplay/enemy_spawner.tscn" id="3_luq5g"]
-[ext_resource type="PackedScene" uid="uid://bjopb88sq766e" path="res://scenes/gameplay/enemy/enemies/fiorb_enemy.tscn" id="4_p1ix0"]
+[ext_resource type="PackedScene" uid="uid://bjopb88sq766e" path="res://scenes/gameplay/enemy/enemies/florb_enemy.tscn" id="4_p1ix0"]
 [ext_resource type="PackedScene" uid="uid://dkiuk5y53nmy2" path="res://scenes/gameplay/enemy/enemies/firit_enemy.tscn" id="4_y0un6"]
 [ext_resource type="Script" path="res://scenes/gameplay/spawn_info.gd" id="5_7m54o"]
 [ext_resource type="PackedScene" uid="uid://boxf2pg7c1da4" path="res://scenes/gameplay/testing_chamber.tscn" id="7_3lalr"]
@@ -59,6 +59,7 @@ y_sort_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="YSortableSceneGraph" instance=ExtResource("1_5kmuy")]
+visible = true
 position = Vector2(171, 109)
 
 [node name="EnemySpawner" parent="YSortableSceneGraph" instance=ExtResource("3_luq5g")]

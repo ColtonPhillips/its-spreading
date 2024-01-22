@@ -1,19 +1,22 @@
-class_name State
-extends Node
+extends State
 
-var parent: Node
-var collision_hitbox: HitboxComponent
+#@export var walk_state: State
 
-func init(parent: Node):
-	parent = parent
-	
+var player: Player = null
+
+func init(parent):
+	player = parent
+
 func enter() -> void:
+	#player.animated_sprite_2d.play("idle")
 	pass
 
 func exit() -> void:
 	pass
 
 func process_input(event: InputEvent) -> State:
+	#if player.input_component.direction != Vector2.ZERO:
+	#	return walk_state
 	return null
 
 func process_frame(delta: float) -> State:

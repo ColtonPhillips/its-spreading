@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c3vntakhy0jq7"]
+[gd_scene load_steps=36 format=3 uid="uid://c3vntakhy0jq7"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_2stqb"]
 [ext_resource type="Texture2D" uid="uid://d3nftxbopob5v" path="res://res/art/gameplay/player/player.png" id="2_mluj1"]
@@ -21,7 +21,6 @@
 [ext_resource type="Script" path="res://scenes/player/states/walk_state.gd" id="19_23c0m"]
 [ext_resource type="Script" path="res://scenes/player/states/flinch_state.gd" id="20_0jo2p"]
 [ext_resource type="Script" path="res://scenes/player/states/death_state.gd" id="21_3p0xg"]
-[ext_resource type="Script" path="res://scenes/player/states/level_up_state.gd" id="22_n3hr5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cfm71"]
 radius = 2.0
@@ -133,11 +132,11 @@ radius = 0.724638
 height = 3.9
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-visible = false
 y_sort_enabled = true
 collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_2stqb")
+projectiles_off = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -298,10 +297,6 @@ death_state = NodePath("../DeathState")
 
 [node name="DeathState" type="Node" parent="StateMachine"]
 script = ExtResource("21_3p0xg")
-
-[node name="LevelUpState" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
-script = ExtResource("22_n3hr5")
-idle_state = NodePath("../IdleState")
 
 [connection signal="level_up" from="PlayerStatsComponent" to="." method="_on_player_stats_component_level_up"]
 [connection signal="no_hp" from="PlayerStatsComponent" to="." method="_on_player_stats_component_no_hp"]

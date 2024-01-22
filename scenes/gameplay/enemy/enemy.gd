@@ -30,6 +30,7 @@ func _physics_process(delta):
 func movement(delta):
 	var direction = global_position.direction_to(player.global_position)
 	move_component.velocity = direction * stats_component.speed
+	move_component.process_physics(delta)
 
 func animation(delta):
 	if velocity.x > 0:

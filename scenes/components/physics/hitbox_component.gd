@@ -19,6 +19,7 @@ func _ready():
 	if (stats):
 		collision_info.stats = stats
 
+# XXX: this doesn't work if a user is idly over an enemy that isn't moving. very minor bug for this game so far
 func _on_hurtbox_entered(hurtbox):
 	# Make sure the area we are overlapping is a hurtbox
 	if not hurtbox is HurtboxComponent: return
