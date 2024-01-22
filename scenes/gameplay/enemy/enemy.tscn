@@ -20,7 +20,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vkjpo"]
 shader = ExtResource("3_18q73")
-shader_parameter/canvas_modulate = Color(0.686275, 0.686275, 0.686275, 1)
+shader_parameter/canvas_modulate = Color(0.596078, 0.596078, 0.596078, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yets1"]
 blend_mode = 1
