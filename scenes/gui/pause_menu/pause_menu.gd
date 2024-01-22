@@ -16,7 +16,6 @@ func unpause():
 	Global.player.process_mode = Node.PROCESS_MODE_ALWAYS	
 	$Fader.play('pause_fade_out')
 
-
 ### UI BUTTONS
 func _on_exit_to_menu_button_pressed():
 	$Fader.play('fade_to_black_for_main_menu')
