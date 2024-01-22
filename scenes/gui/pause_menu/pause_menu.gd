@@ -7,11 +7,13 @@ func _ready():
 	self.visible = false
 
 func pause():
+	Global.player.process_mode = Node.PROCESS_MODE_DISABLED
 	$Fader.play('pause_fade_in')
 	get_tree().paused = true
 	self.visible = true
 
 func unpause():
+	Global.player.process_mode = Node.PROCESS_MODE_ALWAYS	
 	$Fader.play('pause_fade_out')
 
 
