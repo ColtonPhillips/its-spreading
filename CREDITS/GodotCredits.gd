@@ -13,7 +13,7 @@ extends Control
 const section_time := 2.0
 const line_time := 0.9
 const base_speed := 25
-const speed_up_multiplier := 1.3
+const speed_up_multiplier := 1.5
 
 var scroll_speed : float = base_speed
 var speed_up := false
@@ -206,7 +206,7 @@ func add_line():
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("ui_accept"):
 		finish()
 	if event.is_action_pressed("ui_down") and !event.is_echo():
 		speed_up = true
