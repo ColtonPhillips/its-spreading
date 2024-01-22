@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scenes/gameplay/spawn_info.gd" id="5_7m54o"]
 [ext_resource type="PackedScene" uid="uid://boxf2pg7c1da4" path="res://scenes/gameplay/testing_chamber.tscn" id="7_3lalr"]
 [ext_resource type="PackedScene" uid="uid://ow0h34umieqd" path="res://scenes/gui/gameplay/gui_gameplay.tscn" id="9_e0dv3"]
-[ext_resource type="AudioStream" uid="uid://b2rln4mnh1h5c" path="res://res/sound/music/DarkTheme.mp3" id="9_prxxj"]
+[ext_resource type="AudioStream" uid="uid://b2rln4mnh1h5c" path="res://res/sound/music/dark_theme.mp3" id="9_prxxj"]
 [ext_resource type="PackedScene" uid="uid://da3vbyp7pptx5" path="res://scenes/gameplay/staring_chamber.tscn" id="10_yvvlj"]
 
 [sub_resource type="Resource" id="Resource_3yj5a"]
