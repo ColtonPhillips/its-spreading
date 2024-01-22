@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfwrapopm5gpd"
-path="res://.godot/imported/fire_orb.png-aec39b2735f5442a947ce2527852cdae.ctex"
+uid="uid://i6jyp6ge72mt"
+path="res://.godot/imported/firit.png-bba10b75f1dad90a5858e7d597925f92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/art/gameplay/enemies/fire_orb.png"
-dest_files=["res://.godot/imported/fire_orb.png-aec39b2735f5442a947ce2527852cdae.ctex"]
+source_file="res://res/art/gameplay/enemies/firit.png"
+dest_files=["res://.godot/imported/firit.png-bba10b75f1dad90a5858e7d597925f92.ctex"]
 
 [params]
 

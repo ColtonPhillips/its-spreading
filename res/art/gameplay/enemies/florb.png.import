@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i6jyp6ge72mt"
-path="res://.godot/imported/wisp.png-e2828807a00cf83c1c5ba52b1c3b2f7e.ctex"
+uid="uid://cfwrapopm5gpd"
+path="res://.godot/imported/florb.png-fe6489049345307de38330dce4bcbc34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/art/gameplay/enemies/wisp.png"
-dest_files=["res://.godot/imported/wisp.png-e2828807a00cf83c1c5ba52b1c3b2f7e.ctex"]
+source_file="res://res/art/gameplay/enemies/florb.png"
+dest_files=["res://.godot/imported/florb.png-fe6489049345307de38330dce4bcbc34.ctex"]
 
 [params]
 

@@ -1,23 +1,60 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjopb88sq766e"]
+[gd_scene load_steps=16 format=3 uid="uid://bjopb88sq766e"]
 
-[ext_resource type="PackedScene" uid="uid://0pcv5ermn1p" path="res://scenes/gameplay/enemy/enemy.tscn" id="1_ni0a7"]
-[ext_resource type="Texture2D" uid="uid://cfwrapopm5gpd" path="res://res/art/gameplay/enemies/fire_orb.png" id="2_4w3uu"]
-[ext_resource type="Resource" uid="uid://bu1pcfn87u3ow" path="res://resources/stats/actor/enemies/fire_orb_stats.tres" id="3_rn4ym"]
+[ext_resource type="PackedScene" uid="uid://0pcv5ermn1p" path="res://scenes/gameplay/enemy/enemy.tscn" id="1_wax8s"]
+[ext_resource type="Texture2D" uid="uid://cfwrapopm5gpd" path="res://res/art/gameplay/enemies/florb.png" id="2_7edn6"]
+[ext_resource type="Resource" uid="uid://bu1pcfn87u3ow" path="res://resources/stats/actor/enemies/florb_stats.tres" id="3_4od31"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nouw"]
+atlas = ExtResource("2_7edn6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypkk5"]
+atlas = ExtResource("2_7edn6")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ljtl"]
+atlas = ExtResource("2_7edn6")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3elm"]
+atlas = ExtResource("2_7edn6")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_chd8f"]
-atlas = ExtResource("2_4w3uu")
+atlas = ExtResource("2_7edn6")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24xs4"]
-atlas = ExtResource("2_4w3uu")
+atlas = ExtResource("2_7edn6")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aff20"]
-atlas = ExtResource("2_4w3uu")
+atlas = ExtResource("2_7edn6")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akac6"]
+atlas = ExtResource("2_7edn6")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dn6b2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nouw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypkk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ljtl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3elm")
+}],
+"loop": true,
+"name": &"death",
+"speed": 4.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_chd8f")
@@ -31,6 +68,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akac6")
+}],
+"loop": true,
+"name": &"flinch",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6uykx"]
@@ -42,13 +87,13 @@ radius = 10.0499
 [sub_resource type="CircleShape2D" id="CircleShape2D_vakxk"]
 radius = 2.39726
 
-[node name="FireOrbEnemy" instance=ExtResource("1_ni0a7")]
+[node name="FireOrbEnemy" instance=ExtResource("1_wax8s")]
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_dn6b2")
+animation = &"death"
 autoplay = "default"
-frame_progress = 0.138607
 
 [node name="Shadow" parent="AnimatedSprite2D" index="0"]
 position = Vector2(0, 2)
@@ -59,7 +104,7 @@ position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_6uykx")
 
 [node name="StatsComponent" parent="." index="4"]
-stats = ExtResource("3_rn4ym")
+stats = ExtResource("3_4od31")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." index="7"]
 position = Vector2(-1, -9)
