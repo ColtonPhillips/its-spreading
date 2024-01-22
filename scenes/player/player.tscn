@@ -133,6 +133,7 @@ radius = 0.724638
 height = 3.9
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+process_mode = 3
 y_sort_enabled = true
 collision_layer = 0
 motion_mode = 1

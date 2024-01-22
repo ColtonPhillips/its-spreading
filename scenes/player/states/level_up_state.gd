@@ -11,6 +11,7 @@ func enter():
 	chince = 100
 	player.animated_sprite_2d.play("level_up")
 	player.stats_component.hp += 10
+	get_tree().paused = true
 	pass
 
 func exit():
@@ -26,6 +27,7 @@ func process_physics(delta) -> State:
 	player.move_component.velocity = Vector2.ZERO
 	chince -= 1
 	if chince == 0:
+		get_tree().paused = false
 		return idle_state
 	return null
 
