@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c3vntakhy0jq7"]
+[gd_scene load_steps=33 format=3 uid="uid://c3vntakhy0jq7"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_2stqb"]
 [ext_resource type="Texture2D" uid="uid://d3nftxbopob5v" path="res://res/art/gameplay/player/player.png" id="2_mluj1"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://b3yhq4mnobip1" path="res://res/art/gameplay/lighting/actor_highres_light.png" id="13_8qh5f"]
 [ext_resource type="Script" path="res://scenes/components/physics/hurtbox_component.gd" id="14_w7aay"]
 [ext_resource type="Script" path="res://scenes/components/effects/flash/strobe_component.gd" id="16_jgv0s"]
+[ext_resource type="Script" path="res://scenes/components/state_machine/state_machine.gd" id="17_5qhfy"]
+[ext_resource type="Script" path="res://scenes/player/states/idle_state.gd" id="18_tvtj7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cfm71"]
 radius = 2.0
@@ -270,6 +272,14 @@ shape = SubResource("CapsuleShape2D_1prqd")
 [node name="StrobeComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("16_jgv0s")
 sprite = NodePath("../AnimatedSprite2D")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("parent", "starting_state")]
+script = ExtResource("17_5qhfy")
+parent = NodePath("..")
+starting_state = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("18_tvtj7")
 
 [connection signal="level_up" from="PlayerStatsComponent" to="." method="_on_player_stats_component_level_up"]
 [connection signal="area_entered" from="PickupRange" to="." method="_on_pickup_range_area_entered"]

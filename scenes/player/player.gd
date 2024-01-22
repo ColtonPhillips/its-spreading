@@ -15,10 +15,11 @@ extends CharacterBody2D
 @onready var pickup_sfx = $PickupSfx
 @onready var move_component = $MoveComponent
 @onready var move_input_component = $MoveInputComponent
-@onready var stats_component = $PlayerStatsComponent
+@onready var stats_component: PlayerStatsComponent = $PlayerStatsComponent
 @onready var augment_knockback_motion = $MoveComponent/AugmentKnockbackMotion
 @onready var strobe_component = $StrobeComponent
 @onready var hurtbox_component = $HurtboxComponent
+@onready var state_machine: StateMachine = $StateMachine
 
 @export var projectiles_off = false
 
@@ -33,6 +34,7 @@ func _ready():
 	add_child(timer)
 	
 	fire_rate_timer.timeout.connect(fire_weapon)
+	state_machine.init(self)
 
 func _input(event: InputEvent) -> void:
 	var x = Input.get("toggle_fullscreen")
