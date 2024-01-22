@@ -4,7 +4,8 @@ extends CanvasLayer
 @export var credits_scene: String
 
 func _enter_tree():
-	$Fader.play('fade_in')
+	pass
+	#$Fader.play('fade_in')
 
 func _on_start_game_link_pressed():
 	get_tree().change_scene_to_file(start_game_scene)
