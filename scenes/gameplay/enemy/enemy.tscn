@@ -5,7 +5,7 @@
 [ext_resource type="Shader" path="res://resources/shaders/invert_canvas_modulation.gdshader" id="3_18q73"]
 [ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://res/art/gameplay/shadow.png" id="3_cl4l7"]
 [ext_resource type="Script" path="res://scenes/components/movement/move_character_body_2d_component.gd" id="3_ynl7d"]
-[ext_resource type="Texture2D" uid="uid://b4fhi75sk51gg" path="res://res/art/gameplay/lighting/actor_orange_light.png" id="4_i7onb"]
+[ext_resource type="Texture2D" uid="uid://b4fhi75sk51gg" path="res://res/art/gameplay/lighting/actor_highres_orange_light.png" id="5_f452j"]
 [ext_resource type="Script" path="res://scenes/components/stats/actor_stats_component.gd" id="6_ysjh2"]
 [ext_resource type="Script" path="res://scenes/components/effects/scale/scale_component.gd" id="7_44dt6"]
 [ext_resource type="PackedScene" uid="uid://be7cq2knfj5bf" path="res://scenes/components/health/health_bar_component.tscn" id="7_y3leb"]
@@ -47,7 +47,8 @@ modulate = Color(1, 1, 1, 0.14902)
 z_index = -10
 material = SubResource("CanvasItemMaterial_yets1")
 position = Vector2(1, 11)
-texture = ExtResource("4_i7onb")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_f452j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
