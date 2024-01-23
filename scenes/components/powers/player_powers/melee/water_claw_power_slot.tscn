@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/components/powers/player_powers/melee/water_claw_power_slot.gd" id="1_7fgnf"]
 [ext_resource type="Texture2D" uid="uid://d2c1jgtrm2fpy" path="res://res/art/gui/iconography/select_arrow.png" id="2_bf1yr"]
 [ext_resource type="Script" path="res://scenes/components/spawn/spawner_component.gd" id="3_m3ygw"]
-[ext_resource type="PackedScene" uid="uid://c25mgd2nabo1n" path="res://scenes/gameplay/powers/melee/melees/water_smack_melee.tscn" id="4_84sna"]
+[ext_resource type="PackedScene" uid="uid://c25mgd2nabo1n" path="res://scenes/gameplay/powers/melee/melees/water_claw_melee.tscn" id="4_84sna"]
 
 [node name="WaterClawPowerSlot" type="Node2D"]
 script = ExtResource("1_7fgnf")

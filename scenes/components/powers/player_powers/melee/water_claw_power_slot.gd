@@ -5,11 +5,11 @@ class_name WaterColorPowerSlot
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var timer = Global.delay_create_loop(self, 1.8, hit_melee)
+	var timer = Global.delay_create_loop(self, 1.3, hit_melee)
 	
 var flip_flop = true
 func hit_melee():
-	Global.delay_create(self, 0.8, func():
+	Global.delay_create(self, 0.4, func():
 		ui_pivot.rotate(deg_to_rad(180))
 	)
 	if flip_flop == true:
