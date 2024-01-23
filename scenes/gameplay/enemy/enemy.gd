@@ -50,6 +50,10 @@ var __state_alive__ = true
 
 func _on_hurtbox_component_hurt(hitbox):
 	if (hitbox.collision_info.stats):
+		print ("hit")
+		print(hitbox.collision_info.stats.damage)
+		print(hitbox.collision_info.stats.hasOneShotHitbox)
+		
 		stats_component.hp -= hitbox.collision_info.stats.damage
 	
 	augment_knockback_motion.knockback_angle(hitbox.collision_info.angle)

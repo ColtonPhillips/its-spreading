@@ -7,15 +7,19 @@ signal hit_hurtbox(hurtbox: HurtboxComponent)
 
 var collision_info: CollisionInfo = CollisionInfo.new()
 
+var hurtbox_ignore_list: Array[HurtboxComponent] = []
+
 func _ready():
 	# Connect on area entered to our hurtbox entered function
 	area_entered.connect(_on_hurtbox_entered)
 	
 	var stats:ActorStatsComponent
+
 	for child in owner.get_children():
 		if child.is_in_group("ActorStatsComponent"):
 			stats = child
 			break
+
 	if (stats):
 		collision_info.stats = stats
 
@@ -25,12 +29,19 @@ func _on_hurtbox_entered(hurtbox):
 	if not hurtbox is HurtboxComponent: return
 	# Make sure the hurtbox isn't invincible
 	if hurtbox.is_invincible: return
+	# If the hitbox is melee type, don't re-hurt any players
+	if collision_info.stats.hasOneShotHitbox and hurtbox_ignore_list.has(hurtbox):
+		return
 	
 	collision_info.angle = calculate_angle(hurtbox)
 	# Signal out that we hit a hurtbox (this is useful for destroying projectiles when they hit something)
 	hit_hurtbox.emit(hurtbox)
 	# Have the hurtbox signal out that it was hit
 	hurtbox.hurt.emit(self)
+	
+	# Add to hurtbox ignore list if its a melee attack, so we don't get multiple hits! Kinda XXX
+	if collision_info.stats.hasOneShotHitbox:
+		hurtbox_ignore_list.append(hurtbox)
 
 func calculate_angle(hurtbox):
 	var angle = Vector2.ZERO

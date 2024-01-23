@@ -6,3 +6,5 @@ extends Resource
 @export var hp: int = 15
 
 @export var damage: int = 5
+
+@export var hasOneShotHitbox = false

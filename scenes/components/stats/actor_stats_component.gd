@@ -3,6 +3,7 @@ class_name ActorStatsComponent
 extends Node
 
 @export var stats: ActorStats
+var hasOneShotHitbox: bool = false
 
 var speed: int = 10
 var damage: int = 5
@@ -33,4 +34,8 @@ func _ready():
 	hp = stats.hp
 	speed = stats.speed
 	damage = stats.damage
+	var marent = get_parent()
+	if damage == 25 and speed == 30:
+		print ("a")
+	hasOneShotHitbox = stats.hasOneShotHitbox
 	

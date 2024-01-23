@@ -228,11 +228,11 @@ position = Vector2(5, 4)
 
 [node name="FarRightSlot" type="Node2D" parent="Slots"]
 y_sort_enabled = true
-position = Vector2(34, 6)
+position = Vector2(26, 6)
 
 [node name="FarLeftSlot" type="Node2D" parent="Slots"]
 y_sort_enabled = true
-position = Vector2(-35, 6)
+position = Vector2(-26, 6)
 
 [node name="PickupRange" type="Area2D" parent="."]
 visible = false
