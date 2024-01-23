@@ -43,9 +43,9 @@ func movement(delta):
 		direction = ( 17 * direction + direction2 ) / 18
 		
 	move_component.velocity = direction * speed
-	
 
 # Function to set variables
+# XXX duplicated in melee. 
 func spawn(variables: Dictionary) -> void:
 	for key in variables.keys():
 		set(key, variables[key])
