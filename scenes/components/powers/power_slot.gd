@@ -1,4 +1,4 @@
-class_name Power
+class_name PowerSlot
 extends Node2D
 
 var player: Player

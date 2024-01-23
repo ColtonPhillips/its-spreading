@@ -23,7 +23,7 @@
 [ext_resource type="Script" path="res://scenes/player/states/death_state.gd" id="21_3p0xg"]
 [ext_resource type="Script" path="res://scenes/player/states/level_up_state.gd" id="22_n3hr5"]
 [ext_resource type="Script" path="res://scenes/components/powers/powers_component.gd" id="23_7ah85"]
-[ext_resource type="PackedScene" uid="uid://iglbjvvq4tfx" path="res://scenes/components/powers/player_powers/test_power.tscn" id="24_070cw"]
+[ext_resource type="PackedScene" uid="uid://br77ca1gnseyo" path="res://scenes/components/powers/player_powers/melee/water_claw_power_slot.tscn" id="24_k0lbs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cfm71"]
 radius = 2.0
@@ -191,7 +191,6 @@ script = ExtResource("3_8jtw5")
 scene = ExtResource("4_r3uhc")
 
 [node name="Slots" type="Node2D" parent="."]
-visible = false
 y_sort_enabled = true
 position = Vector2(0, -7)
 
@@ -226,6 +225,14 @@ position = Vector2(-5, -6)
 [node name="BottomRightSlot" type="Node2D" parent="Slots"]
 y_sort_enabled = true
 position = Vector2(5, 4)
+
+[node name="FarRightSlot" type="Node2D" parent="Slots"]
+y_sort_enabled = true
+position = Vector2(34, 6)
+
+[node name="FarLeftSlot" type="Node2D" parent="Slots"]
+y_sort_enabled = true
+position = Vector2(-35, 6)
 
 [node name="PickupRange" type="Area2D" parent="."]
 visible = false
@@ -306,7 +313,7 @@ process_mode = 1
 y_sort_enabled = true
 script = ExtResource("23_7ah85")
 player = NodePath("..")
-starting_power = ExtResource("24_070cw")
+starting_power = ExtResource("24_k0lbs")
 
 [connection signal="level_up" from="PlayerStatsComponent" to="." method="_on_player_stats_component_level_up"]
 [connection signal="no_hp" from="PlayerStatsComponent" to="." method="_on_player_stats_component_no_hp"]

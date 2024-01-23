@@ -1,5 +1,5 @@
-class_name TestPower
-extends Power
+class_name TestPowerSlot
+extends PowerSlot
 
 @export var projectiles_off = false
 @onready var spawner_component = $SpawnerComponent
