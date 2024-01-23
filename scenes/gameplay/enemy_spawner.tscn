@@ -11,6 +11,7 @@ time_end = 120
 enemy = ExtResource("2_v8men")
 enemy_num = 2
 enemy_spawn_delay = 1
+NOTES = "Notes..."
 
 [node name="EnemySpawner" type="Node2D"]
 y_sort_enabled = true
