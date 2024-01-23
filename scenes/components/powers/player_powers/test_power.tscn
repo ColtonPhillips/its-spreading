@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/components/powers/player_powers/test_power.gd" id="1_87y1i"]
 [ext_resource type="Script" path="res://scenes/components/spawn/spawner_component.gd" id="3_6wlj0"]
-[ext_resource type="PackedScene" uid="uid://csafkqwts3rfk" path="res://scenes/gameplay/projectiles/projectiles/water_orb_projectile.tscn" id="4_g56t1"]
+[ext_resource type="PackedScene" uid="uid://csafkqwts3rfk" path="res://scenes/gameplay/powers/projectiles/projectiles/water_orb_projectile.tscn" id="4_g56t1"]
 [ext_resource type="Texture2D" uid="uid://d2c1jgtrm2fpy" path="res://res/art/gui/iconography/select_arrow.png" id="4_krjsa"]
 
 [node name="TestPower" type="Node2D"]

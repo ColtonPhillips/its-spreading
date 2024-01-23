@@ -3,7 +3,7 @@ extends Node2D
 @export var speed = 65.0 
 var direction = Vector2.ZERO
 @onready var move_component = $MoveComponent
-@onready var scale_component = $ScaleComponent
+@onready var scale_component:ScaleComponent = $ScaleComponent
 @export var start_chasing = false
 @onready var enemy_chase_range = $EnemyChaseRange
 

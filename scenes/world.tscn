@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bjopb88sq766e" path="res://scenes/gameplay/enemy/enemies/florb_enemy.tscn" id="4_p1ix0"]
 [ext_resource type="PackedScene" uid="uid://dkiuk5y53nmy2" path="res://scenes/gameplay/enemy/enemies/firit_enemy.tscn" id="4_y0un6"]
 [ext_resource type="Script" path="res://scenes/gameplay/spawn_info.gd" id="5_7m54o"]
-[ext_resource type="PackedScene" uid="uid://boxf2pg7c1da4" path="res://scenes/gameplay/testing_chamber.tscn" id="7_3lalr"]
+[ext_resource type="PackedScene" uid="uid://boxf2pg7c1da4" path="res://scenes/gameplay/chambers/testing_chamber.tscn" id="7_3lalr"]
 [ext_resource type="PackedScene" uid="uid://ow0h34umieqd" path="res://scenes/gui/gameplay/gui_gameplay.tscn" id="9_e0dv3"]
 [ext_resource type="AudioStream" uid="uid://b8gwftrv4ej13" path="res://res/sound/music/dark_theme.ogg" id="10_d2dbh"]
-[ext_resource type="PackedScene" uid="uid://da3vbyp7pptx5" path="res://scenes/gameplay/staring_chamber.tscn" id="10_yvvlj"]
+[ext_resource type="PackedScene" uid="uid://da3vbyp7pptx5" path="res://scenes/gameplay/chambers/staring_chamber.tscn" id="10_yvvlj"]
 
 [sub_resource type="Resource" id="Resource_3yj5a"]
 script = ExtResource("5_7m54o")
