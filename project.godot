@@ -38,6 +38,10 @@ movie_writer/movie_file="C:/Users/Blair/Desktop/godot.avi"
 movie_writer/disable_vsync=true
 movie_writer/fps=30
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
