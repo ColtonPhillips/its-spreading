@@ -6,7 +6,6 @@ extends CharacterBody2D
 @onready var down_slot = $Slots/DownSlot
 @onready var up_slot = $Slots/UpSlot
 @onready var left_slot = $Slots/LeftSlot
-@onready var fire_rate_timer = $FireRateTimer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var top_right_slot = $Slots/TopRightSlot
 @onready var bottom_left_slot = $Slots/BottomLeftSlot

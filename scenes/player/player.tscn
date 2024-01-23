@@ -105,7 +105,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 4.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -150,7 +150,7 @@ shape = SubResource("CapsuleShape2D_cfm71")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_4goky")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Shadow" type="Sprite2D" parent="AnimatedSprite2D"]
