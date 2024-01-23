@@ -19,6 +19,7 @@ extends CharacterBody2D
 @onready var strobe_component = $StrobeComponent
 @onready var hitbox_component = $HitboxComponent
 @onready var hurtbox_component = $HurtboxComponent
+@onready var center = $Center
 
 func _ready():
 	kill_sfx.finished.connect(queue_free)
@@ -50,13 +51,10 @@ var __state_alive__ = true
 
 func _on_hurtbox_component_hurt(hitbox):
 	if (hitbox.collision_info.stats):
-		print ("hit")
-		print(hitbox.collision_info.stats.damage)
-		print(hitbox.collision_info.stats.hasOneShotHitbox)
-		
 		stats_component.hp -= hitbox.collision_info.stats.damage
-	
-	augment_knockback_motion.knockback_angle(hitbox.collision_info.angle)
+	#erf suddenly angle is bad naming!
+	var weighted_angle =     (0 * hitbox.collision_info.angle.angle()     +        100 * Global.player.slots.global_position.direction_to(center.global_position).angle()        ) / 100
+	augment_knockback_motion.knockback_angle(Vector2.from_angle(weighted_angle))
 	
 	scale_component.tween_scale()
 	hurt_sfx.play_with_variance()

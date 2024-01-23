@@ -8,6 +8,7 @@ func _ready():
 	y_sort_enabled = true;
 
 func _on_timer_timeout():
+	PackedScene
 	time += 1
 	var enemy_spawns = spawns
 	for i in enemy_spawns:

@@ -3,7 +3,7 @@ extends AugmentMotion
 
 @export var knockback_velocity: Vector2 = Vector2.ZERO
 @export var knockback_force: int = 100
-@export var dampen_force: int = 1
+@export var dampen_force: int = 4
 
 func modify_velocity(velocity: Vector2):
 	if disabled: return

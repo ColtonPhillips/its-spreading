@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dicyinoip22tb" path="res://res/art/gameplay/powers/water_claw.png" id="2_la134"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbywi"]
-radius = 18.2483
+radius = 25.318
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3njg"]
 atlas = ExtResource("2_la134")
@@ -50,9 +50,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5n6pg")
-}, {
-"duration": 1.0,
-"texture": null
 }],
 "loop": false,
 "name": &"hit",

@@ -163,3 +163,6 @@ shape = SubResource("CapsuleShape2D_oyumw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 position = Vector2(-1, 4)
 shape = SubResource("CapsuleShape2D_rftmv")
+
+[node name="Center" parent="." index="12"]
+position = Vector2(-1, 3)

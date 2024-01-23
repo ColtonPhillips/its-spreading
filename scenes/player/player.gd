@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var bottom_right_slot = $Slots/BottomRightSlot
 @onready var far_left_slot = $Slots/FarLeftSlot
 @onready var far_right_slot = $Slots/FarRightSlot
+@onready var slots = $Slots
 
 
 @onready var pickup_sfx = $PickupSfx

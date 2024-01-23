@@ -62,7 +62,6 @@ augment_motions = [NodePath("AugmentKnockbackMotion")]
 
 [node name="AugmentKnockbackMotion" type="Node" parent="MoveComponent"]
 script = ExtResource("16_wiwmn")
-dampen_force = 10
 
 [node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("7_44dt6")
@@ -104,5 +103,7 @@ script = ExtResource("16_camdy")
 [node name="StrobeComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("17_rcbfr")
 sprite = NodePath("../AnimatedSprite2D")
+
+[node name="Center" type="Node2D" parent="."]
 
 [connection signal="hurt" from="HurtboxComponent" to="." method="_on_hurtbox_component_hurt"]
