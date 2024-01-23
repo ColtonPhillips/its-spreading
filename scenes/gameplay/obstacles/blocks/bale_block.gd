@@ -1,10 +1,9 @@
 extends StaticBody2D
 @onready var sprite_2d = $Sprite2D
 @onready var cpu_particles_2d = $CPUParticles2D
-
+#XXX made this in a rush!
 var health = 6
 var max_health = health
-
 
 func amount_burnt():
 	return max_health - health
@@ -20,7 +19,6 @@ func amount_per_health():
 
 func _ready():
 	cpu_particles_2d.amount = amount_per_health()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
