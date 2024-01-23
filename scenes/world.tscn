@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://27phkm3uydxm"]
+[gd_scene load_steps=17 format=3 uid="uid://27phkm3uydxm"]
 
 [ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player/player.tscn" id="1_5kmuy"]
 [ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://res/art/gameplay/environment/grass.png" id="1_m36ed"]
+[ext_resource type="PackedScene" uid="uid://cc2eyw6bnv7qm" path="res://scenes/tilemap/world_map.tscn" id="2_12csv"]
 [ext_resource type="PackedScene" uid="uid://x43epic8paf7" path="res://scenes/gameplay/enemy_spawner.tscn" id="3_luq5g"]
 [ext_resource type="PackedScene" uid="uid://bjopb88sq766e" path="res://scenes/gameplay/enemy/enemies/florb_enemy.tscn" id="4_p1ix0"]
 [ext_resource type="PackedScene" uid="uid://dkiuk5y53nmy2" path="res://scenes/gameplay/enemy/enemies/firit_enemy.tscn" id="4_y0un6"]
@@ -61,6 +62,7 @@ metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -10
+y_sort_enabled = true
 texture_repeat = 2
 texture = ExtResource("1_m36ed")
 region_enabled = true
@@ -70,6 +72,8 @@ metadata/_edit_lock_ = true
 [node name="YSortableSceneGraph" type="Node2D" parent="."]
 y_sort_enabled = true
 metadata/_edit_lock_ = true
+
+[node name="WorldMap" parent="YSortableSceneGraph" instance=ExtResource("2_12csv")]
 
 [node name="Player" parent="YSortableSceneGraph" instance=ExtResource("1_5kmuy")]
 position = Vector2(171, 109)
