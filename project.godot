@@ -109,6 +109,7 @@ toggle_fullscreen={
 2d_physics/layer_5="Loot"
 2d_physics/layer_6="PlayerPower"
 2d_physics/layer_7="EnemyPower"
+2d_physics/layer_8="BurnableObject"
 
 [rendering]
 

@@ -1,16 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk8yby3ot6nju"]
+[gd_scene load_steps=14 format=3 uid="uid://bk8yby3ot6nju"]
 
 [ext_resource type="PackedScene" uid="uid://kcswp7pahkxl" path="res://scenes/gameplay/obstacles/block.tscn" id="1_1qq4d"]
 [ext_resource type="Texture2D" uid="uid://6liiirbd1fed" path="res://res/art/gameplay/environment/hay_bale.png" id="2_ahk8s"]
+[ext_resource type="Script" path="res://scenes/gameplay/obstacles/blocks/bale_block.gd" id="2_lxs8g"]
 [ext_resource type="Texture2D" uid="uid://d07g3qtks3hl2" path="res://res/art/gameplay/shadow.png" id="3_xe6fg"]
+[ext_resource type="Script" path="res://scenes/components/physics/hurtbox_component.gd" id="5_jp6eo"]
+[ext_resource type="Texture2D" uid="uid://bl6mkxcmwqpx7" path="res://res/art/particles/particles.png" id="6_ahfa2"]
+[ext_resource type="Shader" path="res://resources/shaders/wiggle_polish.gdshader" id="7_mkri5"]
+[ext_resource type="Texture2D" uid="uid://blmilmj6fqc74" path="res://res/art/particles/large_dust_mote_particle.png" id="8_rwkkn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26aco"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3nsp"]
 radius = 11.5417
 height = 43.1045
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi34e"]
+size = Vector2(44, 27.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wfper"]
+shader = ExtResource("7_mkri5")
+shader_parameter/fire_intensity = 0.0
+shader_parameter/animation_intensity = 2.0
+shader_parameter/glow_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_atgsj"]
+_data = [Vector2(0.00519931, 0), 0.0, 0.0, 0, 0, Vector2(0.960139, 0.830929), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="BaleBlock" instance=ExtResource("1_1qq4d")]
+script = ExtResource("2_lxs8g")
 
 [node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_26aco")
 position = Vector2(0, -0.5)
 texture = ExtResource("2_ahk8s")
 region_rect = Rect2(0, 15.3248, 17.2166, 16.6752)
@@ -23,6 +45,47 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_xe6fg")
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 position = Vector2(1, 10)
 rotation = 1.50098
 shape = SubResource("CapsuleShape2D_m3nsp")
+
+[node name="HurtboxComponent" type="Area2D" parent="." index="2"]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("5_jp6eo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+visible = false
+position = Vector2(1, 10.75)
+shape = SubResource("RectangleShape2D_hi34e")
+
+[node name="Particles" type="Sprite2D" parent="." index="3"]
+visible = false
+position = Vector2(10, 4)
+texture = ExtResource("6_ahfa2")
+region_enabled = true
+region_rect = Rect2(48.2634, 0, 7.82014, 8)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="4"]
+material = SubResource("ShaderMaterial_wfper")
+position = Vector2(4, 4)
+emitting = false
+amount = 30
+lifetime = 0.7
+speed_scale = 0.5
+texture = ExtResource("8_rwkkn")
+emission_shape = 2
+emission_sphere_radius = 7.5
+direction = Vector2(10, 12)
+spread = 75.91
+gravity = Vector2(0, -210)
+radial_accel_min = -57.14
+scale_amount_min = 0.2
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_atgsj")
+color = Color(0.466667, 0.0509804, 0.0862745, 0.568627)
+hue_variation_min = -0.19
+hue_variation_max = 1.0
+
+[connection signal="hurt" from="HurtboxComponent" to="." method="_on_hurtbox_component_hurt"]

@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://0htdnewi83vd" path="res://resources/stats/actor/melee/default_melee_stats.tres" id="4_f1udk"]
 
 [node name="Melee" type="Node2D"]
+z_index = 2
 script = ExtResource("1_fqgr4")
 
 [node name="ActorStatsComponent" type="Node" parent="."]
