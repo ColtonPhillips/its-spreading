@@ -106,8 +106,4 @@ sprite = NodePath("../AnimatedSprite2D")
 
 [node name="Center" type="Node2D" parent="."]
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(2, -2.38419e-07)
-scale = Vector2(5, 4.95)
-
 [connection signal="hurt" from="HurtboxComponent" to="." method="_on_hurtbox_component_hurt"]
