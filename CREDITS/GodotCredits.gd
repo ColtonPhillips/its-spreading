@@ -11,8 +11,8 @@ extends Control
 @export var Video : VideoStream = null
 
 const section_time := 2.0
-const line_time := 0.9
-const base_speed := 25
+const line_time := 1
+const base_speed := 32
 const speed_up_multiplier := 1.5
 
 var scroll_speed : float = base_speed
@@ -195,6 +195,8 @@ func add_line():
 		if text_font != null:
 			new_line.set("theme_override_fonts/font", text_font)
 		new_line.set("theme_override_colors/font_color", text_color)
+	
+	new_line.position.snapped(Vector2.ONE)
 	
 	$CreditsContainer.add_child(new_line)
 	
