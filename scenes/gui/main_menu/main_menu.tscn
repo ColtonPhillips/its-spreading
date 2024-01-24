@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c6djgc5rsd3g2"]
+[gd_scene load_steps=32 format=3 uid="uid://c6djgc5rsd3g2"]
 
 [ext_resource type="Texture2D" uid="uid://dmiiidgf12gpw" path="res://res/art/main_menu/game_title.png" id="2_5gdmf"]
 [ext_resource type="Script" path="res://scenes/gui/main_menu/main_menu.gd" id="2_7dbyw"]
@@ -116,8 +116,17 @@ default_font_size = 13
 device = -1
 keycode = 4194305
 
+[sub_resource type="InputEventKey" id="InputEventKey_mjc3x"]
+device = -1
+alt_pressed = true
+keycode = 4194309
+
+[sub_resource type="InputEventKey" id="InputEventKey_jnddg"]
+device = -1
+keycode = 4194342
+
 [sub_resource type="Shortcut" id="Shortcut_u8gym"]
-events = [SubResource("InputEventKey_g2038")]
+events = [SubResource("InputEventKey_g2038"), SubResource("InputEventKey_mjc3x"), SubResource("InputEventKey_jnddg")]
 
 [sub_resource type="Animation" id="Animation_pmv3q"]
 length = 0.001
