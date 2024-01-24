@@ -3,6 +3,7 @@ extends Node
 
 @onready var texture_progress_bar = $TextureProgressBar
 var playerStatsComponent: PlayerStatsComponent
+@onready var fps_meter = $FPSMeter
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +22,7 @@ func _ready():
 func set_texture_progress():
 	texture_progress_bar.value = playerStatsComponent.exp
 
-
+func _process(delta):
+	fps_meter.set_text(str( Engine.get_frames_per_second()))
 
 
