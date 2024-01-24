@@ -20,9 +20,25 @@ extends CharacterBody2D
 @onready var hitbox_component = $HitboxComponent
 @onready var hurtbox_component = $HurtboxComponent
 @onready var center = $Center
+@onready var visible_on_screen_notifier_2d = $VisibleOnScreenNotifier2D
 
 func _ready():
 	kill_sfx.finished.connect(queue_free)
+	_enable(false)
+
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	_enable(true)
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	_enable(false)
+	
+func _enable(on_or_off):
+	animated_sprite_2d.visible = on_or_off
+	hurtbox_component.monitorable = on_or_off
+	hurtbox_component.monitoring = on_or_off
+	hitbox_component.monitorable = on_or_off
+	hitbox_component.monitoring = on_or_off
 	
 func _physics_process(delta):
 	movement(delta)
