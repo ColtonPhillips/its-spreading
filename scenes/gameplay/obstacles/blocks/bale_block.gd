@@ -1,6 +1,9 @@
 extends StaticBody2D
 @onready var sprite_2d = $Sprite2D
 @onready var cpu_particles_2d = $CPUParticles2D
+@export var isShdaowRotated = false
+@onready var shadow = $Sprite2D/Shadow
+
 #XXX made this in a rush!
 var health = 6
 var max_health = health
@@ -19,6 +22,11 @@ func amount_per_health():
 
 func _ready():
 	cpu_particles_2d.amount = amount_per_health()
+	if isShdaowRotated:
+		shadow.rotate(0.5 * PI)
+		shadow.position.x += 10 + 40 - 2 - 2
+		shadow.position.y += 6 + 12 + 7 - 3
+		shadow.scale *= 0.9
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

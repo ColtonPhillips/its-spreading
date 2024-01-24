@@ -9,3 +9,4 @@ level = 1
 speed = 30
 hp = 100
 damage = 5
+hasOneShotHitbox = false

@@ -1,84 +1,90 @@
-[gd_scene load_steps=5 format=3 uid="uid://da3vbyp7pptx5"]
+[gd_scene load_steps=6 format=3 uid="uid://da3vbyp7pptx5"]
 
 [ext_resource type="PackedScene" uid="uid://hvii8sqsbf4n" path="res://scenes/gameplay/obstacles/blocks/fence_block.tscn" id="1_r4mee"]
 [ext_resource type="PackedScene" uid="uid://ir75jd4mwilt" path="res://scenes/gameplay/obstacles/blocks/rock_block.tscn" id="2_bm2xq"]
 [ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/gameplay/loot/pickup.tscn" id="3_ro6vq"]
-[ext_resource type="PackedScene" uid="uid://bk8yby3ot6nju" path="res://scenes/gameplay/obstacles/blocks/bale_block.tscn" id="4_ka5ni"]
+[ext_resource type="PackedScene" uid="uid://oi8kxebnv387" path="res://scenes/gameplay/chambers/line_of_bales_chamber.tscn" id="4_4udds"]
+[ext_resource type="PackedScene" uid="uid://b2bcl58dmfijp" path="res://scenes/gameplay/chambers/horizontal_line_of_bales_chamber.tscn" id="5_lo383"]
 
 [node name="StartingChamber" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(2, 2)
 
-[node name="fence_block" parent="." instance=ExtResource("1_r4mee")]
+[node name="Node" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(111, -38)
 
-[node name="BlockRiock" parent="." instance=ExtResource("2_bm2xq")]
+[node name="fence_block" parent="Node" instance=ExtResource("1_r4mee")]
 y_sort_enabled = true
-position = Vector2(-77, -9)
+position = Vector2(113, -36)
 
-[node name="BlockRiock2" parent="." instance=ExtResource("2_bm2xq")]
+[node name="BlockRiock" parent="Node" instance=ExtResource("2_bm2xq")]
 y_sort_enabled = true
-position = Vector2(74, -22)
+position = Vector2(-75, -7)
 
-[node name="BlockRiock3" parent="." instance=ExtResource("2_bm2xq")]
+[node name="BlockRiock2" parent="Node" instance=ExtResource("2_bm2xq")]
 y_sort_enabled = true
-position = Vector2(-2, 57)
+position = Vector2(76, -20)
 
-[node name="Pickup" parent="." instance=ExtResource("3_ro6vq")]
+[node name="BlockRiock3" parent="Node" instance=ExtResource("2_bm2xq")]
 y_sort_enabled = true
-position = Vector2(-61, 48)
+position = Vector2(0, 59)
 
-[node name="Pickup2" parent="." instance=ExtResource("3_ro6vq")]
+[node name="BlockRiock4" parent="Node" instance=ExtResource("2_bm2xq")]
 y_sort_enabled = true
-position = Vector2(-4, -45)
+position = Vector2(284, 166)
 
-[node name="Pickup3" parent="." instance=ExtResource("3_ro6vq")]
+[node name="BlockRiock5" parent="Node" instance=ExtResource("2_bm2xq")]
 y_sort_enabled = true
-position = Vector2(67, 42)
+position = Vector2(230, 164)
 
-[node name="BaleBlock" parent="." instance=ExtResource("4_ka5ni")]
+[node name="BlockRiock6" parent="Node" instance=ExtResource("2_bm2xq")]
 y_sort_enabled = true
-position = Vector2(152, -22)
+position = Vector2(257, 165)
 
-[node name="BaleBlock2" parent="." instance=ExtResource("4_ka5ni")]
+[node name="Node2" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(166, -8)
 
-[node name="BaleBlock3" parent="." instance=ExtResource("4_ka5ni")]
+[node name="Pickup" parent="Node2" instance=ExtResource("3_ro6vq")]
 y_sort_enabled = true
-position = Vector2(180, 6)
+position = Vector2(-59, 50)
 
-[node name="BaleBlock4" parent="." instance=ExtResource("4_ka5ni")]
-z_index = 1
+[node name="Pickup2" parent="Node2" instance=ExtResource("3_ro6vq")]
 y_sort_enabled = true
-position = Vector2(230, 63)
+position = Vector2(-2, -43)
 
-[node name="BaleBlock5" parent="." instance=ExtResource("4_ka5ni")]
-z_index = 1
+[node name="Pickup3" parent="Node2" instance=ExtResource("3_ro6vq")]
 y_sort_enabled = true
-position = Vector2(216, 51)
+position = Vector2(69, 44)
 
-[node name="BaleBlock6" parent="." instance=ExtResource("4_ka5ni")]
-position = Vector2(-139, 76)
+[node name="Node3" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="BaleBlock7" parent="." instance=ExtResource("4_ka5ni")]
-position = Vector2(-154, 64)
+[node name="LineOfBalesChamber2" parent="Node3" instance=ExtResource("4_4udds")]
+position = Vector2(260, -41)
 
-[node name="BaleBlock8" parent="." instance=ExtResource("4_ka5ni")]
-position = Vector2(-186, 28)
+[node name="LineOfBalesChamber3" parent="Node3" instance=ExtResource("4_4udds")]
+position = Vector2(-461, -260)
 
-[node name="BaleBlock9" parent="." instance=ExtResource("4_ka5ni")]
-position = Vector2(-201, 16)
+[node name="LineOfBalesChamber" parent="Node3" instance=ExtResource("4_4udds")]
+position = Vector2(-264, -26)
 
-[node name="BaleBlock10" parent="." instance=ExtResource("4_ka5ni")]
-position = Vector2(373, -18)
+[node name="Node2D" parent="." instance=ExtResource("5_lo383")]
+position = Vector2(202, 248)
 
-[node name="BaleBlock11" parent="." instance=ExtResource("4_ka5ni")]
-position = Vector2(358, -30)
+[node name="Node2D2" parent="." instance=ExtResource("5_lo383")]
+position = Vector2(-117, 560)
 
-[node name="BaleBlock12" parent="." instance=ExtResource("4_ka5ni")]
-position = Vector2(271, -185)
+[node name="Node2D3" parent="." instance=ExtResource("5_lo383")]
+position = Vector2(-46, -211)
 
-[node name="BaleBlock13" parent="." instance=ExtResource("4_ka5ni")]
-position = Vector2(256, -197)
+[node name="Node2D4" parent="." instance=ExtResource("5_lo383")]
+position = Vector2(266, -513)
+
+[node name="LineOfBalesChamber" parent="." instance=ExtResource("4_4udds")]
+position = Vector2(288, -498)
+
+[node name="LineOfBalesChamber2" parent="." instance=ExtResource("4_4udds")]
+position = Vector2(769, 89)
+
+[node name="Node2D5" parent="." instance=ExtResource("5_lo383")]
+position = Vector2(818, 220)

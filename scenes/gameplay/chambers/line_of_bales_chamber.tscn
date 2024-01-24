@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://oi8kxebnv387"]
+
+[ext_resource type="PackedScene" uid="uid://bk8yby3ot6nju" path="res://scenes/gameplay/obstacles/blocks/bale_block.tscn" id="1_26sq6"]
+
+[node name="LineOfBalesChamber" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(1, 4)
+
+[node name="BaleBlock" parent="." instance=ExtResource("1_26sq6")]
+y_sort_enabled = true
+
+[node name="BaleBlock2" parent="." instance=ExtResource("1_26sq6")]
+y_sort_enabled = true
+position = Vector2(12, 16)
+
+[node name="BaleBlock3" parent="." instance=ExtResource("1_26sq6")]
+y_sort_enabled = true
+position = Vector2(25, 31)
+
+[node name="BaleBlock4" parent="." instance=ExtResource("1_26sq6")]
+y_sort_enabled = true
+position = Vector2(38, 46)
+
+[node name="BaleBlock5" parent="." instance=ExtResource("1_26sq6")]
+y_sort_enabled = true
+position = Vector2(50, 62)
+
+[node name="BaleBlock6" parent="." instance=ExtResource("1_26sq6")]
+y_sort_enabled = true
+position = Vector2(63, 77)

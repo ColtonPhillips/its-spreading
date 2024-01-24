@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2bcl58dmfijp"]
+
+[ext_resource type="PackedScene" uid="uid://bk8yby3ot6nju" path="res://scenes/gameplay/obstacles/blocks/bale_block.tscn" id="1_nhd54"]
+
+[node name="Node2D" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(0, 8)
+rotation = 1.5708
+
+[node name="BaleBlock" parent="." instance=ExtResource("1_nhd54")]
+y_sort_enabled = true
+rotation = -3.14159
+scale = Vector2(-1, -1)
+isShdaowRotated = true
+
+[node name="BaleBlock2" parent="." instance=ExtResource("1_nhd54")]
+y_sort_enabled = true
+position = Vector2(16, 16)
+rotation = -3.14159
+scale = Vector2(-1, -1)
+isShdaowRotated = true
+
+[node name="BaleBlock3" parent="." instance=ExtResource("1_nhd54")]
+y_sort_enabled = true
+position = Vector2(32, 32)
+rotation = -3.14159
+scale = Vector2(-1, -1)
+isShdaowRotated = true
+
+[node name="BaleBlock4" parent="." instance=ExtResource("1_nhd54")]
+y_sort_enabled = true
+position = Vector2(48, 48)
+rotation = -3.14159
+scale = Vector2(-1, -1)
+isShdaowRotated = true
+
+[node name="BaleBlock5" parent="." instance=ExtResource("1_nhd54")]
+y_sort_enabled = true
+position = Vector2(64, 64)
+rotation = -3.14159
+scale = Vector2(-1, -1)
+isShdaowRotated = true
+
+[node name="BaleBlock6" parent="." instance=ExtResource("1_nhd54")]
+y_sort_enabled = true
+position = Vector2(104, 104)
+rotation = -3.14159
+scale = Vector2(-1, -1)
+isShdaowRotated = true
+
+[node name="BaleBlock7" parent="." instance=ExtResource("1_nhd54")]
+y_sort_enabled = true
+position = Vector2(120, 120)
+rotation = -3.14159
+scale = Vector2(-1, -1)
+isShdaowRotated = true
+
+[node name="BaleBlock8" parent="." instance=ExtResource("1_nhd54")]
+y_sort_enabled = true
+position = Vector2(136, 136)
+rotation = -3.14159
+scale = Vector2(-1, -1)
+isShdaowRotated = true
+
+[node name="BaleBlock9" parent="." instance=ExtResource("1_nhd54")]
+y_sort_enabled = true
+position = Vector2(152, 152)
+rotation = -3.14159
+scale = Vector2(-1, -1)
+isShdaowRotated = true
+
+[node name="BaleBlock10" parent="." instance=ExtResource("1_nhd54")]
+y_sort_enabled = true
+position = Vector2(168, 168)
+rotation = -3.14159
+scale = Vector2(-1, -1)
+isShdaowRotated = true

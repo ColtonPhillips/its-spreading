@@ -1,86 +1,54 @@
-[gd_scene load_steps=5 format=3 uid="uid://boxf2pg7c1da4"]
+[gd_scene load_steps=4 format=3 uid="uid://boxf2pg7c1da4"]
 
-[ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/gameplay/loot/pickup.tscn" id="1_dpjdh"]
 [ext_resource type="PackedScene" uid="uid://bk8yby3ot6nju" path="res://scenes/gameplay/obstacles/blocks/bale_block.tscn" id="2_74otc"]
 [ext_resource type="PackedScene" uid="uid://ir75jd4mwilt" path="res://scenes/gameplay/obstacles/blocks/rock_block.tscn" id="3_3diva"]
 [ext_resource type="PackedScene" uid="uid://hvii8sqsbf4n" path="res://scenes/gameplay/obstacles/blocks/fence_block.tscn" id="4_alukt"]
 
 [node name="TestingChamber" type="Node2D"]
 
-[node name="Pickup" parent="." instance=ExtResource("1_dpjdh")]
-position = Vector2(64, 0)
-
 [node name="BaleBlock" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(-84, 873)
-
-[node name="BaleBlock2" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(-236, -509)
-
-[node name="BlockRiock" parent="." instance=ExtResource("3_3diva")]
-position = Vector2(194, -173)
-
-[node name="BaleBlock3" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(-241, -163)
-
-[node name="BaleBlock4" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(96, -125)
-
-[node name="BaleBlock5" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(-374, -407)
-
-[node name="BaleBlock6" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(-42, -323)
-
-[node name="BlockRiock2" parent="." instance=ExtResource("3_3diva")]
-position = Vector2(123, 108)
-
-[node name="BaleBlock12" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(-78, 59)
-
-[node name="BaleBlock13" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(432, 1014)
-
-[node name="BaleBlock14" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(558, 854)
-
-[node name="BaleBlock15" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(186, 420)
-
-[node name="BaleBlock16" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(339, 164)
-
-[node name="BaleBlock17" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(-81, 446)
-
-[node name="BaleBlock18" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(242, 802)
-
-[node name="BaleBlock19" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(588, 584)
-
-[node name="BaleBlock24" parent="." instance=ExtResource("2_74otc")]
-position = Vector2(174, -464)
 
 [node name="fence_block" parent="." instance=ExtResource("4_alukt")]
-position = Vector2(-518, -634)
+position = Vector2(-255, -10)
 
 [node name="fence_block2" parent="." instance=ExtResource("4_alukt")]
-position = Vector2(500, -616)
+position = Vector2(257, -10)
 
-[node name="fence_block3" parent="." instance=ExtResource("4_alukt")]
-position = Vector2(36, 281)
+[node name="BlockRiock" parent="." instance=ExtResource("3_3diva")]
+position = Vector2(-192, -96)
 
-[node name="fence_block4" parent="." instance=ExtResource("4_alukt")]
-position = Vector2(-57, 281)
-
-[node name="fence_block5" parent="." instance=ExtResource("4_alukt")]
-position = Vector2(130, 281)
+[node name="BlockRiock2" parent="." instance=ExtResource("3_3diva")]
+position = Vector2(320, 64)
 
 [node name="BlockRiock3" parent="." instance=ExtResource("3_3diva")]
-position = Vector2(-371, -695)
+position = Vector2(-128, -137)
+
+[node name="BaleBlock2" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(-256, 256)
+
+[node name="BaleBlock3" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(256, -128)
+
+[node name="fence_block4" parent="." instance=ExtResource("4_alukt")]
+position = Vector2(129, 246)
+
+[node name="BaleBlock4" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(32, 32)
+
+[node name="fence_block5" parent="." instance=ExtResource("4_alukt")]
+position = Vector2(257, 246)
+
+[node name="fence_block6" parent="." instance=ExtResource("4_alukt")]
+position = Vector2(-127, -10)
+
+[node name="fence_block7" parent="." instance=ExtResource("4_alukt")]
+position = Vector2(385, -10)
+
+[node name="BaleBlock5" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(384, 144)
+
+[node name="BaleBlock6" parent="." instance=ExtResource("2_74otc")]
+position = Vector2(48, -208)
 
 [node name="BlockRiock4" parent="." instance=ExtResource("3_3diva")]
-position = Vector2(-830, -365)
-
-[node name="BlockRiock5" parent="." instance=ExtResource("3_3diva")]
-position = Vector2(486, -541)
+position = Vector2(-112, 204)
