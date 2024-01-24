@@ -12,8 +12,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_26aco"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3nsp"]
-radius = 11.5417
-height = 43.1045
+radius = 13.0381
+height = 42.0372
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi34e"]
 size = Vector2(44, 27.5)
@@ -45,8 +45,7 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_xe6fg")
 
 [node name="CollisionShape2D" parent="." index="1"]
-visible = false
-position = Vector2(1, 10)
+position = Vector2(1, 9)
 rotation = 1.50098
 shape = SubResource("CapsuleShape2D_m3nsp")
 

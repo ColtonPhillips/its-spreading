@@ -25,8 +25,8 @@ func _ready():
 	if isShdaowRotated:
 		shadow.rotate(0.5 * PI)
 		shadow.position.x += 10 + 40 - 2 - 2
-		shadow.position.y += 6 + 12 + 7 - 3
 		shadow.scale *= 0.9
+		shadow.position.y += 6 + 12 + 7 - 3
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
