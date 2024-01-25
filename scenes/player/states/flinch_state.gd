@@ -39,7 +39,7 @@ func process_frame(delta) -> State:
 	return null
 
 func process_physics(delta) -> State:
-	player.velocity = Vector2.ZERO
+	player.move_component.velocity = Vector2.ZERO
 	chince -= 1
 	if chince == 0:
 		if player.dead:

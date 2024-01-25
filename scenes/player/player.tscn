@@ -304,9 +304,9 @@ death_state = NodePath("../DeathState")
 [node name="DeathState" type="Node" parent="StateMachine"]
 script = ExtResource("21_3p0xg")
 
-[node name="LevelUpState" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="LevelUpState" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk_state")]
 script = ExtResource("22_n3hr5")
-idle_state = NodePath("../IdleState")
+walk_state = NodePath("../WalkState")
 
 [node name="PowersComponent" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 process_mode = 1

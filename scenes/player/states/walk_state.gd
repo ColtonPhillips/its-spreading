@@ -12,16 +12,16 @@ func enter():
 	player.animated_sprite_2d.play("walk")
 
 func exit():
-	player.velocity = Vector2.ZERO
+	player.move_component.velocity = Vector2.ZERO
 
 func process_input(event: InputEvent) -> State:
-	player.move_component.velocity = player.input_component.direction * player.stats_component.speed
 	return null
 
 func process_frame(delta) -> State:
 	return null
 
 func process_physics(delta) -> State:
+	player.move_component.velocity = player.input_component.direction * player.stats_component.speed	
 	if player.velocity.x > 0:
 		player.animated_sprite_2d.flip_h = false
 	if player.velocity.x < 0:

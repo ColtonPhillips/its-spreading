@@ -1,6 +1,6 @@
 extends State
 
-@export var idle_state: State
+@export var walk_state: State
 
 var player: Player = null
 
@@ -28,7 +28,7 @@ func process_physics(delta) -> State:
 	chince -= 1
 	if chince == 0:
 		get_tree().paused = false
-		return idle_state
+		return walk_state
 	return null
 
 
