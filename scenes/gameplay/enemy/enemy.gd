@@ -31,8 +31,15 @@ func _ready():
 	kill_sfx.finished.connect(queue_free)
 	state_machine.init(self)
 
+var alpha_offset = 0.0
+var goal_offset = 0.1
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
+	var x = Time.get_ticks_msec()
+	if x % 180 == 0:
+		goal_offset = randf_range(0.0, 0.06)
+	alpha_offset = move_toward(alpha_offset, goal_offset, 0.0002)
+	additive_blend_light.modulate = Color(1.0, 1.0, 1.0, 0.15 - alpha_offset)
 	
 func _physics_process(delta):
 	state_machine.process_physics(delta)	

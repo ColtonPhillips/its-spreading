@@ -101,6 +101,9 @@ autoplay = "walk"
 [node name="Shadow" parent="AnimatedSprite2D" index="0"]
 position = Vector2(0, 2)
 
+[node name="AdditiveBlendLight" parent="AnimatedSprite2D" index="1"]
+modulate = Color(1, 1, 1, 0.14902)
+
 [node name="CollisionShape2D" parent="." index="1"]
 visible = true
 position = Vector2(0, -6)
