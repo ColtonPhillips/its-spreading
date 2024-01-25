@@ -7,3 +7,4 @@ script = ExtResource("1_kfecm")
 speed = 18
 hp = 15
 damage = 25
+hasOneShotHitbox = false

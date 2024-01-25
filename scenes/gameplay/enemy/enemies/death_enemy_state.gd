@@ -11,7 +11,6 @@ func enter():
 	var weighted_angle = Global.player.slots.global_position.direction_to(enemy.center.global_position).angle()
 	enemy.augment_knockback_motion.knockback_angle(Vector2.from_angle(weighted_angle))
 	enemy.move_component.velocity = Vector2.ZERO
-	enemy.spawn_exp()
 	enemy.scale_component.tween_scale()
 	enemy.shadow.visible = false
 	enemy.additive_blend_light.visible = false
@@ -23,6 +22,8 @@ func enter():
 #
 	## XXX: this eventually kills the player
 	enemy.kill_sfx.play_with_variance()
+	Global.delay_create(self, 0.6, enemy.spawn_exp)	
+	
 func exit():
 	pass
 

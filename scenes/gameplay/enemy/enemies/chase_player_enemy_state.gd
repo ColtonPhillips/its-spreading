@@ -19,7 +19,6 @@ func process_frame(delta: float) -> State:
 func process_physics(delta: float) -> State:
 	var direction = enemy.global_position.direction_to(Global.player.global_position)
 	enemy.move_component.velocity = direction * enemy.stats_component.speed
-	enemy.move_component.process_physics(delta)
 	if enemy.velocity.x > 0:
 		enemy.animated_sprite_2d.flip_h = false
 	if enemy.velocity.x < 0:
