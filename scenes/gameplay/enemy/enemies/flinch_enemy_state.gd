@@ -15,7 +15,7 @@ func enter():
 	enemy.scale_component.tween_scale()
 	enemy.hurt_sfx.play_with_variance()
 	enemy.flash_component.flash()
-	Global.delay_create(self, 0.4, func():
+	Global.delay_create(self, 0.6, func():
 		enemy.state_machine.change_state(chase_player_enemy_state)
 	)
 

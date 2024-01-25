@@ -1,6 +1,6 @@
 extends State
 
-@export var idle_state: State
+@export var walk_state: State
 @export var death_state: State
 
 var player: Player = null
@@ -44,5 +44,5 @@ func process_physics(delta) -> State:
 	if chince == 0:
 		if player.dead:
 			return death_state
-		return idle_state
+		return walk_state
 	return null

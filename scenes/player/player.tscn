@@ -296,9 +296,9 @@ script = ExtResource("19_23c0m")
 idle_state = NodePath("../IdleState")
 flinch_state = NodePath("../FlinchState")
 
-[node name="FlinchState" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "death_state")]
+[node name="FlinchState" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk_state", "death_state")]
 script = ExtResource("20_0jo2p")
-idle_state = NodePath("../IdleState")
+walk_state = NodePath("../WalkState")
 death_state = NodePath("../DeathState")
 
 [node name="DeathState" type="Node" parent="StateMachine"]
