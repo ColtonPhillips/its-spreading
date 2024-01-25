@@ -34,11 +34,16 @@ func _process(delta):
 		sprite_2d.modulate = Color(1 + percent_burnt() * 0.5, 0.8, 0.8, 1)
 		cpu_particles_2d.emitting = true
 	if health < 0:
-		die()	
+		die()
 		
 func die():
 	queue_free()
 
+func reduce_health():
+	health -= 1
+
 func _on_hurtbox_component_hurt(hitbox):
+	if health == max_health:
+		Global.delay_create_loop(self, 8, reduce_health)
 	health -= 1
 	cpu_particles_2d.amount = amount_burnt() * amount_per_health()
