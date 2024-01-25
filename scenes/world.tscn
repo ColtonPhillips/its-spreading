@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://boxf2pg7c1da4" path="res://scenes/gameplay/chambers/testing_chamber.tscn" id="7_3lalr"]
 [ext_resource type="PackedScene" uid="uid://ow0h34umieqd" path="res://scenes/gui/gameplay/gui_gameplay.tscn" id="9_e0dv3"]
 [ext_resource type="AudioStream" uid="uid://b8gwftrv4ej13" path="res://res/sound/music/dark_theme.ogg" id="10_d2dbh"]
-[ext_resource type="PackedScene" uid="uid://da3vbyp7pptx5" path="res://scenes/gameplay/chambers/staring_chamber.tscn" id="10_yvvlj"]
+[ext_resource type="PackedScene" uid="uid://da3vbyp7pptx5" path="res://scenes/gameplay/chambers/starting_chamber.tscn" id="10_yvvlj"]
 [ext_resource type="PackedScene" uid="uid://c7w0o5avcojqb" path="res://scenes/gameplay/chambers/fringe_chamber.tscn" id="12_jwmc4"]
 
 [sub_resource type="Resource" id="Resource_3yj5a"]
@@ -91,7 +91,7 @@ position = Vector2(171, 109)
 [node name="EnemySpawner" parent="YSortableSceneGraph" instance=ExtResource("3_luq5g")]
 spawns = Array[ExtResource("5_7m54o")]([SubResource("Resource_3yj5a"), SubResource("Resource_307qq"), SubResource("Resource_ocmu6"), SubResource("Resource_pd341"), SubResource("Resource_vxkjf"), SubResource("Resource_jb61a")])
 
-[node name="StaringChamber" parent="YSortableSceneGraph" instance=ExtResource("10_yvvlj")]
+[node name="StartingChamber" parent="YSortableSceneGraph" instance=ExtResource("10_yvvlj")]
 position = Vector2(172, 92)
 
 [node name="TestingChamber" parent="YSortableSceneGraph" instance=ExtResource("7_3lalr")]
