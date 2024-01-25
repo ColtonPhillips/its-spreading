@@ -9,8 +9,8 @@
 [ext_resource type="FontFile" uid="uid://dm3ughxiux3id" path="res://res/font/ttf/lowres/ChevyRay - Bird Seed.ttf" id="6_0fs6r"]
 [ext_resource type="FontFile" uid="uid://btyeuqqrwnge2" path="res://res/font/ttf/highres/ChevyRay - Stapler.ttf" id="6_q755q"]
 [ext_resource type="FontFile" uid="uid://cm5u3vv7bosl2" path="res://res/font/ttf/highres/ChevyRay - Roundabout.ttf" id="7_3y3mg"]
-[ext_resource type="AudioStream" uid="uid://bub767nsk8qui" path="res://res/sound/music/main_menu_theme.mp3" id="10_65kwh"]
 [ext_resource type="Texture2D" uid="uid://dqfy3boylpdxa" path="res://res/art/gui/iconography/hay_bale_cute.png" id="10_nnjmx"]
+[ext_resource type="AudioStream" uid="uid://dxqusqwxk2d31" path="res://res/sound/music/main_menu_theme.ogg" id="11_icswu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fndvd"]
 shader = ExtResource("3_tfde1")
@@ -305,7 +305,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_65kwh")
+stream = ExtResource("11_icswu")
 autoplay = true
 
 [connection signal="pressed" from="MainMenuContainer/MenuLabelsContainer/StartGameLink" to="." method="_on_start_game_link_pressed"]
