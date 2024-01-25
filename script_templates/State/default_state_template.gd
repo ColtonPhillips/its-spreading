@@ -26,4 +26,4 @@ func process_physics(delta: float) -> State:
 	return null
 
 func process_hurtbox_component_hurt(hitbox:HitboxComponent):
-	pass
+	return null

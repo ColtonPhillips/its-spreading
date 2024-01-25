@@ -3,14 +3,17 @@ extends CharacterBody2D
 
 @export var dropped_loot: Resource
 
-#optimize?
 @onready var player = Global.player
 @onready var scenegraph = Global.player.get_parent()
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var flash_component = $FlashComponent
+@onready var shadow = $AnimatedSprite2D/Shadow
+@onready var additive_blend_light = $AnimatedSprite2D/AdditiveBlendLight
 
 @onready var move_component = $MoveComponent
 @onready var augment_knockback_motion = $MoveComponent/AugmentKnockbackMotion
+@onready var health_bar_component = $HealthBarComponent
 
 @onready var scale_component = $ScaleComponent
 @onready var stats_component = $StatsComponent
@@ -20,52 +23,27 @@ extends CharacterBody2D
 @onready var hitbox_component = $HitboxComponent
 @onready var hurtbox_component = $HurtboxComponent
 @onready var center = $Center
-
-func _ready():
-	kill_sfx.finished.connect(queue_free)
-	
-func _physics_process(delta):
-	movement(delta)
-	animation(delta)
-	
-func movement(delta):
-	var direction = global_position.direction_to(player.global_position)
-	move_component.velocity = direction * stats_component.speed
-	move_component.process_physics(delta)
-
-func animation(delta):
-	if velocity.x > 0:
-		animated_sprite_2d.flip_h = false
-	if velocity.x < 0:
-		animated_sprite_2d.flip_h = true
-
+@onready var state_machine = $StateMachine
 @onready var collision_shape_2d = $CollisionShape2D
 
+func _ready():
+	# XXX Super mid, change when death state
+	kill_sfx.finished.connect(queue_free)
+	state_machine.init(self)
+
+func _process(delta: float) -> void:
+	state_machine.process_frame(delta)
+	
+func _physics_process(delta):
+	state_machine.process_physics(delta)	
+	move_component.process_physics(delta)	
+
 func spawn_exp():
-	var enemy_spawn = dropped_loot.instantiate()
-	enemy_spawn.global_position = self.global_position
-	scenegraph.call_deferred("add_child", enemy_spawn)
+	# This is a pretty mid af implementation lol
+	var loot = dropped_loot.instantiate()
+	loot.global_position = self.global_position
+	scenegraph.call_deferred("add_child", loot)
 
 # TODO REPLACE
-var __state_alive__ = true
-
 func _on_hurtbox_component_hurt(hitbox):
-	if (hitbox.collision_info.stats):
-		stats_component.hp -= hitbox.collision_info.stats.damage
-	#erf suddenly angle is bad naming!
-	var weighted_angle =     (0 * hitbox.collision_info.angle.angle()     +        100 * Global.player.slots.global_position.direction_to(center.global_position).angle()        ) / 100
-	augment_knockback_motion.knockback_angle(Vector2.from_angle(weighted_angle))
-	
-	scale_component.tween_scale()
-	hurt_sfx.play_with_variance()
-	flash_component.flash()
-	if stats_component.hp <= 0:
-		modulate.a = 0.2
-		spawn_exp()
-		scale_component.tween_scale()
-		hitbox_component.process_mode = Node.PROCESS_MODE_DISABLED
-		hurtbox_component.process_mode = Node.PROCESS_MODE_DISABLED
-		__state_alive__ = false
-		kill_sfx.play_with_variance()
-		strobe_component.start()
-		collision_shape_2d.call_deferred("set", "disabled", false)
+	state_machine.process_hurtbox_component_hurt(hitbox)

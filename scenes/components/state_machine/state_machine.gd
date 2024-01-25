@@ -40,7 +40,7 @@ func process_frame(delta: float) -> void:
 	if new_state:
 		change_state(new_state)
 		
-func process_hurtbox_component_hurt(hitbox: HitboxComponent):
+func process_hurtbox_component_hurt(hitbox: HitboxComponent) -> void:
 	var new_state = current_state.process_hurtbox_component_hurt(hitbox)
 	if new_state:
 		change_state(new_state)

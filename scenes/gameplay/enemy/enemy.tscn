@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://0pcv5ermn1p"]
+[gd_scene load_steps=24 format=3 uid="uid://0pcv5ermn1p"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemy/enemy.gd" id="1_bi6oj"]
 [ext_resource type="PackedScene" uid="uid://cjafynpl3f6fd" path="res://scenes/gameplay/loot/pickup.tscn" id="2_wgvuk"]
@@ -17,6 +17,10 @@
 [ext_resource type="Script" path="res://scenes/components/physics/hitbox_component.gd" id="16_camdy"]
 [ext_resource type="Script" path="res://scenes/components/movement/augment_motion/augment_knockback_motion.gd" id="16_wiwmn"]
 [ext_resource type="Script" path="res://scenes/components/effects/flash/strobe_component.gd" id="17_rcbfr"]
+[ext_resource type="Script" path="res://scenes/components/state_machine/state_machine.gd" id="18_lmhhb"]
+[ext_resource type="Script" path="res://scenes/gameplay/enemy/enemies/death_enemy_state.gd" id="18_rlnan"]
+[ext_resource type="Script" path="res://scenes/gameplay/enemy/enemies/chase_player_enemy_state.gd" id="19_0osoj"]
+[ext_resource type="Script" path="res://scenes/gameplay/enemy/enemies/flinch_enemy_state.gd" id="20_ciide"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vkjpo"]
 shader = ExtResource("3_18q73")
@@ -105,5 +109,22 @@ script = ExtResource("17_rcbfr")
 sprite = NodePath("../AnimatedSprite2D")
 
 [node name="Center" type="Node2D" parent="."]
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("parent", "starting_state")]
+script = ExtResource("18_lmhhb")
+parent = NodePath("..")
+starting_state = NodePath("ChasePlayerEnemyState")
+
+[node name="ChasePlayerEnemyState" type="Node" parent="StateMachine" node_paths=PackedStringArray("flinch_enemy_state", "death_enemy_state")]
+script = ExtResource("19_0osoj")
+flinch_enemy_state = NodePath("../FlinchEnemyState")
+death_enemy_state = NodePath("../DeathEnemyState")
+
+[node name="FlinchEnemyState" type="Node" parent="StateMachine" node_paths=PackedStringArray("chase_player_enemy_state")]
+script = ExtResource("20_ciide")
+chase_player_enemy_state = NodePath("../ChasePlayerEnemyState")
+
+[node name="DeathEnemyState" type="Node" parent="StateMachine"]
+script = ExtResource("18_rlnan")
 
 [connection signal="hurt" from="HurtboxComponent" to="." method="_on_hurtbox_component_hurt"]
