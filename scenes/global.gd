@@ -1,6 +1,7 @@
 extends Node
 
 var player : Player = null
+var gui_gameplay : GUIGameplay = null
 
 # Don't use this in the main menu! 
 var ToggledOn = false

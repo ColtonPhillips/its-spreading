@@ -6,11 +6,11 @@ var player: Player = null
 
 func init(parent):
 	player = parent
-var chince = 0
+	
 func enter():
-	chince = 100
 	player.animated_sprite_2d.play("level_up")
 	player.stats_component.hp += 10
+	Global.gui_gameplay.level_up_panel.visible = true
 	get_tree().paused = true
 	pass
 
@@ -25,12 +25,15 @@ func process_frame(delta) -> State:
 
 func process_physics(delta) -> State:
 	player.move_component.velocity = Vector2.ZERO
-	chince -= 1
-	if chince == 0:
-		get_tree().paused = false
+	if get_tree().paused == false:
 		return walk_state
 	return null
 
 
 func process_hurtbox_component_hurt(hitbox:HitboxComponent):
 	pass
+
+func upgrade_character(upgrade):
+	Global.gui_gameplay.level_up_panel.visible = false
+	get_tree().paused = false
+	print (upgrade)

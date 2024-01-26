@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ow0h34umieqd"]
+[gd_scene load_steps=7 format=3 uid="uid://ow0h34umieqd"]
 
 [ext_resource type="Script" path="res://scenes/gui/gameplay/gui_gameplay.gd" id="1_5ucst"]
 [ext_resource type="PackedScene" uid="uid://cdlpg5jr6471u" path="res://scenes/components/exp_bar_component/exp_bar_component.tscn" id="1_c74ic"]
 [ext_resource type="PackedScene" uid="uid://dlwylpuh7plr2" path="res://scenes/gui/gameplay/stopwatch_component.tscn" id="3_3krq4"]
 [ext_resource type="PackedScene" uid="uid://dv8xddaxna8oj" path="res://scenes/gui/gameplay/level_label_component.tscn" id="4_q73xd"]
 [ext_resource type="PackedScene" uid="uid://cpdqptrcoi86i" path="res://scenes/gui/pause_menu/pause_menu.tscn" id="5_wdcqs"]
+[ext_resource type="PackedScene" uid="uid://c36ncd5uhao2q" path="res://scenes/gui/level_up/level_up_panel.tscn" id="6_getq6"]
 
 [node name="GUIGameplay" type="Node2D"]
 script = ExtResource("1_5ucst")
@@ -20,4 +21,7 @@ offset = Vector2(60, 9)
 transform = Transform2D(1, 0, 0, 1, 60, 9)
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_wdcqs")]
+visible = false
+
+[node name="LevelUpPanel" parent="." instance=ExtResource("6_getq6")]
 visible = false

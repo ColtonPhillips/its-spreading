@@ -2,6 +2,7 @@ class_name PauseMenu
 extends Node
 
 @export var main_menu_scene: Resource
+@onready var level_up_panel = $"../LevelUpPanel"
 
 func _ready():
 	self.visible = false
@@ -25,6 +26,8 @@ func _on_unpause_button_pressed():
 
 ### EVENTS
 func _input(event):
+	if level_up_panel.visible == true:
+		return
 	if Input.is_action_just_pressed("pause"):
 		unpause() if get_tree().paused else pause()
 

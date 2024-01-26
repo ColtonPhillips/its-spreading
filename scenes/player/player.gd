@@ -64,5 +64,3 @@ func _on_pickup_range_area_entered(area):
 		if area.get_parent().has_method("chase_player"):
 			area.get_parent().chase_player()
 			pickup_sfx.play_with_variance()
-
-
