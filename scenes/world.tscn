@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://27phkm3uydxm"]
+[gd_scene load_steps=20 format=3 uid="uid://27phkm3uydxm"]
 
 [ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player/player.tscn" id="1_5kmuy"]
 [ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://res/art/gameplay/environment/grass.png" id="1_m36ed"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://b8gwftrv4ej13" path="res://res/sound/music/dark_theme.ogg" id="10_d2dbh"]
 [ext_resource type="PackedScene" uid="uid://da3vbyp7pptx5" path="res://scenes/gameplay/chambers/starting_chamber.tscn" id="10_yvvlj"]
 [ext_resource type="PackedScene" uid="uid://c7w0o5avcojqb" path="res://scenes/gameplay/chambers/fringe_chamber.tscn" id="12_jwmc4"]
+[ext_resource type="AudioStream" uid="uid://bxjpdeq6psee3" path="res://res/sound/sfx/gong.mp3" id="13_l3m5x"]
 
 [sub_resource type="Resource" id="Resource_3yj5a"]
 script = ExtResource("5_7m54o")
@@ -142,4 +143,8 @@ color = Color(0.596078, 0.596078, 0.596078, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_d2dbh")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_l3m5x")
 autoplay = true
