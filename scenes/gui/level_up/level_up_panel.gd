@@ -16,3 +16,10 @@ func _ready():
 func _on_visibility_changed():
 	if visible == true:
 		audio_stream_player_2d.play()
+
+func set_options(prize_options):
+	var i = 0
+	for option in upgrade_options.get_children():
+		option.title.text = prize_options[i].title
+		option.description.text = prize_options[i].description
+		i += 1

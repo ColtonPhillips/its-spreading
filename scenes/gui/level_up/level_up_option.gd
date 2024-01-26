@@ -1,6 +1,9 @@
 extends ColorRect
 class_name LevelUpOption
 
+@onready var title = $Title
+@onready var description = $Description
+
 var item = null
 var mouse_over = false
 signal selected_upgrade(upgrade)
