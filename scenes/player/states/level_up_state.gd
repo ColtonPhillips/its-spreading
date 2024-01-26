@@ -67,4 +67,3 @@ func upgrade_character(upgrade):
 	player.stats_component.upgrade_player(upgrade, player)
 	get_tree().paused = false
 	is_level_up_complete = true
-	print (upgrade)

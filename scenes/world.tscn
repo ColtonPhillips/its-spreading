@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://27phkm3uydxm"]
+[gd_scene load_steps=22 format=3 uid="uid://27phkm3uydxm"]
 
 [ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player/player.tscn" id="1_5kmuy"]
 [ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://res/art/gameplay/environment/grass.png" id="1_m36ed"]
@@ -77,6 +77,15 @@ enemy_num = 1
 enemy_spawn_delay = 0
 NOTES = "Wave 5"
 
+[sub_resource type="Resource" id="Resource_td7lo"]
+script = ExtResource("5_7m54o")
+time_start = 150
+time_end = 160
+enemy = ExtResource("4_p1ix0")
+enemy_num = 5
+enemy_spawn_delay = 0
+NOTES = "Wave 6"
+
 [node name="World" type="Node2D"]
 metadata/_edit_lock_ = true
 
@@ -99,7 +108,7 @@ metadata/_edit_lock_ = true
 position = Vector2(171, 109)
 
 [node name="EnemySpawner" parent="YSortableSceneGraph" instance=ExtResource("3_luq5g")]
-spawns = Array[ExtResource("5_7m54o")]([SubResource("Resource_3yj5a"), SubResource("Resource_307qq"), SubResource("Resource_ocmu6"), SubResource("Resource_pd341"), SubResource("Resource_vxkjf"), SubResource("Resource_jb61a"), SubResource("Resource_ecn3r")])
+spawns = Array[ExtResource("5_7m54o")]([SubResource("Resource_3yj5a"), SubResource("Resource_307qq"), SubResource("Resource_ocmu6"), SubResource("Resource_pd341"), SubResource("Resource_vxkjf"), SubResource("Resource_jb61a"), SubResource("Resource_ecn3r"), SubResource("Resource_td7lo")])
 
 [node name="StartingChamber" parent="YSortableSceneGraph" instance=ExtResource("10_yvvlj")]
 position = Vector2(172, 92)
@@ -129,6 +138,9 @@ position = Vector2(236, 874)
 
 [node name="FringeChamber2" parent="YSortableSceneGraph" instance=ExtResource("12_jwmc4")]
 position = Vector2(1145, -64)
+
+[node name="FringeChamber8" parent="YSortableSceneGraph" instance=ExtResource("12_jwmc4")]
+position = Vector2(-67, 317)
 
 [node name="FringeChamber3" parent="YSortableSceneGraph" instance=ExtResource("12_jwmc4")]
 position = Vector2(775, -857)

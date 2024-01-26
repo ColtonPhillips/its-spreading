@@ -38,11 +38,11 @@ var critical_hit = 0.02 # rate
 func upgrade_player(upgrade, player):
 	match upgrade.type:
 		"damage":
-			player.stats_component.damage *= 1.07
+			player.stats_component.damage *= 1.12
 		"speed":
 			player.stats_component.speed *= 1.1
 		"range":
-			player.pickup_range_collision_shape_2d.shape.radius *= 1.4
+			player.pickup_range_collision_shape_2d.shape.radius *= 1.5
 		"critical_hit":
 			critical_hit *= 1.5
 		"heal":
