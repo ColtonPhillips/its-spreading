@@ -2,10 +2,12 @@ extends Node2D
 
 @export var spawns: Array[SpawnInfo] = []
 @onready var player = Global.player
-
+var ray: RayCast2D
 func _ready():
 	vp_rect = get_viewport_rect()
 	vp_rect_size = vp_rect.size
+	ray = RayCast2D.new()
+	add_child(ray)
 
 var time = 0
 func _on_timer_timeout():
@@ -19,8 +21,36 @@ func _on_timer_timeout():
 				var new_enemy = i.enemy
 				var counter = 0
 				while (counter < i.enemy_num):
-					var enemy_spawn = new_enemy.instantiate()
-					enemy_spawn.global_position = get_random_position()
+					
+					var try_to_spawn = 100
+					var spawn_position: Vector2
+					while try_to_spawn > 0:
+						spawn_position = get_random_position()
+						
+						ray.position = spawn_position
+						ray.target_position = ray.position
+						ray.target_position.x += 0.1
+						ray.force_raycast_update()
+						
+						if not ray.is_colliding():
+							if (try_to_spawn != 100):
+								#print ("eventually found it!")
+								pass
+							try_to_spawn = 0
+							break
+							
+						else:
+							#print ("try again " + str(spawn_position))
+							pass
+							
+						try_to_spawn -= 1
+						
+						if (try_to_spawn == 0):
+							#print("give up trying")
+							pass
+						
+					var enemy_spawn: Enemy = new_enemy.instantiate()
+					enemy_spawn.global_position = spawn_position
 					add_child(enemy_spawn)
 					counter += 1
 		
@@ -31,7 +61,7 @@ var vpr_x_over_2: float
 var vpr_y_over_2: float
 enum SPAWN_SIDE {LEFT, RIGHT, UP, DOWN}
 func get_random_position():
-	var vpr = vp_rect_size * randf_range(1.4, 1.8)
+	var vpr = vp_rect_size * randf_range(1.5, 2.5)
 	vpr_x_over_2 = vpr.x / 2
 	vpr_y_over_2 = vpr.y / 2
 	# Only load these when needed

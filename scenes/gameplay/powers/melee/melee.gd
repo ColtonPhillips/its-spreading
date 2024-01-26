@@ -11,8 +11,11 @@ var scale_y = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	actor_stats_component.damage = Global.player.stats_component.damage
+	# melee isn't always the same amount
+	actor_stats_component.damage += randi_range(0,2)
+	
 	if Global.player.stats_component.critical_hit > randf():
-		actor_stats_component.damage *= 1.5
+		actor_stats_component.damage *= 2
 		flash_component.flash()
 		scale_component.tween_scale()
 		if crit_label:

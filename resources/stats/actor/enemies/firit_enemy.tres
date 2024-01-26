@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_xopy8")
-speed = 30
-hp = 20
-damage = 10
+speed = 28
+hp = 18
+damage = 8
 hasOneShotHitbox = false
