@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c6djgc5rsd3g2"]
+[gd_scene load_steps=34 format=3 uid="uid://c6djgc5rsd3g2"]
 
 [ext_resource type="Texture2D" uid="uid://dmiiidgf12gpw" path="res://res/art/main_menu/game_title.png" id="2_5gdmf"]
 [ext_resource type="Script" path="res://scenes/gui/main_menu/main_menu.gd" id="2_7dbyw"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://cm5u3vv7bosl2" path="res://res/font/ttf/highres/ChevyRay - Roundabout.ttf" id="7_3y3mg"]
 [ext_resource type="Texture2D" uid="uid://dqfy3boylpdxa" path="res://res/art/gui/iconography/hay_bale_cute.png" id="10_nnjmx"]
 [ext_resource type="AudioStream" uid="uid://dxqusqwxk2d31" path="res://res/sound/music/main_menu_theme.ogg" id="11_icswu"]
+[ext_resource type="FontFile" uid="uid://hhp6d5sly784" path="res://res/font/ttf/midres/ChevyRay - Classified.ttf" id="12_vxkkg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fndvd"]
 shader = ExtResource("3_tfde1")
@@ -189,6 +190,12 @@ _data = {
 "fade_in": SubResource("Animation_kum1a")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_x5rc3"]
+font = ExtResource("12_vxkkg")
+font_size = 9
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("2_7dbyw")
 start_game_scene = "res://scenes/world.tscn"
@@ -307,6 +314,35 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_icswu")
 autoplay = true
+
+[node name="InstaSocial" type="Label" parent="."]
+offset_left = 205.0
+offset_top = 144.0
+offset_right = 315.0
+offset_bottom = 167.0
+pivot_offset = Vector2(-11, 12)
+text = "Music by Lee Gauthier
+@yarderyyz on instagram"
+label_settings = SubResource("LabelSettings_x5rc3")
+
+[node name="InstaSocial2" type="Label" parent="."]
+offset_left = 204.0
+offset_top = 111.0
+offset_right = 314.0
+offset_bottom = 134.0
+pivot_offset = Vector2(-10, 45)
+text = "Art & Design by Rose
+@silentrkgk on instagram"
+label_settings = SubResource("LabelSettings_x5rc3")
+
+[node name="InstaSocial3" type="Label" parent="."]
+offset_left = 204.0
+offset_top = 86.0
+offset_right = 305.0
+offset_bottom = 109.0
+pivot_offset = Vector2(-10, 70)
+text = "Programming by Colton"
+label_settings = SubResource("LabelSettings_x5rc3")
 
 [connection signal="pressed" from="MainMenuContainer/MenuLabelsContainer/StartGameLink" to="." method="_on_start_game_link_pressed"]
 [connection signal="pressed" from="MainMenuContainer/MenuLabelsContainer/CreditsLink" to="." method="_on_credits_link_pressed"]
