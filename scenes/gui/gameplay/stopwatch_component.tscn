@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlwylpuh7plr2"]
+[gd_scene load_steps=6 format=3 uid="uid://dlwylpuh7plr2"]
 
 [ext_resource type="Script" path="res://scenes/gui/gameplay/stopwatch_component.gd" id="1_rr4md"]
 [ext_resource type="FontFile" uid="uid://bsgwxsvilbma6" path="res://res/font/ttf/highres/ChevyRay - Rise.ttf" id="2_hc5oi"]
@@ -9,11 +9,37 @@ font_size = 6
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_voctv"]
+font = ExtResource("2_hc5oi")
+font_size = 54
+
+[sub_resource type="LabelSettings" id="LabelSettings_27dnw"]
+font = ExtResource("2_hc5oi")
+
 [node name="StopwatchComponent" type="CanvasLayer"]
 script = ExtResource("1_rr4md")
+game_length_in_minutes = 5.0
 
 [node name="StopwatchLabel" type="Label" parent="."]
 offset_right = 26.0
 offset_bottom = 9.0
 text = "10:59"
 label_settings = SubResource("LabelSettings_beemx")
+
+[node name="YouWinLabel" type="Label" parent="."]
+visible = false
+offset_left = 9.0
+offset_top = 52.0
+offset_right = 303.0
+offset_bottom = 112.0
+text = "YOU WIN!"
+label_settings = SubResource("LabelSettings_voctv")
+
+[node name="YouWinLabel2" type="Label" parent="YouWinLabel"]
+offset_left = -3.0
+offset_top = 69.0
+offset_right = 306.0
+offset_bottom = 129.0
+text = "i'm sorry, we have no more
+content! thanks for playing!"
+label_settings = SubResource("LabelSettings_27dnw")
