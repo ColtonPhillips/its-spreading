@@ -17,6 +17,14 @@ var level_up_prizes = [
 		"title": "More Pickup Range",
 	 	"description": "Increase your pickup range!"
 	},{
+		"type": "critical_hit",
+		"title": "Critical Hit % Up",
+	 	"description": "Get more critical hits"
+	},{
+		"type": "heal",
+		"title": "HP Up",
+	 	"description": "Heal some of your HP"
+	},{
 		"type": "damage",
 		"title": "More Damage",
 		"description": "Increase your weapon damage!"
@@ -27,7 +35,9 @@ func enter():
 	player.animated_sprite_2d.play("level_up")
 	player.stats_component.hp += 10
 	Global.gui_gameplay.level_up_panel.visible = true
-	Global.gui_gameplay.level_up_panel.set_options(level_up_prizes)
+	level_up_prizes.shuffle()
+	var next_prizes = level_up_prizes.slice(0,3)
+	Global.gui_gameplay.level_up_panel.set_options(next_prizes)
 	is_level_up_complete = false
 	get_tree().paused = true
 	pass

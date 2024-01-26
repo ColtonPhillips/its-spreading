@@ -1,7 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c25mgd2nabo1n"]
+[gd_scene load_steps=15 format=3 uid="uid://c25mgd2nabo1n"]
 
 [ext_resource type="PackedScene" uid="uid://bxcv1ah6qyunl" path="res://scenes/gameplay/powers/melee/melee.tscn" id="1_ofubr"]
 [ext_resource type="Texture2D" uid="uid://dicyinoip22tb" path="res://res/art/gameplay/powers/water_claw.png" id="2_la134"]
+[ext_resource type="Script" path="res://scenes/components/effects/flash/flash_component.gd" id="3_wtl37"]
+[ext_resource type="Script" path="res://scenes/components/effects/scale/scale_component.gd" id="4_0src7"]
+[ext_resource type="FontFile" uid="uid://dmompifepalc2" path="res://res/font/ttf/lowres/ChevyRay - Babyblocks.ttf" id="5_l6seu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbywi"]
 radius = 25.318
@@ -56,6 +59,10 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_efxqs"]
+font = ExtResource("5_l6seu")
+font_size = 6
+
 [node name="WaterClawMelee" instance=ExtResource("1_ofubr")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
@@ -67,3 +74,19 @@ sprite_frames = SubResource("SpriteFrames_uxpuk")
 animation = &"hit"
 autoplay = "hit"
 frame_progress = 0.499993
+
+[node name="FlashComponent" type="Node" parent="." index="2" node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_wtl37")
+sprite = NodePath("../HitboxComponent/AnimatedSprite2D")
+
+[node name="ScaleComponent" type="Node" parent="." index="3" node_paths=PackedStringArray("sprite")]
+script = ExtResource("4_0src7")
+sprite = NodePath("../HitboxComponent/AnimatedSprite2D")
+
+[node name="CritLabel" type="Label" parent="." index="4"]
+visible = false
+offset_left = -17.0
+offset_top = -14.0
+offset_bottom = -1.0
+text = "Crit!"
+label_settings = SubResource("LabelSettings_efxqs")
