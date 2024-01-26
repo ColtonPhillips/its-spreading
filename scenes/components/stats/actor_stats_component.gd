@@ -34,8 +34,5 @@ func _ready():
 	hp = stats.hp
 	speed = stats.speed
 	damage = stats.damage
-	var marent = get_parent()
-	if damage == 25 and speed == 30:
-		print ("a")
 	hasOneShotHitbox = stats.hasOneShotHitbox
 	

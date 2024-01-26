@@ -3,10 +3,11 @@ class_name Melee
 
 var direction = Vector2.RIGHT
 var scale_y = 1
+@onready var actor_stats_component = $ActorStatsComponent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	actor_stats_component.damage = Global.player.stats_component.damage
 
 func _process(delta):
 	rotation = direction.angle()

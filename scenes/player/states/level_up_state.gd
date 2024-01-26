@@ -8,12 +8,19 @@ func init(parent):
 	player = parent
 
 var level_up_prizes = [
-	{"title": "More Speed",
-	 "description": "Increase your speed!"},
-	{"title": "More Range",
-	 "description": "Increase your pickup range!"},
-	{"title": "More Damage",
-	 "description": "Increase your weapon damage!"},
+	{
+		"type": "speed",
+		"title": "More Speed",
+	 	"description": "Increase your speed!"
+	},{
+		"type": "range",
+		"title": "More Pickup Range",
+	 	"description": "Increase your pickup range!"
+	},{
+		"type": "damage",
+		"title": "More Damage",
+		"description": "Increase your weapon damage!"
+	},
 ]
 var is_level_up_complete = false
 func enter():
@@ -47,6 +54,7 @@ func process_hurtbox_component_hurt(hitbox:HitboxComponent):
 
 func upgrade_character(upgrade):
 	Global.gui_gameplay.level_up_panel.visible = false
+	player.stats_component.upgrade_player(upgrade, player)
 	get_tree().paused = false
 	is_level_up_complete = true
 	print (upgrade)

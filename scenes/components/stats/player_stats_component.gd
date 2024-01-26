@@ -32,3 +32,12 @@ signal exp_changed() # Emit when the exp value has changed
 signal level_up() # Emit when there is no health left
 
 var level: int = 1
+
+func upgrade_player(upgrade, player):
+	match upgrade.type:
+		"damage":
+			player.stats_component.damage *= 1.07
+		"speed":
+			player.stats_component.speed *= 1.15
+		"range":
+			player.pickup_range_collision_shape_2d.shape.radius *= 1.4

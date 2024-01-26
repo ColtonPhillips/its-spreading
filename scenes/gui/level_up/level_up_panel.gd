@@ -22,4 +22,5 @@ func set_options(prize_options):
 	for option in upgrade_options.get_children():
 		option.title.text = prize_options[i].title
 		option.description.text = prize_options[i].description
+		option.item = prize_options[i]
 		i += 1

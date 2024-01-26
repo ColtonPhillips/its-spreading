@@ -14,12 +14,14 @@ extends CharacterBody2D
 @onready var far_left_slot = $Slots/FarLeftSlot
 @onready var far_right_slot = $Slots/FarRightSlot
 @onready var slots = $Slots
-
+@onready var powers_component = $PowersComponent
+@onready var pickup_range_collision_shape_2d = $PickupRange/CollisionShape2D
 
 @onready var pickup_sfx = $PickupSfx
 @onready var move_component: MoveCharacterBody2DComponent = $MoveComponent
 @onready var input_component: InputComponent = $InputComponent
-@onready var stats_component: PlayerStatsComponent = $PlayerStatsComponent
+@onready var stats_component = $PlayerStatsComponent
+
 @onready var augment_knockback_motion = $MoveComponent/AugmentKnockbackMotion
 @onready var strobe_component = $StrobeComponent
 @onready var hurtbox_component = $HurtboxComponent
