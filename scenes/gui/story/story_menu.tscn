@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxw08bodeggbo"]
+
+[ext_resource type="Script" path="res://scenes/gui/story/story_menu.gd" id="1_2hgr5"]
+[ext_resource type="FontFile" uid="uid://c4oowbv62l0sb" path="res://res/font/ttf/midres/ChevyRay - Chocolate.ttf" id="1_82wxf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fr361"]
+font = ExtResource("1_82wxf")
+font_size = 11
+
+[sub_resource type="InputEventKey" id="InputEventKey_5blhx"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="InputEventKey" id="InputEventKey_hlodq"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_yp3hx"]
+button_mask = 1
+position = Vector2(508, 22)
+global_position = Vector2(514, 84)
+button_index = 1
+pressed = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_2uwxw"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_6gcea"]
+events = [SubResource("InputEventKey_5blhx"), SubResource("InputEventKey_hlodq"), SubResource("InputEventMouseButton_yp3hx"), SubResource("InputEventKey_2uwxw")]
+
+[node name="StoryMenu" type="Node2D"]
+script = ExtResource("1_2hgr5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 330.0
+offset_bottom = 209.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 38.0
+offset_top = 198.0
+offset_right = 289.0
+offset_bottom = 601.0
+text = "Young Mira is taking her late Baba's ashes to her hometown of Prairie River, SK. After missing her only bus ride, she decides to walk the 30km into town. Desperately tired, she finally arrives on the outskirts of the town. She decides to rest before spreading the ashes in the river. 
+
+In her sleep, she upsets the can of ashes onto the meadow floor.  In those ashes, Baba's restless spirit cries out in fear. Baba is anxious and lashes out at Mira! 
+
+The meadow is now engulfed in animated flames spreading far and wide. Mira also sees herself gaining some new power: She has taken on the form of a fox-person, with the ability to control matter as well. Survive the night and collect Baba's ashes to bring peace to her wandering soul.
+
+Press ENTER to CONTINUE"
+label_settings = SubResource("LabelSettings_fr361")
+autowrap_mode = 3
+
+[node name="LinkButton" type="LinkButton" parent="."]
+offset_right = 318.0
+offset_bottom = 200.0
+shortcut = SubResource("Shortcut_6gcea")
+shortcut_in_tooltip = false
+
+[connection signal="pressed" from="LinkButton" to="." method="_on_link_button_pressed"]

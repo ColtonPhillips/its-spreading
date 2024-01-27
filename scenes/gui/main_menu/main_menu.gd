@@ -4,17 +4,21 @@ extends CanvasLayer
 @export var credits_scene: String
 
 func _enter_tree():
-	pass
+	if not GlobalSound.is_playing:
+		GlobalSound.play()
 	#$Fader.play('fade_in')
 
 func _on_start_game_link_pressed():
 	get_tree().change_scene_to_file(start_game_scene)
+	GlobalSound.stop()
 
 func _on_credits_link_pressed():
 	#get_tree().change_scene_to_file(credits_scene)
 	get_tree().change_scene_to_file(credits_scene)
+	GlobalSound.stop()	
 
 func _on_exit_link_pressed():
+	GlobalSound.stop()	
 	get_tree().quit();
 
 

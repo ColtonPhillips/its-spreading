@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c6djgc5rsd3g2"]
+[gd_scene load_steps=33 format=3 uid="uid://c6djgc5rsd3g2"]
 
 [ext_resource type="Texture2D" uid="uid://dmiiidgf12gpw" path="res://res/art/main_menu/game_title.png" id="2_5gdmf"]
 [ext_resource type="Script" path="res://scenes/gui/main_menu/main_menu.gd" id="2_7dbyw"]
@@ -10,7 +10,6 @@
 [ext_resource type="FontFile" uid="uid://btyeuqqrwnge2" path="res://res/font/ttf/highres/ChevyRay - Stapler.ttf" id="6_q755q"]
 [ext_resource type="FontFile" uid="uid://cm5u3vv7bosl2" path="res://res/font/ttf/highres/ChevyRay - Roundabout.ttf" id="7_3y3mg"]
 [ext_resource type="Texture2D" uid="uid://dqfy3boylpdxa" path="res://res/art/gui/iconography/hay_bale_cute.png" id="10_nnjmx"]
-[ext_resource type="AudioStream" uid="uid://dxqusqwxk2d31" path="res://res/sound/music/main_menu_theme.ogg" id="11_icswu"]
 [ext_resource type="FontFile" uid="uid://hhp6d5sly784" path="res://res/font/ttf/midres/ChevyRay - Classified.ttf" id="12_vxkkg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fndvd"]
@@ -310,10 +309,6 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_q6ukp")
 }
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_icswu")
-autoplay = true
 
 [node name="InstaSocial" type="Label" parent="."]
 offset_left = 205.0

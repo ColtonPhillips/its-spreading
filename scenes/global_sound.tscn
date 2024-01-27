@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7cd7y4rlm74e"]
+
+[ext_resource type="AudioStream" uid="uid://dxqusqwxk2d31" path="res://res/sound/music/main_menu_theme.ogg" id="1_0pgbr"]
+[ext_resource type="Script" path="res://scenes/global_sound.gd" id="1_8uyqt"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_8uyqt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_0pgbr")
+autoplay = true
