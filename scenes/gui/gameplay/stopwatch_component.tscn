@@ -18,7 +18,7 @@ font = ExtResource("2_hc5oi")
 
 [node name="StopwatchComponent" type="CanvasLayer"]
 script = ExtResource("1_rr4md")
-game_length_in_minutes = 0.01
+game_length_in_minutes = 3.5
 
 [node name="StopwatchLabel" type="Label" parent="."]
 offset_right = 26.0
