@@ -5,6 +5,7 @@ func init(parent):
 	enemy = parent
 
 func enter():
+	enemy.isAlive = false
 	# TDODO: Change to Hit State
 	#XXX: erf suddenly angle is bad naming!
 	enemy.animated_sprite_2d.play("death")

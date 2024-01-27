@@ -31,6 +31,9 @@ extends CharacterBody2D
 func _ready():
 	Global.player = self
 	state_machine.init(self)
+	
+func add_projectile():
+	powers_component.add_projectile()
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
@@ -54,7 +57,8 @@ func _on_hurtbox_component_hurt(hitbox: HitboxComponent):
 
 @onready var level_up_state = $StateMachine/LevelUpState
 func _on_player_stats_component_level_up():
-	state_machine.change_state(level_up_state)
+	if not dead:
+		state_machine.change_state(level_up_state)
 
 #XXX this sucks
 var dead = false

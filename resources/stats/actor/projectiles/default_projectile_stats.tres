@@ -6,4 +6,5 @@
 script = ExtResource("1_2mwh5")
 speed = 40
 hp = 15
-damage = 5
+damage = 3
+hasOneShotHitbox = false

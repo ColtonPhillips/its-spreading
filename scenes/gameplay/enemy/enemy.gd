@@ -23,7 +23,7 @@ extends CharacterBody2D
 @onready var hitbox_component = $HitboxComponent
 @onready var hurtbox_component = $HurtboxComponent
 @onready var center = $Center
-@onready var state_machine = $StateMachine
+@onready var state_machine: StateMachine = $StateMachine
 @onready var collision_shape_2d = $CollisionShape2D
 
 func _ready():
@@ -40,6 +40,10 @@ func _process(delta: float) -> void:
 		goal_offset = randf_range(0.0, 0.06)
 	alpha_offset = move_toward(alpha_offset, goal_offset, 0.0002)
 	additive_blend_light.modulate = Color(1.0, 1.0, 1.0, 0.15 - alpha_offset)
+
+var isAlive = true
+func is_alive():
+	return isAlive
 	
 func _physics_process(delta):
 	state_machine.process_physics(delta)	

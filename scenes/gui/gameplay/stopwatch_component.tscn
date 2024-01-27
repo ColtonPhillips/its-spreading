@@ -36,6 +36,7 @@ text = "YOU WIN!"
 label_settings = SubResource("LabelSettings_voctv")
 
 [node name="YouWinLabel2" type="Label" parent="YouWinLabel"]
+layout_mode = 0
 offset_left = -3.0
 offset_top = 69.0
 offset_right = 306.0

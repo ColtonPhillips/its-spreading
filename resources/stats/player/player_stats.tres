@@ -4,9 +4,10 @@
 
 [resource]
 script = ExtResource("1_ce10n")
-exp = 0
+exp = 50
 level = 1
-speed = 38
+upgrades_unlocked = Array[String]([])
+speed = 39
 hp = 100
 damage = 5
 hasOneShotHitbox = false

@@ -30,13 +30,24 @@ var level_up_prizes = [
 		"description": "Increase your weapon damage!"
 	},
 ]
+
+var level_up_powers = [
+	{
+		"type": "projectile",
+		"title": "Unlock Projectile",
+	 	"description": "Get a new weapon!!"
+	}
+]
 var is_level_up_complete = false
+var hasProjectile = false
 func enter():
 	player.animated_sprite_2d.play("level_up")
 	player.stats_component.hp += 10
 	Global.gui_gameplay.level_up_panel.visible = true
 	level_up_prizes.shuffle()
 	var next_prizes = level_up_prizes.slice(0,3)
+	if not hasProjectile and 0.5 < randf():
+		next_prizes[0] = level_up_powers[0]
 	Global.gui_gameplay.level_up_panel.set_options(next_prizes)
 	is_level_up_complete = false
 	get_tree().paused = true
@@ -65,5 +76,7 @@ func process_hurtbox_component_hurt(hitbox:HitboxComponent):
 func upgrade_character(upgrade):
 	Global.gui_gameplay.level_up_panel.visible = false
 	player.stats_component.upgrade_player(upgrade, player)
+	if upgrade.type == "projectile":
+		hasProjectile = true
 	get_tree().paused = false
 	is_level_up_complete = true

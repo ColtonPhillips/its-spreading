@@ -38,7 +38,7 @@ func movement(delta):
 		# Assuming the node is a 2D node (Node2D)
 		self.rotation = rotation_radians
 		
-	if the_chase_may_proceed and enemy_found and is_instance_valid(found_enemy) and found_enemy.__state_alive__:
+	if the_chase_may_proceed and enemy_found and is_instance_valid(found_enemy) and found_enemy.is_alive():
 		var direction2 = global_position.direction_to(found_enemy.global_position)
 		direction = ( 17 * direction + direction2 ) / 18
 		
