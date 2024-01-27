@@ -2,7 +2,7 @@ class_name PowersComponent
 extends Node2D
 
 @export var player: Player
-var active_powers: Array[PackedScene]
+var active_powers: Array[Node2D]
 @export var starting_power: PackedScene
 @export var second_power: PackedScene
 # Called when the node enters the scene tree for the first time.

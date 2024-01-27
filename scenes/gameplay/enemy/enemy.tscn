@@ -66,6 +66,7 @@ augment_motions = [NodePath("AugmentKnockbackMotion")]
 
 [node name="AugmentKnockbackMotion" type="Node" parent="MoveComponent"]
 script = ExtResource("16_wiwmn")
+knockback_force = 150
 
 [node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("7_44dt6")
