@@ -78,5 +78,7 @@ func upgrade_character(upgrade):
 	player.stats_component.upgrade_player(upgrade, player)
 	if upgrade.type == "projectile":
 		hasProjectile = true
-	get_tree().paused = false
-	is_level_up_complete = true
+	Global.delay_create(self, 1.2, func():
+		get_tree().paused = false
+		is_level_up_complete = true
+	)
