@@ -18,7 +18,6 @@ func _process(delta):
 			you_win_label.visible = false
 			never_again = false
 		)
-		
 	
 func get_time():
 	return time
