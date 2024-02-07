@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @export var start_game_scene: String
 @export var credits_scene: String
+@export var back_scene: String
 
 func _enter_tree():
 	if not GlobalSound.is_playing:
@@ -27,3 +28,7 @@ func _on_check_button_toggled(toggled_on):
 		Global.Toggle_Fullscreen_On()
 	else:
 		Global.Toggle_Fullscreen_Off()
+
+
+func _on_back_link_pressed():
+	get_tree().change_scene_to_file(back_scene)

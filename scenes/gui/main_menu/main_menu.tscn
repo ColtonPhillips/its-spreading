@@ -199,6 +199,7 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("2_7dbyw")
 start_game_scene = "res://scenes/world.tscn"
 credits_scene = "res://CREDITS/GodotCredits.tscn"
+back_scene = "res://scenes/gui/story/story_menu.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -236,9 +237,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 38.0
-offset_top = 63.0
+offset_top = 67.0
 offset_right = -33.0
-offset_bottom = -6.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_xiyjw")
@@ -265,6 +266,14 @@ theme = SubResource("Theme_3mdx1")
 text = "Credits"
 underline = 2
 
+[node name="BackLink" type="LinkButton" parent="MainMenuContainer/MenuLabelsContainer"]
+material = SubResource("ShaderMaterial_skxy7")
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_3mdx1")
+text = "Back"
+underline = 2
+
 [node name="ExitLink" type="LinkButton" parent="MainMenuContainer/MenuLabelsContainer"]
 material = SubResource("ShaderMaterial_skxy7")
 layout_mode = 2
@@ -280,10 +289,10 @@ scale = Vector2(1.015, 1.015)
 [node name="CheckButton" type="CheckButton" parent="MainMenuContainer/MenuLabelsContainer/Node2D"]
 custom_minimum_size = Vector2(200, 0)
 layout_direction = 2
-offset_left = 48.2759
-offset_top = 112.315
-offset_right = 248.276
-offset_bottom = 143.315
+offset_left = 47.2906
+offset_top = 118.227
+offset_right = 247.291
+offset_bottom = 149.227
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_r36pu")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -341,5 +350,6 @@ label_settings = SubResource("LabelSettings_x5rc3")
 
 [connection signal="pressed" from="MainMenuContainer/MenuLabelsContainer/StartGameLink" to="." method="_on_start_game_link_pressed"]
 [connection signal="pressed" from="MainMenuContainer/MenuLabelsContainer/CreditsLink" to="." method="_on_credits_link_pressed"]
+[connection signal="pressed" from="MainMenuContainer/MenuLabelsContainer/BackLink" to="." method="_on_back_link_pressed"]
 [connection signal="pressed" from="MainMenuContainer/MenuLabelsContainer/ExitLink" to="." method="_on_exit_link_pressed"]
 [connection signal="toggled" from="MainMenuContainer/MenuLabelsContainer/Node2D/CheckButton" to="." method="_on_check_button_toggled"]
