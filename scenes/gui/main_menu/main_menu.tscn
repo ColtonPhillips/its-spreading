@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c6djgc5rsd3g2"]
+[gd_scene load_steps=34 format=3 uid="uid://c6djgc5rsd3g2"]
 
 [ext_resource type="Texture2D" uid="uid://dmiiidgf12gpw" path="res://res/art/main_menu/game_title.png" id="2_5gdmf"]
 [ext_resource type="Script" path="res://scenes/gui/main_menu/main_menu.gd" id="2_7dbyw"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://btyeuqqrwnge2" path="res://res/font/ttf/highres/ChevyRay - Stapler.ttf" id="6_q755q"]
 [ext_resource type="FontFile" uid="uid://cm5u3vv7bosl2" path="res://res/font/ttf/highres/ChevyRay - Roundabout.ttf" id="7_3y3mg"]
 [ext_resource type="Texture2D" uid="uid://dqfy3boylpdxa" path="res://res/art/gui/iconography/hay_bale_cute.png" id="10_nnjmx"]
+[ext_resource type="Script" path="res://volume_slider.gd" id="12_2016n"]
 [ext_resource type="FontFile" uid="uid://hhp6d5sly784" path="res://res/font/ttf/midres/ChevyRay - Classified.ttf" id="12_vxkkg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fndvd"]
@@ -347,6 +348,26 @@ offset_bottom = 109.0
 pivot_offset = Vector2(-10, 70)
 text = "Programming by Colton"
 label_settings = SubResource("LabelSettings_x5rc3")
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+offset_left = 248.0
+offset_top = 12.0
+offset_right = 312.0
+offset_bottom = 53.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("12_2016n")
+bus_name = "Master"
+
+[node name="Label" type="Label" parent="VolumeSlider"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 83.0
+offset_bottom = 28.0
+scale = Vector2(0.333, 0.411)
+text = "🔊Volume"
 
 [connection signal="pressed" from="MainMenuContainer/MenuLabelsContainer/StartGameLink" to="." method="_on_start_game_link_pressed"]
 [connection signal="pressed" from="MainMenuContainer/MenuLabelsContainer/CreditsLink" to="." method="_on_credits_link_pressed"]
