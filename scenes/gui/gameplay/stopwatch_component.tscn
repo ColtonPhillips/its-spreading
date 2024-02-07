@@ -28,10 +28,11 @@ label_settings = SubResource("LabelSettings_beemx")
 
 [node name="YouWinLabel" type="Label" parent="."]
 visible = false
-offset_left = 9.0
-offset_top = 52.0
-offset_right = 303.0
-offset_bottom = 112.0
+offset_left = 3.0
+offset_top = 143.0
+offset_right = 297.0
+offset_bottom = 203.0
+scale = Vector2(0.333, 0.333)
 text = "YOU WIN!"
 label_settings = SubResource("LabelSettings_voctv")
 
@@ -41,6 +42,7 @@ offset_left = -3.0
 offset_top = 69.0
 offset_right = 306.0
 offset_bottom = 129.0
-text = "i'm sorry, we have no more
-content! thanks for playing!"
+text = "We ran out of time to make
+content, but feel free to 
+keep on playing!"
 label_settings = SubResource("LabelSettings_27dnw")
