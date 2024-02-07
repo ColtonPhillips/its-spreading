@@ -246,8 +246,10 @@ debug_color = Color(0, 0.6, 0.701961, 0.101961)
 
 [node name="PickupSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_7leyi")
-volume_db = -15.0
+volume_db = -5.5
 script = ExtResource("7_5wn3i")
+pitch_min = 1.0
+pitch_max = 1.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -4)
