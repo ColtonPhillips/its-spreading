@@ -7,7 +7,7 @@ class_name LevelUpOption
 var item = null
 var mouse_over = false
 signal selected_upgrade(upgrade)
-	
+#XXX: doesn't work for touch screen. I think because mouse_entered never gets triggered. 	
 func _ready():
 	connect("selected_upgrade", Callable(Global.player.level_up_state, "upgrade_character"))
 
