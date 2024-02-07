@@ -172,6 +172,7 @@ color = Color(0.596078, 0.596078, 0.596078, 1)
 [node name="GUIGameplay" parent="." instance=ExtResource("9_e0dv3")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("10_d2dbh")
 autoplay = true
 
