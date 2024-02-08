@@ -26,6 +26,13 @@ offset_bottom = 9.0
 text = "10:59"
 label_settings = SubResource("LabelSettings_beemx")
 
+[node name="EnemyCountLabel" type="Label" parent="."]
+offset_top = 13.0
+offset_right = 26.0
+offset_bottom = 22.0
+text = "Enemy Count: 1"
+label_settings = SubResource("LabelSettings_beemx")
+
 [node name="YouWinLabel" type="Label" parent="."]
 visible = false
 offset_left = 3.0

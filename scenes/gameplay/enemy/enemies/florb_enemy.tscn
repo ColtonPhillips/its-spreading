@@ -139,3 +139,6 @@ shape = SubResource("CircleShape2D_vakxk")
 
 [node name="Center" parent="." index="13"]
 position = Vector2(0, -6)
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="15"]
+position = Vector2(1, -7)

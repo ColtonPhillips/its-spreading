@@ -1,6 +1,7 @@
 class_name LevelLabelComponent
 extends CanvasLayer
 @onready var you_win_label = $YouWinLabel
+@onready var enemy_count_label = $EnemyCountLabel
 
 @onready var stopwatch_label:Label = $StopwatchLabel
 @export var game_length_in_minutes = 0.5
@@ -10,6 +11,8 @@ var time: float = 0.0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var never_again = true
 func _process(delta):
+	enemy_count_label.text = "Enemy count: " + str(Enemy.enemy_count)
+	
 	time += delta
 	stopwatch_label.text = get_time_as_string(time)
 	if not you_win_label.visible and never_again and (time / 60 > game_length_in_minutes):

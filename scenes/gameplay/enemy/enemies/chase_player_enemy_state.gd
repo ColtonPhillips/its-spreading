@@ -2,6 +2,7 @@ extends State
 
 @export var flinch_enemy_state: State
 @export var death_enemy_state: State
+@export var flee_scene_enemy_state: State
 var enemy: Enemy = null
 
 func init(parent):
@@ -14,6 +15,8 @@ func exit() -> void:
 	pass
 
 func process_frame(delta: float) -> State:
+	if enemy.is_ready_to_flee:
+		return flee_scene_enemy_state
 	return null
 
 func process_physics(delta: float) -> State:

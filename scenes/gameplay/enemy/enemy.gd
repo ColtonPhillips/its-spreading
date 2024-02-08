@@ -26,10 +26,20 @@ extends CharacterBody2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var collision_shape_2d = $CollisionShape2D
 
+@onready var is_ready_to_flee = false
+@onready var is_on_screen = false
+
+static var enemy_count = 0
+
 func _ready():
 	# XXX Super mid, change when death state
-	kill_sfx.finished.connect(queue_free)
+	kill_sfx.finished.connect(destroy)
 	state_machine.init(self)
+	
+	Global.delay_create(self, 90, func():
+		is_ready_to_flee = true
+	)
+	enemy_count += 1 
 
 var alpha_offset = 0.0
 var goal_offset = 0.1
@@ -58,3 +68,15 @@ func spawn_exp():
 # TODO REPLACE
 func _on_hurtbox_component_hurt(hitbox):
 	state_machine.process_hurtbox_component_hurt(hitbox)
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	is_on_screen = true
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	is_on_screen = false
+
+func destroy():
+	enemy_count -= 1
+	queue_free()
