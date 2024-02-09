@@ -29,6 +29,7 @@ extends CharacterBody2D
 
 	
 func _ready():
+	Enemy.enemy_count = 0
 	Global.player = self
 	state_machine.init(self)
 	

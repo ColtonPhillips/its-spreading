@@ -1,22 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://x43epic8paf7"]
+[gd_scene load_steps=2 format=3 uid="uid://x43epic8paf7"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemy_spawner.gd" id="1_woe51"]
-[ext_resource type="PackedScene" uid="uid://bjopb88sq766e" path="res://scenes/gameplay/enemy/enemies/florb_enemy.tscn" id="2_v8men"]
-[ext_resource type="Script" path="res://scenes/gameplay/spawn_info.gd" id="3_sjhyw"]
-
-[sub_resource type="Resource" id="Resource_3yj5a"]
-script = ExtResource("3_sjhyw")
-time_start = 0
-time_end = 120
-enemy = ExtResource("2_v8men")
-enemy_num = 2
-enemy_spawn_delay = 1
-NOTES = "Notes..."
 
 [node name="EnemySpawner" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_woe51")
-spawns = Array[ExtResource("3_sjhyw")]([SubResource("Resource_3yj5a")])
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

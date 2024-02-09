@@ -1,28 +1,32 @@
 extends Node2D
 
 @export var spawns: Array[SpawnInfo] = []
-@onready var player = Global.player
-var ray: RayCast2D
+@onready var player := Global.player
+
+@onready var vp_rect := get_viewport_rect() 
+@onready var vp_rect_size := vp_rect.size
+@onready var ray := RayCast2D.new()
+
 func _ready():
-	vp_rect = get_viewport_rect()
-	vp_rect_size = vp_rect.size
-	ray = RayCast2D.new()
 	add_child(ray)
 
-var time = 0
-func _on_timer_timeout():
+# pre: 9.8 ms  , enemy count 162 ish
+# now: 5.8 ish, enemy count 122, 16 random positions
+var time := 0
+func _on_timer_timeout() -> void:
 	time += 1
-	for i in spawns:
-		if time > i.time_start and time <= i.time_end:
-			if i.spawn_delay_counter < i.enemy_spawn_delay:
-				i.spawn_delay_counter += 1
+	#XXX: Iterating over every spawn info is probably meh performance but might be trival.
+	for info in spawns:
+		if time <= info.time_end and time > info.time_start:
+			if info.spawn_delay_counter < info.enemy_spawn_delay:
+				info.spawn_delay_counter += 1
 			else:
-				i.spawn_delay_counter = 0
-				var new_enemy = i.enemy
-				var counter = 0
-				while (counter < i.enemy_num):
+				info.spawn_delay_counter = 0
+				var new_enemy := info.enemy
+				var counter := 0
+				while (counter < info.enemy_num):
 					
-					var try_to_spawn = 100
+					var try_to_spawn := 16
 					var spawn_position: Vector2
 					while try_to_spawn > 0:
 						spawn_position = get_random_position()
@@ -31,48 +35,35 @@ func _on_timer_timeout():
 						ray.target_position = ray.position
 						ray.target_position.x += 0.1
 						ray.force_raycast_update()
-						
-						if not ray.is_colliding():
-							if (try_to_spawn != 100):
-								#print ("eventually found it!")
-								pass
-							try_to_spawn = 0
-							break
-							
-						else:
-							#print ("try again " + str(spawn_position))
-							pass
-							
 						try_to_spawn -= 1
 						
-						if (try_to_spawn == 0):
-							#print("give up trying")
-							pass
-						
-					var enemy_spawn: Enemy = new_enemy.instantiate()
-					enemy_spawn.global_position = spawn_position
-					add_child(enemy_spawn)
-					counter += 1
-		
-				
-var vp_rect: Rect2
-var vp_rect_size: Vector2
+						if not ray.is_colliding():
+							#if (try_to_spawn != 16):
+								#print ("eventually found it!")
+								#pass
+							var enemy_spawn: Enemy = new_enemy.instantiate()
+							enemy_spawn.global_position = spawn_position
+							add_child(enemy_spawn)
+							counter += 1
+							
+							try_to_spawn = 0 # XXX: Crappy method of breaking outer loop (while try_to_spawn > 0)
+
+enum SPAWN_SIDE {LEFT, RIGHT, UP, DOWN}
 var vpr_x_over_2: float
 var vpr_y_over_2: float
-enum SPAWN_SIDE {LEFT, RIGHT, UP, DOWN}
 func get_random_position():
-	var vpr = vp_rect_size * randf_range(1.5, 2.5)
-	vpr_x_over_2 = vpr.x / 2
-	vpr_y_over_2 = vpr.y / 2
+	var vpr := vp_rect_size * randf_range(1.5, 2.5)
+	vpr_x_over_2 = vpr.x * 0.5
+	vpr_y_over_2 = vpr.y * 0.5
 	# Only load these when needed
 	#var top_left = Vector2(player.global_position.x - vpr_x_over_2, player.global_position.y - vpr_y_over_2)
 	#var top_right = Vector2(player.global_position.x + vpr_x_over_2, player.global_position.y - vpr_y_over_2)
 	#var bottom_left = Vector2(player.global_position.x - vpr_x_over_2, player.global_position.y + vpr_y_over_2)
 	#var bottom_right = Vector2(player.global_position.x + vpr_x_over_2, player.global_position.y + vpr_y_over_2)
-	var spawn_pos1 = Vector2.ZERO
-	var spawn_pos2 = Vector2.ZERO
+	var spawn_pos1 := Vector2.ZERO
+	var spawn_pos2 := Vector2.ZERO
 	
-	var pos_side = randi()%4
+	var pos_side := randi()%4
 	match pos_side:
 		SPAWN_SIDE.UP:
 			spawn_pos1 = Vector2(player.global_position.x - vpr_x_over_2, player.global_position.y - vpr_y_over_2)
@@ -87,7 +78,7 @@ func get_random_position():
 			spawn_pos1 = Vector2(player.global_position.x - vpr_x_over_2, player.global_position.y - vpr_y_over_2)
 			spawn_pos2 = Vector2(player.global_position.x - vpr_x_over_2, player.global_position.y + vpr_y_over_2)
 			
-	var x_spawn = randf_range(spawn_pos1.x, spawn_pos2.x)
-	var y_spawn = randf_range(spawn_pos1.y, spawn_pos2.y)
+	var x_spawn := randf_range(spawn_pos1.x, spawn_pos2.x)
+	var y_spawn := randf_range(spawn_pos1.y, spawn_pos2.y)
 	return Vector2(x_spawn, y_spawn)
 	
