@@ -38,9 +38,6 @@ func _on_timer_timeout() -> void:
 						try_to_spawn -= 1
 						
 						if not ray.is_colliding():
-							#if (try_to_spawn != 16):
-								#print ("eventually found it!")
-								#pass
 							var enemy_spawn: Enemy = new_enemy.instantiate()
 							enemy_spawn.global_position = spawn_position
 							add_child(enemy_spawn)
@@ -51,19 +48,14 @@ func _on_timer_timeout() -> void:
 enum SPAWN_SIDE {LEFT, RIGHT, UP, DOWN}
 var vpr_x_over_2: float
 var vpr_y_over_2: float
+var spawn_pos1 := Vector2.ZERO
+var spawn_pos2 := Vector2.ZERO
 func get_random_position():
-	var vpr := vp_rect_size * randf_range(1.5, 2.5)
+	var vpr := vp_rect_size * randf_range(1.5, 2.5) # could limit to doing this once per "try"
 	vpr_x_over_2 = vpr.x * 0.5
 	vpr_y_over_2 = vpr.y * 0.5
-	# Only load these when needed
-	#var top_left = Vector2(player.global_position.x - vpr_x_over_2, player.global_position.y - vpr_y_over_2)
-	#var top_right = Vector2(player.global_position.x + vpr_x_over_2, player.global_position.y - vpr_y_over_2)
-	#var bottom_left = Vector2(player.global_position.x - vpr_x_over_2, player.global_position.y + vpr_y_over_2)
-	#var bottom_right = Vector2(player.global_position.x + vpr_x_over_2, player.global_position.y + vpr_y_over_2)
-	var spawn_pos1 := Vector2.ZERO
-	var spawn_pos2 := Vector2.ZERO
 	
-	var pos_side := randi()%4
+	var pos_side := randi()%4 #could limit this too maybe decouple size and side from spawn placeemnt
 	match pos_side:
 		SPAWN_SIDE.UP:
 			spawn_pos1 = Vector2(player.global_position.x - vpr_x_over_2, player.global_position.y - vpr_y_over_2)
