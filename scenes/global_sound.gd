@@ -1,5 +1,5 @@
 extends Node
-@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var is_playing = true
 func play():

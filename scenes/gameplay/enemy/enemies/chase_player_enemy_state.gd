@@ -5,8 +5,8 @@ extends State
 @export var flee_scene_enemy_state: State
 var enemy: Enemy = null
 
-func init(parent):
-	enemy = parent
+func init(parent: Node):
+	enemy = (parent as Enemy)
 
 func enter() -> void:
 	enemy.animated_sprite_2d.play("walk")
@@ -20,7 +20,7 @@ func process_frame(delta: float) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	var direction = enemy.global_position.direction_to(Global.player.global_position)
+	var direction := enemy.global_position.direction_to(Global.player.global_position)
 	enemy.move_component.velocity = direction * enemy.stats_component.speed
 	if enemy.velocity.x > 0:
 		enemy.animated_sprite_2d.flip_h = false

@@ -1,11 +1,11 @@
 extends Node2D
 class_name Melee
 
-var direction = Vector2.RIGHT
-var scale_y = 1
-@onready var actor_stats_component = $ActorStatsComponent
-@onready var flash_component = $FlashComponent
-@onready var scale_component = $ScaleComponent
+var direction := Vector2.RIGHT
+var scale_y := 1
+@onready var actor_stats_component: ActorStatsComponent = $ActorStatsComponent
+@onready var flash_component: FlashComponent = $FlashComponent
+@onready var scale_component:ScaleComponent = $ScaleComponent
 @onready var crit_label: Label = $CritLabel
 
 # Called when the node enters the scene tree for the first time.
@@ -21,8 +21,8 @@ func _ready():
 		if crit_label:
 			crit_label.visible = true
 
-var crit_label_hack = 0
-func _process(delta):
+var crit_label_hack := 0
+func _process(delta: float) -> void:
 	rotation = direction.angle()
 	scale.y = scale_y
 	crit_label.scale.x = scale.y

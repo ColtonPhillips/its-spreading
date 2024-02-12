@@ -26,21 +26,21 @@ func change_state(new_state: State) -> void:
 # Pass through functions for the Player to call,
 # handling state changes as needed.
 func process_physics(delta: float) -> void:
-	var new_state = current_state.process_physics(delta)
+	var new_state := current_state.process_physics(delta)
 	if new_state:
 		change_state(new_state)
 
 func process_input(event: InputEvent) -> void:
-	var new_state = current_state.process_input(event)
+	var new_state := current_state.process_input(event)
 	if new_state:
 		change_state(new_state)
 
 func process_frame(delta: float) -> void:
-	var new_state = current_state.process_frame(delta)
+	var new_state := current_state.process_frame(delta)
 	if new_state:
 		change_state(new_state)
 		
 func process_hurtbox_component_hurt(hitbox: HitboxComponent) -> void:
-	var new_state = current_state.process_hurtbox_component_hurt(hitbox)
+	var new_state := current_state.process_hurtbox_component_hurt(hitbox)
 	if new_state:
 		change_state(new_state)

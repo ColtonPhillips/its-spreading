@@ -5,8 +5,8 @@ extends AudioStreamPlayer
 # This custom node is used to easily play a sound with a variable pitch
 
 # Export the minimum and maximum pitch amounts
-@export var pitch_min = 0.6
-@export var pitch_max = 1.2
+@export var pitch_min := 0.6
+@export var pitch_max := 1.2
 
 # Allow the node to automatically play the sound with the pitch variance
 @export var auto_play_with_variance: = false

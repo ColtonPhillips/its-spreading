@@ -44,8 +44,8 @@ func _on_hurtbox_entered(hurtbox):
 		hurtbox_ignore_list.append(hurtbox)
 
 func calculate_angle(hurtbox):
-	var angle = Vector2.ZERO
-	var myshape = get_child(0)
+	var angle := Vector2.ZERO
+	var myshape := get_child(0)
 	#angle = area.global_position.direction_to(global_position)
 	var me: Vector2 = get_child(0).global_position
 	var them: Vector2 = hurtbox.get_child(0).global_position

@@ -9,7 +9,7 @@ func _ready():
 	flashingTimer = flashInterval
 	set_process(false)
 
-func _process(delta):
+func _process(delta: float):
 	flashingTimer -= delta
 
 	if flashingTimer <= 0:

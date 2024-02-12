@@ -27,17 +27,17 @@ func _ready() -> void:
 	original_sprite_material = sprite.material
 
 
-func _process(delta):
+func _process(delta: float):
 		# Check if the timer is active
 	if is_instance_valid(timer) and not timer.is_stopped():
 		# Get the time remaining on the timer
-		var time_left = timer.get_time_left()
+		var time_left := timer.get_time_left()
 
 		# Get the total duration of the timer
-		var total_duration = timer.get_wait_time()
+		var total_duration := timer.get_wait_time()
 
 		# Calculate the decimal value between 0 and 1
-		var time_remaining_decimal: float = max(0.2,1.0 - time_left / total_duration)
+		var time_remaining_decimal := maxf(0.2,1.0 - time_left / total_duration)
 		if sprite.material:
 			sprite.material.set_shader_parameter("tween", time_remaining_decimal)
 	else:

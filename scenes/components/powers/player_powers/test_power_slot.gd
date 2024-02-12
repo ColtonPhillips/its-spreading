@@ -2,7 +2,7 @@ class_name TestPowerSlot
 extends PowerSlot
 
 @export var projectiles_off = false
-@onready var spawner_component = $SpawnerComponent
+@onready var spawner_component: SpawnerComponent = $SpawnerComponent
 @onready var ui_pivot = $UIPivot
 
 # Called when the node enters the scene tree for the first time.

@@ -4,4 +4,4 @@ class_name GUIGameplay
 func _ready():
 	Global.gui_gameplay = self
 	
-@onready var level_up_panel = $LevelUpPanel
+@onready var level_up_panel: LevelUpPanel = $LevelUpPanel

@@ -2,14 +2,14 @@ extends State
 
 var enemy: Enemy = null
 @export var chase_player_enemy_state: State
-func init(parent):
-	enemy = parent
+func init(parent: Node):
+	enemy = (parent as Enemy)
 
 func enter():
 	# TDODO: Change to Hit State
 	#XXX: erf suddenly angle is bad naming!
 	enemy.animated_sprite_2d.play("flinch")
-	var weighted_angle = Global.player.slots.global_position.direction_to(enemy.center.global_position).angle()
+	var weighted_angle := Global.player.slots.global_position.direction_to(enemy.center.global_position).angle()
 	enemy.augment_knockback_motion.knockback_angle(Vector2.from_angle(weighted_angle))
 	
 	enemy.scale_component.tween_scale()

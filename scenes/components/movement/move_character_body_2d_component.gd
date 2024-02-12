@@ -1,17 +1,17 @@
 class_name MoveCharacterBody2DComponent
 extends Node
 
-@export var actor: Node2D
+@export var actor: CharacterBody2D
 @export var velocity: Vector2
 
 @export var augment_motions: Array[AugmentMotion] = []
 
-func process_physics(delta):
+func process_physics(delta: float):
 	movement(delta)
 		
-func movement(delta):
+func movement(delta: float):
 	actor.velocity = velocity
-	for augment in augment_motions:
+	for augment: AugmentMotion in augment_motions:
 		actor.velocity = augment.modify_velocity(actor.velocity)
 	
 	if (actor.velocity.length() < 1):

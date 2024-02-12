@@ -1,10 +1,10 @@
 class_name ExpBarComponent
 extends Node
 
-@onready var texture_progress_bar = $TextureProgressBar
+@onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 var playerStatsComponent: PlayerStatsComponent
-@onready var fps_meter = $FPSMeter
-@export var fps_meter_enabled = false
+@onready var fps_meter: Label = $FPSMeter
+@export var fps_meter_enabled := false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	playerStatsComponent = Global.player.stats_component

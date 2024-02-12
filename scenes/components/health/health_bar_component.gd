@@ -1,7 +1,7 @@
 class_name HealthBarComponent
 extends Node2D
 
-@onready var texture_progress_bar = $TextureProgressBar
+@onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 @export var actorStatsComponent: ActorStatsComponent
 
 # Called when the node enters the scene tree for the first time.

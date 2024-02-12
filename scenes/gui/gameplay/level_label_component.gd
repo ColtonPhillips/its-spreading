@@ -1,7 +1,7 @@
 class_name StopWatchComponent
 extends CanvasLayer
 
-@onready var level_label = $levelLabel
+@onready var level_label: Label = $levelLabel
 
 # Called when the node enters the scene tree for the first time.
 var level: int = 1	
@@ -15,7 +15,7 @@ func _ready():
 		)
 		set_level_label()
 		
-func get_level_label_as_string(level):
+func get_level_label_as_string(level) -> String:
 		return String("LVL:%02d" % [level ])
 
 func set_level_label():

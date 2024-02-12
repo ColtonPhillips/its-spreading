@@ -7,7 +7,7 @@ var enemy: Enemy = null
 func init(parent):
 	enemy = parent
 
-var direction
+var direction: Vector2
 func enter():
 	enemy.animated_sprite_2d.play("walk")
 	enemy.collision_shape_2d.disabled = true

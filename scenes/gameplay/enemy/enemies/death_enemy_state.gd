@@ -9,7 +9,7 @@ func enter():
 	# TDODO: Change to Hit State
 	#XXX: erf suddenly angle is bad naming!
 	enemy.animated_sprite_2d.play("death")
-	var weighted_angle = Global.player.slots.global_position.direction_to(enemy.center.global_position).angle()
+	var weighted_angle := Global.player.slots.global_position.direction_to(enemy.center.global_position).angle()
 	enemy.augment_knockback_motion.knockback_angle(Vector2.from_angle(weighted_angle))
 	enemy.move_component.velocity = Vector2.ZERO
 	enemy.scale_component.tween_scale()

@@ -2,7 +2,7 @@ class_name PauseMenu
 extends Node
 
 @export var main_menu_scene: Resource
-@onready var level_up_panel = $"../LevelUpPanel"
+@onready var level_up_panel: LevelUpPanel = $"../LevelUpPanel"
 
 func _ready():
 	self.visible = false
@@ -32,7 +32,7 @@ func _input(event):
 		unpause() if get_tree().paused else pause()
 
 
-func _on_fader_animation_finished(anim_name):
+func _on_fader_animation_finished(anim_name: String):
 	if anim_name == 'pause_fade_out':
 		get_tree().paused = false
 		self.visible = false

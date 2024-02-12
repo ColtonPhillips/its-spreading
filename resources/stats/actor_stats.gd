@@ -7,4 +7,4 @@ extends Resource
 
 @export var damage: int = 5
 
-@export var hasOneShotHitbox = false
+@export var hasOneShotHitbox := false

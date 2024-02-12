@@ -1,21 +1,21 @@
 extends StaticBody2D
-@onready var sprite_2d = $Sprite2D
-@onready var cpu_particles_2d = $CPUParticles2D
-@export var isShdaowRotated = false
-@onready var shadow = $Sprite2D/Shadow
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+@export var isShdaowRotated := false
+@onready var shadow: Sprite2D = $Sprite2D/Shadow
 
 #XXX made this in a rush!
-var health = 6
-var max_health = health
+var health := 6
+var max_health := health
 
-func amount_burnt():
+func amount_burnt() -> int:
 	return max_health - health
 	
-func percent_burnt():
+func percent_burnt() -> float:
 	return (max_health - health) / max_health
 # Called when the node enters the scene tree for the first time.
 
-func amount_per_health():
+func amount_per_health() -> int:
 	if (max_health == health + 1):
 		return 2
 	return 5

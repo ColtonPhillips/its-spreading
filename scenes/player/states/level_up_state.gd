@@ -4,8 +4,8 @@ extends State
 
 var player: Player = null
 
-func init(parent):
-	player = parent
+func init(parent: Node):
+	player = (parent as Player)
 
 var level_up_prizes = [
 	{
@@ -31,7 +31,7 @@ var level_up_prizes = [
 	},
 ]
 
-var level_up_powers = [
+var level_up_powers := [
 	{
 		"type": "projectile",
 		"title": "Unlock Projectile",
@@ -45,7 +45,7 @@ func enter():
 	player.stats_component.hp += 10
 	Global.gui_gameplay.level_up_panel.visible = true
 	level_up_prizes.shuffle()
-	var next_prizes = level_up_prizes.slice(0,3)
+	var next_prizes := level_up_prizes.slice(0,3)
 	if not hasProjectile and 0.5 < randf():
 		next_prizes[0] = level_up_powers[0]
 	Global.gui_gameplay.level_up_panel.set_options(next_prizes)

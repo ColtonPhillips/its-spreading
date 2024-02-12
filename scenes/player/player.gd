@@ -13,18 +13,18 @@ extends CharacterBody2D
 @onready var bottom_right_slot = $Slots/BottomRightSlot
 @onready var far_left_slot = $Slots/FarLeftSlot
 @onready var far_right_slot = $Slots/FarRightSlot
-@onready var slots = $Slots
-@onready var powers_component = $PowersComponent
+@onready var slots: Node2D = $Slots
+@onready var powers_component: PowersComponent = $PowersComponent
 @onready var pickup_range_collision_shape_2d = $PickupRange/CollisionShape2D
 
-@onready var pickup_sfx = $PickupSfx
+@onready var pickup_sfx: VariablePitchAudioStreamPlayer = $PickupSfx
 @onready var move_component: MoveCharacterBody2DComponent = $MoveComponent
 @onready var input_component: InputComponent = $InputComponent
-@onready var stats_component = $PlayerStatsComponent
+@onready var stats_component: PlayerStatsComponent = $PlayerStatsComponent
 
-@onready var augment_knockback_motion = $MoveComponent/AugmentKnockbackMotion
-@onready var strobe_component = $StrobeComponent
-@onready var hurtbox_component = $HurtboxComponent
+@onready var augment_knockback_motion: AugmentKnockbackMotion = $MoveComponent/AugmentKnockbackMotion
+@onready var strobe_component: StrobeComponent = $StrobeComponent
+@onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var state_machine: StateMachine = $StateMachine
 
 	
@@ -49,14 +49,15 @@ func _input(event: InputEvent) -> void:
 		
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
-func _physics_process(delta):
+	
+func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)	
 	move_component.process_physics(delta)
 
 func _on_hurtbox_component_hurt(hitbox: HitboxComponent):
 	state_machine.process_hurtbox_component_hurt(hitbox)
 
-@onready var level_up_state = $StateMachine/LevelUpState
+@onready var level_up_state: State = $StateMachine/LevelUpState
 func _on_player_stats_component_level_up():
 	if not dead:
 		state_machine.change_state(level_up_state)
@@ -66,8 +67,8 @@ var dead = false
 func _on_player_stats_component_no_hp():
 	dead = true
 	
-func _on_pickup_range_area_entered(area):
+func _on_pickup_range_area_entered(area:Area2D):
 	if area.is_in_group("pickup"):
 		if area.get_parent().has_method("chase_player"):
-			area.get_parent().chase_player()
+			(area.get_parent() as Pickup).chase_player()
 			pickup_sfx.play_with_variance()

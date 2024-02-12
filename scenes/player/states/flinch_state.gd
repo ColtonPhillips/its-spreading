@@ -5,11 +5,11 @@ extends State
 
 var player: Player = null
 
-func init(parent):
-	player = parent
+func init(parent: Node):
+	player = (parent as Player)
 
 #XXX should be timer based but too tired to think about that now.
-var chince = 0
+var chince := 0
 func enter():
 	if (collision_hitbox.collision_info.stats):
 		player.stats_component.hp -= collision_hitbox.collision_info.stats.damage

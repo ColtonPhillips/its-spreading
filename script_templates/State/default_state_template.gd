@@ -3,9 +3,9 @@ extends State
 #@export var walk_state: State
 
 var player: Player = null
-
-func init(parent):
-	player = parent
+ 
+func init(parent : Node):
+	player = (parent as Player)
 
 func enter() -> void:
 	#player.animated_sprite_2d.play("idle")

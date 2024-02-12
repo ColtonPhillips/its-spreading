@@ -1,8 +1,8 @@
 class_name Projectile
 extends Node2D
-@export var speed = 65.0 
-var direction = Vector2.ZERO
-@onready var move_component = $MoveComponent
+@export var speed := 65.0 
+var direction := Vector2.ZERO
+@onready var move_component: MovePositionComponent = $MoveComponent
 @onready var scale_component:ScaleComponent = $ScaleComponent
 @export var start_chasing = false
 @onready var enemy_chase_range = $EnemyChaseRange
@@ -10,11 +10,11 @@ var direction = Vector2.ZERO
 func _ready():
 	scale_component.tween_scale()
 
-func _process(delta):
+func _process(delta: float) -> void:
 	movement(delta)
 
 func find_closest_area(objects):
-	var min_distance = 9999999999
+	var min_distance := 9999999999
 	var closest_body = null
 
 	# Iterate through the list of colliding objects

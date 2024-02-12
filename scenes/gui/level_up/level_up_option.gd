@@ -11,7 +11,7 @@ signal selected_upgrade(upgrade)
 func _ready():
 	connect("selected_upgrade", Callable(Global.player.level_up_state, "upgrade_character"))
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event.is_action("click"):
 		if mouse_over:
 			emit_signal("selected_upgrade", item)

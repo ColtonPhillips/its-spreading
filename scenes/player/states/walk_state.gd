@@ -5,8 +5,8 @@ extends State
 
 var player: Player = null
 
-func init(parent):
-	player = parent
+func init(parent: Node):
+	player = (parent as Player)
 
 func enter():
 	player.animated_sprite_2d.play("walk")
@@ -20,7 +20,7 @@ func process_input(event: InputEvent) -> State:
 func process_frame(delta) -> State:
 	return null
 
-func process_physics(delta) -> State:
+func process_physics(delta: float) -> State:
 	player.move_component.velocity = player.input_component.direction * player.stats_component.speed	
 	if player.velocity.x > 0:
 		player.animated_sprite_2d.flip_h = false

@@ -33,7 +33,7 @@ signal level_up() # Emit when there is no health left
 
 var level: int = 1
 
-var critical_hit = 0.04 # rate
+var critical_hit := 0.04 # rate
 
 func upgrade_player(upgrade, player):
 	match upgrade.type:
