@@ -6,6 +6,7 @@
 
 [node name="ExpBarComponent" type="CanvasLayer"]
 script = ExtResource("1_6dl4t")
+fps_meter_enabled = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_right = 88.0
@@ -15,7 +16,7 @@ texture_progress = ExtResource("3_e7bad")
 texture_progress_offset = Vector2(5, 0)
 
 [node name="FPSMeter" type="Label" parent="."]
-offset_left = 5.0
-offset_top = 19.0
-offset_right = 45.0
-offset_bottom = 42.0
+offset_left = 11.0
+offset_top = 163.0
+offset_right = 51.0
+offset_bottom = 186.0
