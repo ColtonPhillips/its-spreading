@@ -270,7 +270,7 @@ texture_scale = 0.6
 [node name="HurtboxComponent" type="Area2D" parent="."]
 visible = false
 position = Vector2(0, 2)
-collision_layer = 0
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("14_w7aay")
 
