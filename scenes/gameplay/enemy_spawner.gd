@@ -13,6 +13,8 @@ func _ready():
 # pre: 9.8 ms  , enemy count 162 ish
 # now: 5.8 ish, enemy count 122, 16 random positions
 var time := 0
+var spawn_position: Vector2
+
 func _on_timer_timeout() -> void:
 	time += 1
 	#XXX: Iterating over every spawn info is probably meh performance but might be trival.
@@ -25,24 +27,18 @@ func _on_timer_timeout() -> void:
 				var new_enemy := info.enemy
 				var counter := 0
 				while (counter < info.enemy_num):
+					var try_to_spawn := 4
 					
-					var try_to_spawn := 16
-					var spawn_position: Vector2
 					while try_to_spawn > 0:
 						spawn_position = get_random_position()
+						cast_ray()
 						
-						ray.position = spawn_position
-						ray.target_position = ray.position
-						ray.target_position.x += 0.1
-						ray.force_raycast_update()
 						try_to_spawn -= 1
-						
 						if not ray.is_colliding():
 							var enemy_spawn: Enemy = new_enemy.instantiate()
 							enemy_spawn.global_position = spawn_position
 							add_child(enemy_spawn)
 							counter += 1
-							
 							try_to_spawn = 0 # XXX: Crappy method of breaking outer loop (while try_to_spawn > 0)
 
 enum SPAWN_SIDE {LEFT, RIGHT, UP, DOWN}
@@ -74,3 +70,8 @@ func get_random_position():
 	var y_spawn := randf_range(spawn_pos1.y, spawn_pos2.y)
 	return Vector2(x_spawn, y_spawn)
 	
+func cast_ray():
+	ray.position = spawn_position
+	ray.target_position = ray.position
+	ray.target_position.x += 0.1
+	ray.force_raycast_update()
