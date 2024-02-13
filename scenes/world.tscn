@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://b8gwftrv4ej13" path="res://res/sound/music/dark_theme.ogg" id="10_d2dbh"]
 [ext_resource type="PackedScene" uid="uid://da3vbyp7pptx5" path="res://scenes/gameplay/chambers/starting_chamber.tscn" id="10_yvvlj"]
 [ext_resource type="PackedScene" uid="uid://c7w0o5avcojqb" path="res://scenes/gameplay/chambers/fringe_chamber.tscn" id="12_jwmc4"]
-[ext_resource type="AudioStream" uid="uid://bxjpdeq6psee3" path="res://res/sound/sfx/gong.mp3" id="13_l3m5x"]
+[ext_resource type="AudioStream" uid="uid://c57f5xqx3rg7p" path="res://res/sound/sfx/gong.wav" id="13_4njxt"]
 
 [sub_resource type="Resource" id="Resource_3yj5a"]
 script = ExtResource("5_7m54o")
@@ -177,5 +177,5 @@ stream = ExtResource("10_d2dbh")
 autoplay = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_l3m5x")
+stream = ExtResource("13_4njxt")
 autoplay = true

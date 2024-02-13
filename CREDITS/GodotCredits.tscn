@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://0wykwgpj5tie" path="res://res/art/gameplay/environment/fence.png" id="8_uo7ix"]
 [ext_resource type="Texture2D" uid="uid://6liiirbd1fed" path="res://res/art/gameplay/environment/hay_bale.png" id="9_jope0"]
 [ext_resource type="Texture2D" uid="uid://dqfy3boylpdxa" path="res://res/art/gui/iconography/hay_bale_cute.png" id="10_a37gf"]
-[ext_resource type="AudioStream" uid="uid://bwebqi54byvh2" path="res://res/sound/cc0/oi_ya_nestchastay.mp3" id="10_dxw4k"]
+[ext_resource type="AudioStream" uid="uid://d2smi5s2rudqo" path="res://res/sound/cc0/oi_ya_nestchastay.ogg" id="10_i64r4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gh0mf"]
 shader = ExtResource("6_p24tb")
@@ -87,6 +87,6 @@ position = Vector2(272, 147)
 texture = ExtResource("10_a37gf")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_dxw4k")
+stream = ExtResource("10_i64r4")
 volume_db = -8.0
 autoplay = true
