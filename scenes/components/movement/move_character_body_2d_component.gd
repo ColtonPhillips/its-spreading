@@ -11,6 +11,7 @@ func process_physics(delta: float):
 	for augment: AugmentMotion in augment_motions:
 		actor.velocity = augment.modify_velocity(actor.velocity)
 	
-	if (actor.velocity.length() < 1):
-		return
+	# prevents rapid flipping but fuck it
+	#if (actor.velocity.length() < 1):
+		#return
 	actor.move_and_slide()

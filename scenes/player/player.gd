@@ -6,26 +6,26 @@ extends CharacterBody2D
 @onready var down_slot = $Slots/DownSlot
 @onready var up_slot = $Slots/UpSlot
 @onready var left_slot = $Slots/LeftSlot
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D as AnimatedSprite2D
 @onready var top_right_slot = $Slots/TopRightSlot
 @onready var bottom_left_slot = $Slots/BottomLeftSlot
 @onready var top_left_slot = $Slots/TopLeftSlot
 @onready var bottom_right_slot = $Slots/BottomRightSlot
 @onready var far_left_slot = $Slots/FarLeftSlot
 @onready var far_right_slot = $Slots/FarRightSlot
-@onready var slots: Node2D = $Slots
-@onready var powers_component: PowersComponent = $PowersComponent
-@onready var pickup_range_collision_shape_2d = $PickupRange/CollisionShape2D
+@onready var slots: Node2D = $Slots as Node2D
+@onready var powers_component: PowersComponent = $PowersComponent as PowersComponent
+@onready var pickup_range_collision_shape_2d = $PickupRange/CollisionShape2D as CollisionShape2D
 
-@onready var pickup_sfx: VariablePitchAudioStreamPlayer = $PickupSfx
-@onready var move_component: MoveCharacterBody2DComponent = $MoveComponent
-@onready var input_component: InputComponent = $InputComponent
-@onready var stats_component: PlayerStatsComponent = $PlayerStatsComponent
+@onready var pickup_sfx: VariablePitchAudioStreamPlayer = $PickupSfx as VariablePitchAudioStreamPlayer
+@onready var move_component: MoveCharacterBody2DComponent = $MoveComponent as MoveCharacterBody2DComponent
+@onready var input_component: InputComponent = $InputComponent as InputComponent
+@onready var stats_component: PlayerStatsComponent = $PlayerStatsComponent as PlayerStatsComponent
 
-@onready var augment_knockback_motion: AugmentKnockbackMotion = $MoveComponent/AugmentKnockbackMotion
-@onready var strobe_component: StrobeComponent = $StrobeComponent
-@onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
-@onready var state_machine: StateMachine = $StateMachine
+@onready var augment_knockback_motion: AugmentKnockbackMotion = $MoveComponent/AugmentKnockbackMotion as AugmentKnockbackMotion
+@onready var strobe_component: StrobeComponent = $StrobeComponent as StrobeComponent
+@onready var hurtbox_component: HurtboxComponent = $HurtboxComponent as HurtboxComponent
+@onready var state_machine: StateMachine = $StateMachine as StateMachine
 
 	
 func _ready():
