@@ -7,9 +7,6 @@ extends Node
 @export var augment_motions: Array[AugmentMotion] = []
 
 func process_physics(delta: float):
-	movement(delta)
-		
-func movement(delta: float):
 	actor.velocity = velocity
 	for augment: AugmentMotion in augment_motions:
 		actor.velocity = augment.modify_velocity(actor.velocity)
