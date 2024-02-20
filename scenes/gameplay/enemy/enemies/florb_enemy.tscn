@@ -109,27 +109,11 @@ shape = SubResource("CircleShape2D_6uykx")
 [node name="StatsComponent" parent="." index="4"]
 stats = ExtResource("3_4od31")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="7"]
-position = Vector2(-1, -9)
-amount = 5
-lifetime = 0.7
-speed_scale = 0.5
-emission_shape = 2
-emission_sphere_radius = 7.5
-direction = Vector2(10, 12)
-spread = 75.91
-gravity = Vector2(0, -210)
-radial_accel_min = -57.14
-scale_amount_min = 0.1
-color = Color(0.729412, 0.109804, 0.156863, 1)
-hue_variation_min = -0.19
-hue_variation_max = 1.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_ctsek")
 
-[node name="HitboxComponent" parent="." index="11"]
+[node name="HitboxComponent" parent="." index="10"]
 scale = Vector2(2.92, 2.92)
 collision_mask = 130
 
@@ -137,8 +121,8 @@ collision_mask = 130
 position = Vector2(1.19209e-07, -2.05479)
 shape = SubResource("CircleShape2D_vakxk")
 
-[node name="Center" parent="." index="13"]
+[node name="Center" parent="." index="12"]
 position = Vector2(0, -6)
 
-[node name="VisibleOnScreenNotifier2D" parent="." index="15"]
+[node name="VisibleOnScreenNotifier2D" parent="." index="14"]
 position = Vector2(1, -7)
