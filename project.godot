@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://scenes/global.gd"
 GlobalSound="*res://scenes/global_sound.tscn"
+FreezeFrameEffectComponent="*res://freeze_frame_effect_component.gd"
 
 [display]
 
