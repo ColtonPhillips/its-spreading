@@ -69,7 +69,7 @@ func spawn_exp():
 # TODO REPLACE -- wait why?
 func _on_hurtbox_component_hurt(hitbox: HitboxComponent):
 	state_machine.process_hurtbox_component_hurt(hitbox)
-	FreezeFrameEffectComponent.freeze_frame_soft()
+	#FreezeFrameEffectComponent.freeze_frame_soft()
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered():

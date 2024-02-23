@@ -17,16 +17,16 @@
 [sub_resource type="Resource" id="Resource_3yj5a"]
 script = ExtResource("5_7m54o")
 time_start = 0
-time_end = 25
+time_end = 6
 enemy = ExtResource("4_p1ix0")
-enemy_num = 7
-enemy_spawn_delay = 8
+enemy_num = 3
+enemy_spawn_delay = 1
 NOTES = "Wave 1"
 
 [sub_resource type="Resource" id="Resource_307qq"]
 script = ExtResource("5_7m54o")
-time_start = 30
-time_end = 50
+time_start = 20
+time_end = 40
 enemy = ExtResource("4_p1ix0")
 enemy_num = 5
 enemy_spawn_delay = 6

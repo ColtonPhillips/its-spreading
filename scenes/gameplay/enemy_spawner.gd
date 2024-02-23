@@ -47,7 +47,7 @@ var vpr_y_over_2: float
 var spawn_pos1 := Vector2.ZERO
 var spawn_pos2 := Vector2.ZERO
 func get_random_position() -> Vector2:
-	var vpr := vp_rect_size * randf_range(1.5, 2.5) # could limit to doing this once per "try"
+	var vpr := vp_rect_size * randf_range(1.4, 2.0) # could limit to doing this once per "try"
 	vpr_x_over_2 = vpr.x * 0.5
 	vpr_y_over_2 = vpr.y * 0.5
 	

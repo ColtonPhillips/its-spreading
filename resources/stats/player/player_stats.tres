@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_ce10n")
-exp = 50
+exp = 0
 level = 1
 upgrades_unlocked = Array[String]([])
 speed = 39
