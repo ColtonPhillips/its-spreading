@@ -10,7 +10,7 @@ func enter():
 	get_tree().paused = true
 	Global.delay_create(self, 2.5, func():
 		get_tree().paused = false
-		get_tree().change_scene_to_file("res://scenes/gui/main_menu/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/gui/game_over/game_over_menu.tscn")
 	)
 
 func exit():
