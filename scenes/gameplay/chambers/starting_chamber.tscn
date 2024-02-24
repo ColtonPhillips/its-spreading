@@ -84,6 +84,22 @@ position = Vector2(731, 317)
 y_sort_enabled = true
 position = Vector2(-205, 659)
 
+[node name="Pickup11" parent="Node2" instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(-28, -235)
+
+[node name="Pickup12" parent="Node2" instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(4, 444)
+
+[node name="Pickup13" parent="Node2" instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(-318, -100)
+
+[node name="Pickup14" parent="Node2" instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(254, -124)
+
 [node name="Node3" type="Node2D" parent="."]
 y_sort_enabled = true
 

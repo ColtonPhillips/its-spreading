@@ -23,6 +23,7 @@ texture_progress = ExtResource("3_e7bad")
 texture_progress_offset = Vector2(5, 0)
 
 [node name="FPSMeter" type="Label" parent="."]
+visible = false
 offset_left = 11.0
 offset_top = 163.0
 offset_right = 51.0

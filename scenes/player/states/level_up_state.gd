@@ -42,7 +42,6 @@ var is_level_up_complete = false
 var hasProjectile = false
 func enter():
 	player.animated_sprite_2d.play("level_up")
-	player.stats_component.hp += 10
 	Global.gui_gameplay.level_up_panel.visible = true
 	level_up_prizes.shuffle()
 	var next_prizes := level_up_prizes.slice(0,3)

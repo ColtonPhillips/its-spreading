@@ -5,7 +5,7 @@ extends Node2D
 @export var move_speed := 100.0
 @export var chasing_player := false
 @onready var move_component: MovePositionComponent = $MoveComponent
-@export var pickup_value: int = 5
+@export var pickup_value: int = 6
 func _process(delta: float) -> void:
 	if chasing_player:
 		var direction := global_position.direction_to(player.global_position)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://27phkm3uydxm"]
+[gd_scene load_steps=24 format=3 uid="uid://27phkm3uydxm"]
 
 [ext_resource type="PackedScene" uid="uid://c3vntakhy0jq7" path="res://scenes/player/player.tscn" id="1_5kmuy"]
 [ext_resource type="Texture2D" uid="uid://5dtxv8q8u4ae" path="res://res/art/gameplay/environment/grass.png" id="1_m36ed"]
@@ -19,7 +19,7 @@ script = ExtResource("5_7m54o")
 time_start = 0
 time_end = 6
 enemy = ExtResource("4_p1ix0")
-enemy_num = 3
+enemy_num = 2
 enemy_spawn_delay = 1
 NOTES = "Wave 1"
 
@@ -28,8 +28,8 @@ script = ExtResource("5_7m54o")
 time_start = 20
 time_end = 40
 enemy = ExtResource("4_p1ix0")
-enemy_num = 5
-enemy_spawn_delay = 6
+enemy_num = 3
+enemy_spawn_delay = 8
 NOTES = "Wave 2..."
 
 [sub_resource type="Resource" id="Resource_ocmu6"]
@@ -37,7 +37,7 @@ script = ExtResource("5_7m54o")
 time_start = 60
 time_end = 80
 enemy = ExtResource("4_y0un6")
-enemy_num = 2
+enemy_num = 1
 enemy_spawn_delay = 10
 NOTES = "Wave 3 part 1"
 
@@ -46,7 +46,7 @@ script = ExtResource("5_7m54o")
 time_start = 60
 time_end = 80
 enemy = ExtResource("4_p1ix0")
-enemy_num = 6
+enemy_num = 5
 enemy_spawn_delay = 4
 NOTES = "Wave 3 Part 2"
 
@@ -55,7 +55,7 @@ script = ExtResource("5_7m54o")
 time_start = 90
 time_end = 92
 enemy = ExtResource("4_p1ix0")
-enemy_num = 15
+enemy_num = 2
 enemy_spawn_delay = 1
 NOTES = "Wave 4 part 1"
 
@@ -64,7 +64,7 @@ script = ExtResource("5_7m54o")
 time_start = 100
 time_end = 120
 enemy = ExtResource("4_p1ix0")
-enemy_num = 20
+enemy_num = 2
 enemy_spawn_delay = 5
 NOTES = "Wave 4 part 2"
 
@@ -74,7 +74,7 @@ time_start = 120
 time_end = 150
 enemy = ExtResource("4_y0un6")
 enemy_num = 1
-enemy_spawn_delay = 0
+enemy_spawn_delay = 1
 NOTES = "Wave 5"
 
 [sub_resource type="Resource" id="Resource_ywb2l"]
@@ -83,15 +83,24 @@ time_start = 150
 time_end = 170
 enemy = ExtResource("4_p1ix0")
 enemy_num = 4
-enemy_spawn_delay = 3
+enemy_spawn_delay = 5
 NOTES = "Wave 6"
+
+[sub_resource type="Resource" id="Resource_ustnd"]
+script = ExtResource("5_7m54o")
+time_start = 300
+time_end = 320
+enemy = ExtResource("4_y0un6")
+enemy_num = 5
+enemy_spawn_delay = 10
+NOTES = "Notes..."
 
 [sub_resource type="Resource" id="Resource_5au2l"]
 script = ExtResource("5_7m54o")
 time_start = 180
 time_end = 1000
 enemy = ExtResource("4_p1ix0")
-enemy_num = 10
+enemy_num = 1
 enemy_spawn_delay = 1
 NOTES = "Wave 7 / 8"
 
@@ -117,7 +126,7 @@ metadata/_edit_lock_ = true
 position = Vector2(171, 109)
 
 [node name="EnemySpawner" parent="YSortableSceneGraph" instance=ExtResource("3_luq5g")]
-spawns = Array[ExtResource("5_7m54o")]([SubResource("Resource_3yj5a"), SubResource("Resource_307qq"), SubResource("Resource_ocmu6"), SubResource("Resource_pd341"), SubResource("Resource_vxkjf"), SubResource("Resource_jb61a"), SubResource("Resource_ecn3r"), SubResource("Resource_ywb2l"), SubResource("Resource_ywb2l"), SubResource("Resource_5au2l")])
+spawns = Array[ExtResource("5_7m54o")]([SubResource("Resource_3yj5a"), SubResource("Resource_307qq"), SubResource("Resource_ocmu6"), SubResource("Resource_pd341"), SubResource("Resource_vxkjf"), SubResource("Resource_jb61a"), SubResource("Resource_ecn3r"), SubResource("Resource_ywb2l"), SubResource("Resource_ywb2l"), SubResource("Resource_ustnd"), SubResource("Resource_5au2l")])
 
 [node name="StartingChamber" parent="YSortableSceneGraph" instance=ExtResource("10_yvvlj")]
 position = Vector2(172, 92)

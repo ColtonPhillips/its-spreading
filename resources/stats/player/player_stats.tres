@@ -9,5 +9,5 @@ level = 1
 upgrades_unlocked = Array[String]([])
 speed = 39
 hp = 100
-damage = 5
+damage = 4
 hasOneShotHitbox = false
