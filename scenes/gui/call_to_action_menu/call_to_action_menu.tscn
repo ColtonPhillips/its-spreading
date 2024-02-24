@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhbs3ne01oyt5"]
+
+[ext_resource type="FontFile" uid="uid://c4oowbv62l0sb" path="res://res/font/ttf/midres/ChevyRay - Chocolate.ttf" id="1_kpytx"]
+[ext_resource type="Script" path="res://scenes/gui/call_to_action_menu/call_to_action_menu.gd" id="1_oihsi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k0s0p"]
+font = ExtResource("1_kpytx")
+font_size = 11
+
+[sub_resource type="InputEventKey" id="InputEventKey_5blhx"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="InputEventKey" id="InputEventKey_hlodq"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_yp3hx"]
+button_mask = 1
+position = Vector2(508, 22)
+global_position = Vector2(514, 84)
+button_index = 1
+pressed = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_2uwxw"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_e601c"]
+events = [SubResource("InputEventKey_5blhx"), SubResource("InputEventKey_hlodq"), SubResource("InputEventMouseButton_yp3hx"), SubResource("InputEventKey_2uwxw")]
+
+[node name="CallToActionMenu" type="Node2D"]
+script = ExtResource("1_oihsi")
+end_pos = -1400
+scroll_speed = 0.15
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 330.0
+offset_bottom = 209.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 38.0
+offset_top = 198.0
+offset_right = 289.0
+offset_bottom = 601.0
+text = "Baba's strength is withering. The hot violence ceases and Mira survives the night. She hears a painful whisper echoing off the glassy blue morning's sky. Mira suddenly realizes that more needs to be done in order to bring her spirit ease.  
+
+----     ----    ----
+
+This game was made in just over 300 hours during the Pirate Software Game Jam.
+For more details, search out https://develop.games/
+
+The theme of the game was \"It's Spreading\".
+
+Our game interpreted this as the spreading of wildfire, and of spreading ashes, as that is something that my family does. It also represents the ashes of cigarettes, which my mother smoked from the age of 14 until three days before her death. 
+
+Drug content was explicitely banned from the jam compo, but I otherwise would have incorporated them into the game in some way. 
+
+My grandmother was also a smoker, and I took her ashes and spread them in the Gonzales Bay in Victoria, BC. It was an incredible summer day.
+
+\"LA weather\" I remarked. When I walked home, the tears rolled down both my cheeks. My smile beamed as a valve of pressure released; my heart was screaming, my vibing soul wandered streets joyfully as I weeped and weeped and weeped. 
+
+I felt more like a man than I had in months, and this is a very meaningful memory to me indeed.
+
+Did you like what you saw? 
+
+Make sure you click the
+    \"+Follow ColtonPhillips\"     button
+
+to get email updates featuing post-mortems, dev-logs, and we will ping you when a major update is ready for this and future titles. We are promising at least one more major gameplay update!
+ 
+Please download the game and add it to a collection too,  
+so this little game of ours spreads through your heart and world
+like ashes on the wind and a great spirit in the sky!
+
+Wish you had more? 
+
+So do we! Life can get in the way of making artistic ventures like this.
+
+The best thing you can do to support little games like this is giving donations to the creators, which is something you can easily do through itch.io. 
+
+Sharing this game is also a great way to spread the love. 
+
+At the end of the day we love making games, art, and music, but we also have to pay the bills and buy perogies. I know you understand.
+
+So what did you think? I know you wish there was more! Please leave a comment to provide us feedback for our ongoing development! Feel free to reitereate if you've already provided feedback! Feedback is so, so important to us.
+
+We love you <3 
+
+Press ENTER to return to the MAIN MENU."
+label_settings = SubResource("LabelSettings_k0s0p")
+autowrap_mode = 3
+
+[node name="LinkButton" type="LinkButton" parent="."]
+offset_right = 318.0
+offset_bottom = 200.0
+shortcut = SubResource("Shortcut_e601c")
+shortcut_in_tooltip = false
+
+[connection signal="pressed" from="LinkButton" to="." method="_on_link_button_pressed"]

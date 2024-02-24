@@ -19,7 +19,7 @@ position = Vector2(113, -36)
 
 [node name="BlockRiock" parent="Node" instance=ExtResource("2_bm2xq")]
 y_sort_enabled = true
-position = Vector2(-75, -7)
+position = Vector2(-95, 9)
 
 [node name="BlockRiock2" parent="Node" instance=ExtResource("2_bm2xq")]
 y_sort_enabled = true
@@ -27,7 +27,7 @@ position = Vector2(76, -20)
 
 [node name="BlockRiock3" parent="Node" instance=ExtResource("2_bm2xq")]
 y_sort_enabled = true
-position = Vector2(0, 59)
+position = Vector2(18, 81)
 
 [node name="BlockRiock4" parent="Node" instance=ExtResource("2_bm2xq")]
 y_sort_enabled = true
@@ -46,15 +46,43 @@ y_sort_enabled = true
 
 [node name="Pickup" parent="Node2" instance=ExtResource("3_ro6vq")]
 y_sort_enabled = true
-position = Vector2(-59, 50)
+position = Vector2(-61, 73)
 
 [node name="Pickup2" parent="Node2" instance=ExtResource("3_ro6vq")]
 y_sort_enabled = true
-position = Vector2(-2, -43)
+position = Vector2(-2, -48)
 
 [node name="Pickup3" parent="Node2" instance=ExtResource("3_ro6vq")]
 y_sort_enabled = true
-position = Vector2(69, 44)
+position = Vector2(93, 56)
+
+[node name="Pickup4" parent="Node2" instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(-260, 41)
+
+[node name="Pickup5" parent="Node2" instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(324, -13)
+
+[node name="Pickup6" parent="Node2" instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(183, 308)
+
+[node name="Pickup7" parent="Node2" instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(-476, -277)
+
+[node name="Pickup8" parent="Node2" instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(258, -463)
+
+[node name="Pickup9" parent="Node2" instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(731, 317)
+
+[node name="Pickup10" parent="Node2" instance=ExtResource("3_ro6vq")]
+y_sort_enabled = true
+position = Vector2(-205, 659)
 
 [node name="Node3" type="Node2D" parent="."]
 y_sort_enabled = true

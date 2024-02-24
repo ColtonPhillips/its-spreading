@@ -17,9 +17,10 @@ func _process(delta: float) -> void:
 	stopwatch_label.text = get_time_as_string(time)
 	if not you_win_label.visible and never_again and (time / 60 > game_length_in_minutes):
 		you_win_label.visible = true
-		Global.delay_create(self, 3, func():
+		Global.delay_create(self, 60, func():
 			you_win_label.visible = false
 			never_again = false
+			get_tree().change_scene_to_file("res://scenes/gui/call_to_action_menu/call_to_action_menu.tscn")
 		)
 	
 func get_time():

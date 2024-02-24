@@ -2,6 +2,8 @@ class_name ExpBarComponent
 extends Node
 
 @onready var fps_low_on_mobile_label: Label = $FPSLowOnMobileLabel
+@onready var collect_the_ashes_dialog: Label = $CollectTheAshesDialog
+
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 var playerStatsComponent: PlayerStatsComponent
 @onready var fps_meter: Label = $FPSMeter
@@ -9,6 +11,8 @@ var playerStatsComponent: PlayerStatsComponent
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	fps_low_on_mobile_label.visible = false
+	collect_the_ashes_dialog.visible = true
+	
 	playerStatsComponent = Global.player.stats_component
 	texture_progress_bar.value = playerStatsComponent.exp
 	texture_progress_bar.max_value = playerStatsComponent.max_exp	
@@ -20,6 +24,8 @@ func _ready():
 		texture_progress_bar.max_value = playerStatsComponent.max_exp	
 	)
 	set_texture_progress()
+	disable_collect_ashes_soon()
+	get_tree().create_timer(2)
 	
 func set_texture_progress():
 	texture_progress_bar.value = playerStatsComponent.exp
@@ -39,4 +45,7 @@ func disable_that_thang():
 	await get_tree().create_timer(8.0).timeout
 	fps_low_on_mobile_label.visible = false
 
+func disable_collect_ashes_soon():
+	await get_tree().create_timer(2.0).timeout
+	collect_the_ashes_dialog.visible = false
 

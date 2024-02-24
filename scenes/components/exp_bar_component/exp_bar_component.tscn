@@ -37,3 +37,19 @@ offset_bottom = 196.0
 text = "Hey, there. I see your game is lagging.
 Just wanted to say, this game runs better on PC!"
 label_settings = SubResource("LabelSettings_7ewee")
+
+[node name="CollectTheAshesDialog" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -80.0
+offset_right = 94.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Collect the ashes to gain EXP. "
+label_settings = SubResource("LabelSettings_7ewee")
