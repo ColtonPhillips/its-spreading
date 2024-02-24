@@ -28,6 +28,7 @@ extends CharacterBody2D
 
 @onready var is_ready_to_flee = false
 @onready var is_on_screen = false
+@onready var has_been_on_screen = false
 
 static var enemy_count := 0
 
@@ -78,7 +79,9 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	is_on_screen = false
+	has_been_on_screen = true
 
 func destroy():
 	enemy_count -= 1
+	Global.erase_enemy_from_enemies_list(self)
 	queue_free()

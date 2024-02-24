@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://x43epic8paf7"]
+[gd_scene load_steps=3 format=3 uid="uid://x43epic8paf7"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemy_spawner.gd" id="1_woe51"]
+[ext_resource type="Script" path="res://scenes/gameplay/EnemyWrapAround.gd" id="2_e4tqp"]
 
 [node name="EnemySpawner" type="Node2D"]
 y_sort_enabled = true
@@ -9,4 +10,12 @@ script = ExtResource("1_woe51")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="EnemyWrapAround" type="Node2D" parent="."]
+script = ExtResource("2_e4tqp")
+
+[node name="Timer" type="Timer" parent="EnemyWrapAround"]
+wait_time = 0.8
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="EnemyWrapAround/Timer" to="EnemyWrapAround" method="_on_timer_timeout"]

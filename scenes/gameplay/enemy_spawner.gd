@@ -38,6 +38,7 @@ func _on_timer_timeout() -> void:
 							var enemy_spawn: Enemy = new_enemy.instantiate()
 							enemy_spawn.global_position = spawn_position
 							add_child(enemy_spawn)
+							Global.add_to_enemies_list(enemy_spawn)
 							counter += 1
 							try_to_spawn = 0 # XXX: Crappy method of breaking outer loop (while try_to_spawn > 0)
 

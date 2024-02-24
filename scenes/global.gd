@@ -2,6 +2,7 @@ extends Node
 
 var player : Player = null
 var gui_gameplay : GUIGameplay = null
+var enemies: Array[Enemy] = []
 
 # Don't use this in the main menu! 
 var ToggledOn = false
@@ -20,6 +21,7 @@ func Toggle_Fullscreen_Off():
 	ToggledOn = false
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
+# TODO: kinda useless vs awaiting functions on timeout response. get_tree.create_timer()
 func delay_create(parent: Node, delay_seconds: float, callback_function: Callable):
 	var timer := Timer.new()
 	parent.add_child(timer)
@@ -38,3 +40,9 @@ func delay_create_loop(parent: Node, delay_seconds: float, callback_function: Ca
 	timer.autostart = true
 	timer.start()
 	return timer
+
+func add_to_enemies_list(enemy: Enemy):
+	enemies.append(enemy)
+	
+func erase_enemy_from_enemies_list(enemy: Enemy):
+	enemies.erase(enemy)
