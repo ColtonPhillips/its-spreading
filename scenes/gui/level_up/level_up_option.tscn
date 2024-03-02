@@ -11,6 +11,7 @@ default_font_size = 0
 custom_minimum_size = Vector2(100, 30)
 offset_right = 60.0
 offset_bottom = 30.0
+focus_mode = 2
 color = Color(0.501961, 0.501961, 0.501961, 1)
 script = ExtResource("1_17uwu")
 

@@ -11,6 +11,10 @@ signal selected_upgrade(upgrade)
 func _ready():
 	connect("selected_upgrade", Callable(Global.player.level_up_state, "upgrade_character"))
 
+func _gui_input(event: InputEvent) -> void:
+	if event.is_pressed() and event.is_action("ui_accept"):
+		emit_signal("selected_upgrade", item)
+		
 func _input(event: InputEvent) -> void:
 	if event.is_action("click"):
 		if mouse_over:
@@ -21,3 +25,9 @@ func _on_mouse_entered():
 	
 func _on_mouse_exited():
 	mouse_over = false
+
+func _draw() -> void:
+	if has_focus():
+		self_modulate.a = 1.0
+	else:
+		self_modulate.a = 0.4
