@@ -3,10 +3,6 @@
 [ext_resource type="Script" path="res://scenes/gui/story/story_menu.gd" id="1_2hgr5"]
 [ext_resource type="FontFile" uid="uid://c4oowbv62l0sb" path="res://res/font/ttf/midres/ChevyRay - Chocolate.ttf" id="1_82wxf"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_fr361"]
-font = ExtResource("1_82wxf")
-font_size = 11
-
 [sub_resource type="InputEventKey" id="InputEventKey_5blhx"]
 device = -1
 keycode = 4194309
@@ -30,6 +26,10 @@ unicode = 32
 [sub_resource type="Shortcut" id="Shortcut_6gcea"]
 events = [SubResource("InputEventKey_5blhx"), SubResource("InputEventKey_hlodq"), SubResource("InputEventMouseButton_yp3hx"), SubResource("InputEventKey_2uwxw")]
 
+[sub_resource type="LabelSettings" id="LabelSettings_fr361"]
+font = ExtResource("1_82wxf")
+font_size = 11
+
 [node name="StoryMenu" type="Node2D"]
 script = ExtResource("1_2hgr5")
 end_pos = -325
@@ -42,11 +42,19 @@ offset_right = 330.0
 offset_bottom = 209.0
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="LinkButton" type="LinkButton" parent="."]
+offset_right = 318.0
+offset_bottom = 200.0
+shortcut = SubResource("Shortcut_6gcea")
+shortcut_in_tooltip = false
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(14, 206)
+
+[node name="Label" type="Label" parent="Node2D"]
 offset_left = 38.0
-offset_top = 198.0
 offset_right = 289.0
-offset_bottom = 601.0
+offset_bottom = 459.0
 text = "Young Mira is taking her late Baba's ashes to her 
 
 hometown of Prairie River, Saskatchewan 
@@ -61,11 +69,5 @@ The meadow is now engulfed in animated flames spreading far and wide. Mira also 
 Press ENTER to CONTINUE"
 label_settings = SubResource("LabelSettings_fr361")
 autowrap_mode = 3
-
-[node name="LinkButton" type="LinkButton" parent="."]
-offset_right = 318.0
-offset_bottom = 200.0
-shortcut = SubResource("Shortcut_6gcea")
-shortcut_in_tooltip = false
 
 [connection signal="pressed" from="LinkButton" to="." method="_on_link_button_pressed"]

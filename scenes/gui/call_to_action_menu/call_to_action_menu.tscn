@@ -3,10 +3,6 @@
 [ext_resource type="FontFile" uid="uid://c4oowbv62l0sb" path="res://res/font/ttf/midres/ChevyRay - Chocolate.ttf" id="1_kpytx"]
 [ext_resource type="Script" path="res://scenes/gui/call_to_action_menu/call_to_action_menu.gd" id="1_oihsi"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_k0s0p"]
-font = ExtResource("1_kpytx")
-font_size = 11
-
 [sub_resource type="InputEventKey" id="InputEventKey_5blhx"]
 device = -1
 keycode = 4194309
@@ -30,6 +26,10 @@ unicode = 32
 [sub_resource type="Shortcut" id="Shortcut_e601c"]
 events = [SubResource("InputEventKey_5blhx"), SubResource("InputEventKey_hlodq"), SubResource("InputEventMouseButton_yp3hx"), SubResource("InputEventKey_2uwxw")]
 
+[sub_resource type="LabelSettings" id="LabelSettings_k0s0p"]
+font = ExtResource("1_kpytx")
+font_size = 11
+
 [node name="CallToActionMenu" type="Node2D"]
 script = ExtResource("1_oihsi")
 end_pos = -1400
@@ -42,11 +42,20 @@ offset_right = 330.0
 offset_bottom = 209.0
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 38.0
-offset_top = 198.0
-offset_right = 289.0
-offset_bottom = 601.0
+[node name="LinkButton" type="LinkButton" parent="."]
+offset_right = 318.0
+offset_bottom = 200.0
+shortcut = SubResource("Shortcut_e601c")
+shortcut_in_tooltip = false
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1, 204)
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = 40.0
+offset_top = 10.0
+offset_right = 291.0
+offset_bottom = 1533.0
 text = "Baba's strength is withering. The hot violence ceases and Mira survives the night. She hears a painful whisper echoing off the glassy blue morning's sky. Mira suddenly realizes that more needs to be done in order to bring her spirit ease.  
 
 ----     ----    ----
@@ -94,11 +103,5 @@ We love you <3
 Press ENTER to return to the MAIN MENU."
 label_settings = SubResource("LabelSettings_k0s0p")
 autowrap_mode = 3
-
-[node name="LinkButton" type="LinkButton" parent="."]
-offset_right = 318.0
-offset_bottom = 200.0
-shortcut = SubResource("Shortcut_e601c")
-shortcut_in_tooltip = false
 
 [connection signal="pressed" from="LinkButton" to="." method="_on_link_button_pressed"]
