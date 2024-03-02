@@ -349,6 +349,16 @@ pivot_offset = Vector2(-10, 70)
 text = "Programming by Colton"
 label_settings = SubResource("LabelSettings_x5rc3")
 
+[node name="VersionNumber" type="Label" parent="."]
+offset_left = 231.0
+offset_top = 5.0
+offset_right = 316.0
+offset_bottom = 15.0
+pivot_offset = Vector2(-10, 70)
+text = "Version 1.0.1"
+label_settings = SubResource("LabelSettings_x5rc3")
+horizontal_alignment = 2
+
 [node name="VolumeSlider" type="HSlider" parent="."]
 offset_left = 248.0
 offset_top = 12.0
