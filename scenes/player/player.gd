@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+@onready var camera: Camera2D = $Camera2D as Camera2D
 @onready var spawner_component = $SpawnerComponent
 @onready var right_slot = $Slots/RightSlot
 @onready var down_slot = $Slots/DownSlot

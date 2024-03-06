@@ -11,6 +11,7 @@ func init(parent: Node):
 #XXX should be timer based but too tired to think about that now.
 var chince := 0
 func enter():
+	CameraShakeComponent.apply_shake()
 	if (collision_hitbox.collision_info.stats):
 		player.stats_component.hp -= collision_hitbox.collision_info.stats.damage
 	player.augment_knockback_motion.knockback_angle(collision_hitbox.collision_info.angle)

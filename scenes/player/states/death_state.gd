@@ -6,6 +6,7 @@ func init(parent: Node):
 	player = (parent as Player)
 
 func enter():
+	CameraShakeComponent.apply_shake()
 	player.animated_sprite_2d.play("death")
 	get_tree().paused = true
 	Global.delay_create(self, 2.5, func():
